@@ -16,7 +16,7 @@ class CreateCategoryService{
             throw new Error("Nome é obrigatório");
         }
 
-        const category = await prismaClient.category.create({
+        const category = await prismaClient.categoria.create({
             data:{
                 nome: categoriaNome,
                 descricao: categoriaDescricao,

@@ -8,6 +8,10 @@ interface CreateOcorrenciasServiceRequest {
     categoriaId: string;
     imageBuffer: Buffer;
     imagens: string;
+    endereco: string;
+    protocolo: string;
+    gravidade: string;
+    status: string;
 }
 
 class CreateOcorrenciasService {
@@ -16,7 +20,28 @@ class CreateOcorrenciasService {
         descricao,
         categoriaId,
         imageBuffer,
-        imagens }: CreateOcorrenciasServiceRequest) {
+        imagens,
+        endereco,
+        protocolo,
+        gravidade,
+        status,
+    }: 
+    
+    CreateOcorrenciasServiceRequest) {
+
+        if (!titulo) {
+            console.log("Erro: Título ausente ou vazio. Recebido:",titulo);
+            throw new Error("Título é obrigatório");
+        }
+        if (!descricao) {
+             throw new Error("Descrição é obrigatória");
+        }
+
+        if (!categoriaId) {
+             throw new Error("Categoria é obrigatória");
+        }
+
+
 
         // Verifica se a categoria existe
         const categoryExists = await prismaClient.categoria.findUnique({
@@ -60,15 +85,42 @@ class CreateOcorrenciasService {
         }
 
         // Criar ocorrência no banco
-        // OBS: Como o schema exige campos como latitude, longitude, endereco e criador, 
-        // e eles não estão vindo no request atual, vou usar valores padrão temporários 
-        // ou precisaremos atualizar o Controller para enviar esses dados.
-        // Vou assumir valores padrão para permitir a compilação, mas isso deve ser revisto.
         
-        
+       
 
-   
-}
+     const ocorrencia = await prismaClient.ocorrencia.create({
+  data: {
+    titulo: titulo, 
+    descricao: descricao,
+    protocolo: protocolo,
+    categoriaId: Number(categoriaId),
+    endereco: endereco, // ✔️ correto
+    imagens: {
+      create: {
+        url: bannerURL,
+      },
+    },
+  },
+  select: {
+    id: true,
+    titulo: true,
+    descricao: true,
+    protocolo: true,
+    status: true,
+    endereco: true,
+    categoria: {
+      select: {
+        id: true,
+        nome: true,
+      },
+    },
+    imagens: true,
+  },
+});
+
+
+        return ocorrencia;
+    }
 }
 
-export { CreateOcorrenciasService }
+export { CreateOcorrenciasService };

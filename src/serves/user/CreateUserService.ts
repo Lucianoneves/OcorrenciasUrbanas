@@ -27,6 +27,7 @@ class CreateUserService {
 
     const user = await prismaClient.user.create({
       data: {
+        user_id: Math.floor(Math.random() * 1000000), // Gerando um ID aleatório temporário
         name: name,
         email: email,
         password: passwordHas,

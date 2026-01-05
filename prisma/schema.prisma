@@ -14,8 +14,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  
-
+  url      = env("DATABASE_URL")
 }
 
 enum Role {
@@ -40,7 +39,6 @@ enum StatusOcorrencia {
 
 model User {
   id        Int    @id @default(autoincrement())
-  user_id   Int    @unique
   name      String
   email     String @unique
   password  String
@@ -48,7 +46,7 @@ model User {
   telefone  String?
   ativo     Boolean @default(true)
 
-  ocorrenciasCriadas   Ocorrencia[] @relation("Criador")
+
   ocorrenciasResponsavel Ocorrencia[] @relation("Responsavel")
   comentarios          Comentario[]
   historicos           HistoricoStatus[]
@@ -73,22 +71,7 @@ model Admin {
 }
 
 
-model Endereco {
-  id     Int    @id @default(autoincrement())
-  rua    String
-  numero String
-  bairro String
-  cidade String
-  estado String
-  cep    String
 
-  ocorrencias Ocorrencia[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("enderecos")
-}
 
 
 model Categoria {
@@ -103,25 +86,18 @@ model Categoria {
 
 
 model Ocorrencia {
-  id          Int    @id @default(autoincrement())
+  id          Int    @id @default(autoincrement())  
   titulo      String
   descricao   String
 
   gravidade   Gravidade @default(BAIXA)
   status      StatusOcorrencia @default(PENDENTE)
   protocolo   String @unique
-
-  latitude    Float
-  longitude   Float
-
-  enderecoId  Int
-  endereco    Endereco @relation(fields: [enderecoId], references: [id])
+  endereco    String @default("")
 
   categoriaId Int
   categoria   Categoria @relation(fields: [categoriaId], references: [id])
 
-  criadorId   Int
-  criador     User @relation("Criador", fields: [criadorId], references: [id])
 
   responsavelId Int?
   responsavel   User? @relation("Responsavel", fields: [responsavelId], references: [id])

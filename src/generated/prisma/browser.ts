@@ -23,10 +23,10 @@ export * from './enums';
  */
 export type User = Prisma.UserModel
 /**
- * Model Endereco
+ * Model Admin
  * 
  */
-export type Endereco = Prisma.EnderecoModel
+export type Admin = Prisma.AdminModel
 /**
  * Model Categoria
  * 

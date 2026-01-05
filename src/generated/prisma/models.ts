@@ -9,7 +9,7 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/User'
-export type * from './models/Endereco'
+export type * from './models/Admin'
 export type * from './models/Categoria'
 export type * from './models/Ocorrencia'
 export type * from './models/ImagemOcorrencia'

@@ -48,10 +48,10 @@ path.join(process.cwd(), "src/generated/prisma/query_engine-windows.dll.node")
  */
 export type User = Prisma.UserModel
 /**
- * Model Endereco
+ * Model Admin
  * 
  */
-export type Endereco = Prisma.EnderecoModel
+export type Admin = Prisma.AdminModel
 /**
  * Model Categoria
  * 

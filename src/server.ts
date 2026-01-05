@@ -7,6 +7,7 @@ dotenv.config(); // ✅ carrega .env
 
 const app = express();
 
+app.use(express.urlencoded({ extended: true })); // Suporte a URL Encoded
 const jsonParser = express.json();
 app.use((req: Request, res: Response, next: NextFunction) => {
   if (req.method === "GET" || req.method === "HEAD") {

@@ -248,11 +248,11 @@ export type UserWhereInput = {
   ativo?: Prisma.BoolFilter<"User"> | boolean
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaListRelationFilter
   ocorrenciasResponsavel?: Prisma.OcorrenciaListRelationFilter
   comentarios?: Prisma.ComentarioListRelationFilter
   historicos?: Prisma.HistoricoStatusListRelationFilter
   avaliacoes?: Prisma.AvaliacaoListRelationFilter
+  admins?: Prisma.AdminListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -265,11 +265,11 @@ export type UserOrderByWithRelationInput = {
   ativo?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  ocorrenciasCriadas?: Prisma.OcorrenciaOrderByRelationAggregateInput
   ocorrenciasResponsavel?: Prisma.OcorrenciaOrderByRelationAggregateInput
   comentarios?: Prisma.ComentarioOrderByRelationAggregateInput
   historicos?: Prisma.HistoricoStatusOrderByRelationAggregateInput
   avaliacoes?: Prisma.AvaliacaoOrderByRelationAggregateInput
+  admins?: Prisma.AdminOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -285,11 +285,11 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   ativo?: Prisma.BoolFilter<"User"> | boolean
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaListRelationFilter
   ocorrenciasResponsavel?: Prisma.OcorrenciaListRelationFilter
   comentarios?: Prisma.ComentarioListRelationFilter
   historicos?: Prisma.HistoricoStatusListRelationFilter
   avaliacoes?: Prisma.AvaliacaoListRelationFilter
+  admins?: Prisma.AdminListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -333,11 +333,11 @@ export type UserCreateInput = {
   ativo?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaCreateNestedManyWithoutCriadorInput
   ocorrenciasResponsavel?: Prisma.OcorrenciaCreateNestedManyWithoutResponsavelInput
   comentarios?: Prisma.ComentarioCreateNestedManyWithoutUserInput
   historicos?: Prisma.HistoricoStatusCreateNestedManyWithoutUserInput
   avaliacoes?: Prisma.AvaliacaoCreateNestedManyWithoutUserInput
+  admins?: Prisma.AdminCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -350,11 +350,11 @@ export type UserUncheckedCreateInput = {
   ativo?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaUncheckedCreateNestedManyWithoutCriadorInput
   ocorrenciasResponsavel?: Prisma.OcorrenciaUncheckedCreateNestedManyWithoutResponsavelInput
   comentarios?: Prisma.ComentarioUncheckedCreateNestedManyWithoutUserInput
   historicos?: Prisma.HistoricoStatusUncheckedCreateNestedManyWithoutUserInput
   avaliacoes?: Prisma.AvaliacaoUncheckedCreateNestedManyWithoutUserInput
+  admins?: Prisma.AdminUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -366,11 +366,11 @@ export type UserUpdateInput = {
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaUpdateManyWithoutCriadorNestedInput
   ocorrenciasResponsavel?: Prisma.OcorrenciaUpdateManyWithoutResponsavelNestedInput
   comentarios?: Prisma.ComentarioUpdateManyWithoutUserNestedInput
   historicos?: Prisma.HistoricoStatusUpdateManyWithoutUserNestedInput
   avaliacoes?: Prisma.AvaliacaoUpdateManyWithoutUserNestedInput
+  admins?: Prisma.AdminUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -383,11 +383,11 @@ export type UserUncheckedUpdateInput = {
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaUncheckedUpdateManyWithoutCriadorNestedInput
   ocorrenciasResponsavel?: Prisma.OcorrenciaUncheckedUpdateManyWithoutResponsavelNestedInput
   comentarios?: Prisma.ComentarioUncheckedUpdateManyWithoutUserNestedInput
   historicos?: Prisma.HistoricoStatusUncheckedUpdateManyWithoutUserNestedInput
   avaliacoes?: Prisma.AvaliacaoUncheckedUpdateManyWithoutUserNestedInput
+  admins?: Prisma.AdminUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -507,24 +507,24 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
-export type UserCreateNestedOneWithoutOcorrenciasCriadasInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutOcorrenciasCriadasInput, Prisma.UserUncheckedCreateWithoutOcorrenciasCriadasInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutOcorrenciasCriadasInput
+export type UserCreateNestedOneWithoutAdminsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutAdminsInput, Prisma.UserUncheckedCreateWithoutAdminsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAdminsInput
   connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutAdminsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutAdminsInput, Prisma.UserUncheckedCreateWithoutAdminsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAdminsInput
+  upsert?: Prisma.UserUpsertWithoutAdminsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutAdminsInput, Prisma.UserUpdateWithoutAdminsInput>, Prisma.UserUncheckedUpdateWithoutAdminsInput>
 }
 
 export type UserCreateNestedOneWithoutOcorrenciasResponsavelInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutOcorrenciasResponsavelInput, Prisma.UserUncheckedCreateWithoutOcorrenciasResponsavelInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutOcorrenciasResponsavelInput
   connect?: Prisma.UserWhereUniqueInput
-}
-
-export type UserUpdateOneRequiredWithoutOcorrenciasCriadasNestedInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutOcorrenciasCriadasInput, Prisma.UserUncheckedCreateWithoutOcorrenciasCriadasInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutOcorrenciasCriadasInput
-  upsert?: Prisma.UserUpsertWithoutOcorrenciasCriadasInput
-  connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutOcorrenciasCriadasInput, Prisma.UserUpdateWithoutOcorrenciasCriadasInput>, Prisma.UserUncheckedUpdateWithoutOcorrenciasCriadasInput>
 }
 
 export type UserUpdateOneWithoutOcorrenciasResponsavelNestedInput = {
@@ -579,7 +579,7 @@ export type UserUpdateOneRequiredWithoutAvaliacoesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutAvaliacoesInput, Prisma.UserUpdateWithoutAvaliacoesInput>, Prisma.UserUncheckedUpdateWithoutAvaliacoesInput>
 }
 
-export type UserCreateWithoutOcorrenciasCriadasInput = {
+export type UserCreateWithoutAdminsInput = {
   name: string
   email: string
   password: string
@@ -594,7 +594,7 @@ export type UserCreateWithoutOcorrenciasCriadasInput = {
   avaliacoes?: Prisma.AvaliacaoCreateNestedManyWithoutUserInput
 }
 
-export type UserUncheckedCreateWithoutOcorrenciasCriadasInput = {
+export type UserUncheckedCreateWithoutAdminsInput = {
   id?: number
   name: string
   email: string
@@ -610,59 +610,23 @@ export type UserUncheckedCreateWithoutOcorrenciasCriadasInput = {
   avaliacoes?: Prisma.AvaliacaoUncheckedCreateNestedManyWithoutUserInput
 }
 
-export type UserCreateOrConnectWithoutOcorrenciasCriadasInput = {
+export type UserCreateOrConnectWithoutAdminsInput = {
   where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutOcorrenciasCriadasInput, Prisma.UserUncheckedCreateWithoutOcorrenciasCriadasInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutAdminsInput, Prisma.UserUncheckedCreateWithoutAdminsInput>
 }
 
-export type UserCreateWithoutOcorrenciasResponsavelInput = {
-  name: string
-  email: string
-  password: string
-  role?: $Enums.Role
-  telefone?: string | null
-  ativo?: boolean
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaCreateNestedManyWithoutCriadorInput
-  comentarios?: Prisma.ComentarioCreateNestedManyWithoutUserInput
-  historicos?: Prisma.HistoricoStatusCreateNestedManyWithoutUserInput
-  avaliacoes?: Prisma.AvaliacaoCreateNestedManyWithoutUserInput
-}
-
-export type UserUncheckedCreateWithoutOcorrenciasResponsavelInput = {
-  id?: number
-  name: string
-  email: string
-  password: string
-  role?: $Enums.Role
-  telefone?: string | null
-  ativo?: boolean
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaUncheckedCreateNestedManyWithoutCriadorInput
-  comentarios?: Prisma.ComentarioUncheckedCreateNestedManyWithoutUserInput
-  historicos?: Prisma.HistoricoStatusUncheckedCreateNestedManyWithoutUserInput
-  avaliacoes?: Prisma.AvaliacaoUncheckedCreateNestedManyWithoutUserInput
-}
-
-export type UserCreateOrConnectWithoutOcorrenciasResponsavelInput = {
-  where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutOcorrenciasResponsavelInput, Prisma.UserUncheckedCreateWithoutOcorrenciasResponsavelInput>
-}
-
-export type UserUpsertWithoutOcorrenciasCriadasInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutOcorrenciasCriadasInput, Prisma.UserUncheckedUpdateWithoutOcorrenciasCriadasInput>
-  create: Prisma.XOR<Prisma.UserCreateWithoutOcorrenciasCriadasInput, Prisma.UserUncheckedCreateWithoutOcorrenciasCriadasInput>
+export type UserUpsertWithoutAdminsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutAdminsInput, Prisma.UserUncheckedUpdateWithoutAdminsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutAdminsInput, Prisma.UserUncheckedCreateWithoutAdminsInput>
   where?: Prisma.UserWhereInput
 }
 
-export type UserUpdateToOneWithWhereWithoutOcorrenciasCriadasInput = {
+export type UserUpdateToOneWithWhereWithoutAdminsInput = {
   where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutOcorrenciasCriadasInput, Prisma.UserUncheckedUpdateWithoutOcorrenciasCriadasInput>
+  data: Prisma.XOR<Prisma.UserUpdateWithoutAdminsInput, Prisma.UserUncheckedUpdateWithoutAdminsInput>
 }
 
-export type UserUpdateWithoutOcorrenciasCriadasInput = {
+export type UserUpdateWithoutAdminsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
@@ -677,7 +641,7 @@ export type UserUpdateWithoutOcorrenciasCriadasInput = {
   avaliacoes?: Prisma.AvaliacaoUpdateManyWithoutUserNestedInput
 }
 
-export type UserUncheckedUpdateWithoutOcorrenciasCriadasInput = {
+export type UserUncheckedUpdateWithoutAdminsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -691,6 +655,42 @@ export type UserUncheckedUpdateWithoutOcorrenciasCriadasInput = {
   comentarios?: Prisma.ComentarioUncheckedUpdateManyWithoutUserNestedInput
   historicos?: Prisma.HistoricoStatusUncheckedUpdateManyWithoutUserNestedInput
   avaliacoes?: Prisma.AvaliacaoUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutOcorrenciasResponsavelInput = {
+  name: string
+  email: string
+  password: string
+  role?: $Enums.Role
+  telefone?: string | null
+  ativo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  comentarios?: Prisma.ComentarioCreateNestedManyWithoutUserInput
+  historicos?: Prisma.HistoricoStatusCreateNestedManyWithoutUserInput
+  avaliacoes?: Prisma.AvaliacaoCreateNestedManyWithoutUserInput
+  admins?: Prisma.AdminCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutOcorrenciasResponsavelInput = {
+  id?: number
+  name: string
+  email: string
+  password: string
+  role?: $Enums.Role
+  telefone?: string | null
+  ativo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  comentarios?: Prisma.ComentarioUncheckedCreateNestedManyWithoutUserInput
+  historicos?: Prisma.HistoricoStatusUncheckedCreateNestedManyWithoutUserInput
+  avaliacoes?: Prisma.AvaliacaoUncheckedCreateNestedManyWithoutUserInput
+  admins?: Prisma.AdminUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutOcorrenciasResponsavelInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutOcorrenciasResponsavelInput, Prisma.UserUncheckedCreateWithoutOcorrenciasResponsavelInput>
 }
 
 export type UserUpsertWithoutOcorrenciasResponsavelInput = {
@@ -713,10 +713,10 @@ export type UserUpdateWithoutOcorrenciasResponsavelInput = {
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaUpdateManyWithoutCriadorNestedInput
   comentarios?: Prisma.ComentarioUpdateManyWithoutUserNestedInput
   historicos?: Prisma.HistoricoStatusUpdateManyWithoutUserNestedInput
   avaliacoes?: Prisma.AvaliacaoUpdateManyWithoutUserNestedInput
+  admins?: Prisma.AdminUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutOcorrenciasResponsavelInput = {
@@ -729,10 +729,10 @@ export type UserUncheckedUpdateWithoutOcorrenciasResponsavelInput = {
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaUncheckedUpdateManyWithoutCriadorNestedInput
   comentarios?: Prisma.ComentarioUncheckedUpdateManyWithoutUserNestedInput
   historicos?: Prisma.HistoricoStatusUncheckedUpdateManyWithoutUserNestedInput
   avaliacoes?: Prisma.AvaliacaoUncheckedUpdateManyWithoutUserNestedInput
+  admins?: Prisma.AdminUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutComentariosInput = {
@@ -744,10 +744,10 @@ export type UserCreateWithoutComentariosInput = {
   ativo?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaCreateNestedManyWithoutCriadorInput
   ocorrenciasResponsavel?: Prisma.OcorrenciaCreateNestedManyWithoutResponsavelInput
   historicos?: Prisma.HistoricoStatusCreateNestedManyWithoutUserInput
   avaliacoes?: Prisma.AvaliacaoCreateNestedManyWithoutUserInput
+  admins?: Prisma.AdminCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutComentariosInput = {
@@ -760,10 +760,10 @@ export type UserUncheckedCreateWithoutComentariosInput = {
   ativo?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaUncheckedCreateNestedManyWithoutCriadorInput
   ocorrenciasResponsavel?: Prisma.OcorrenciaUncheckedCreateNestedManyWithoutResponsavelInput
   historicos?: Prisma.HistoricoStatusUncheckedCreateNestedManyWithoutUserInput
   avaliacoes?: Prisma.AvaliacaoUncheckedCreateNestedManyWithoutUserInput
+  admins?: Prisma.AdminUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutComentariosInput = {
@@ -791,10 +791,10 @@ export type UserUpdateWithoutComentariosInput = {
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaUpdateManyWithoutCriadorNestedInput
   ocorrenciasResponsavel?: Prisma.OcorrenciaUpdateManyWithoutResponsavelNestedInput
   historicos?: Prisma.HistoricoStatusUpdateManyWithoutUserNestedInput
   avaliacoes?: Prisma.AvaliacaoUpdateManyWithoutUserNestedInput
+  admins?: Prisma.AdminUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutComentariosInput = {
@@ -807,10 +807,10 @@ export type UserUncheckedUpdateWithoutComentariosInput = {
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaUncheckedUpdateManyWithoutCriadorNestedInput
   ocorrenciasResponsavel?: Prisma.OcorrenciaUncheckedUpdateManyWithoutResponsavelNestedInput
   historicos?: Prisma.HistoricoStatusUncheckedUpdateManyWithoutUserNestedInput
   avaliacoes?: Prisma.AvaliacaoUncheckedUpdateManyWithoutUserNestedInput
+  admins?: Prisma.AdminUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutHistoricosInput = {
@@ -822,10 +822,10 @@ export type UserCreateWithoutHistoricosInput = {
   ativo?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaCreateNestedManyWithoutCriadorInput
   ocorrenciasResponsavel?: Prisma.OcorrenciaCreateNestedManyWithoutResponsavelInput
   comentarios?: Prisma.ComentarioCreateNestedManyWithoutUserInput
   avaliacoes?: Prisma.AvaliacaoCreateNestedManyWithoutUserInput
+  admins?: Prisma.AdminCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutHistoricosInput = {
@@ -838,10 +838,10 @@ export type UserUncheckedCreateWithoutHistoricosInput = {
   ativo?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaUncheckedCreateNestedManyWithoutCriadorInput
   ocorrenciasResponsavel?: Prisma.OcorrenciaUncheckedCreateNestedManyWithoutResponsavelInput
   comentarios?: Prisma.ComentarioUncheckedCreateNestedManyWithoutUserInput
   avaliacoes?: Prisma.AvaliacaoUncheckedCreateNestedManyWithoutUserInput
+  admins?: Prisma.AdminUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutHistoricosInput = {
@@ -869,10 +869,10 @@ export type UserUpdateWithoutHistoricosInput = {
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaUpdateManyWithoutCriadorNestedInput
   ocorrenciasResponsavel?: Prisma.OcorrenciaUpdateManyWithoutResponsavelNestedInput
   comentarios?: Prisma.ComentarioUpdateManyWithoutUserNestedInput
   avaliacoes?: Prisma.AvaliacaoUpdateManyWithoutUserNestedInput
+  admins?: Prisma.AdminUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutHistoricosInput = {
@@ -885,10 +885,10 @@ export type UserUncheckedUpdateWithoutHistoricosInput = {
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaUncheckedUpdateManyWithoutCriadorNestedInput
   ocorrenciasResponsavel?: Prisma.OcorrenciaUncheckedUpdateManyWithoutResponsavelNestedInput
   comentarios?: Prisma.ComentarioUncheckedUpdateManyWithoutUserNestedInput
   avaliacoes?: Prisma.AvaliacaoUncheckedUpdateManyWithoutUserNestedInput
+  admins?: Prisma.AdminUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutAvaliacoesInput = {
@@ -900,10 +900,10 @@ export type UserCreateWithoutAvaliacoesInput = {
   ativo?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaCreateNestedManyWithoutCriadorInput
   ocorrenciasResponsavel?: Prisma.OcorrenciaCreateNestedManyWithoutResponsavelInput
   comentarios?: Prisma.ComentarioCreateNestedManyWithoutUserInput
   historicos?: Prisma.HistoricoStatusCreateNestedManyWithoutUserInput
+  admins?: Prisma.AdminCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutAvaliacoesInput = {
@@ -916,10 +916,10 @@ export type UserUncheckedCreateWithoutAvaliacoesInput = {
   ativo?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaUncheckedCreateNestedManyWithoutCriadorInput
   ocorrenciasResponsavel?: Prisma.OcorrenciaUncheckedCreateNestedManyWithoutResponsavelInput
   comentarios?: Prisma.ComentarioUncheckedCreateNestedManyWithoutUserInput
   historicos?: Prisma.HistoricoStatusUncheckedCreateNestedManyWithoutUserInput
+  admins?: Prisma.AdminUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutAvaliacoesInput = {
@@ -947,10 +947,10 @@ export type UserUpdateWithoutAvaliacoesInput = {
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaUpdateManyWithoutCriadorNestedInput
   ocorrenciasResponsavel?: Prisma.OcorrenciaUpdateManyWithoutResponsavelNestedInput
   comentarios?: Prisma.ComentarioUpdateManyWithoutUserNestedInput
   historicos?: Prisma.HistoricoStatusUpdateManyWithoutUserNestedInput
+  admins?: Prisma.AdminUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAvaliacoesInput = {
@@ -963,10 +963,10 @@ export type UserUncheckedUpdateWithoutAvaliacoesInput = {
   ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  ocorrenciasCriadas?: Prisma.OcorrenciaUncheckedUpdateManyWithoutCriadorNestedInput
   ocorrenciasResponsavel?: Prisma.OcorrenciaUncheckedUpdateManyWithoutResponsavelNestedInput
   comentarios?: Prisma.ComentarioUncheckedUpdateManyWithoutUserNestedInput
   historicos?: Prisma.HistoricoStatusUncheckedUpdateManyWithoutUserNestedInput
+  admins?: Prisma.AdminUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -975,19 +975,19 @@ export type UserUncheckedUpdateWithoutAvaliacoesInput = {
  */
 
 export type UserCountOutputType = {
-  ocorrenciasCriadas: number
   ocorrenciasResponsavel: number
   comentarios: number
   historicos: number
   avaliacoes: number
+  admins: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  ocorrenciasCriadas?: boolean | UserCountOutputTypeCountOcorrenciasCriadasArgs
   ocorrenciasResponsavel?: boolean | UserCountOutputTypeCountOcorrenciasResponsavelArgs
   comentarios?: boolean | UserCountOutputTypeCountComentariosArgs
   historicos?: boolean | UserCountOutputTypeCountHistoricosArgs
   avaliacoes?: boolean | UserCountOutputTypeCountAvaliacoesArgs
+  admins?: boolean | UserCountOutputTypeCountAdminsArgs
 }
 
 /**
@@ -998,13 +998,6 @@ export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
    * Select specific fields to fetch from the UserCountOutputType
    */
   select?: Prisma.UserCountOutputTypeSelect<ExtArgs> | null
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountOcorrenciasCriadasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.OcorrenciaWhereInput
 }
 
 /**
@@ -1035,6 +1028,13 @@ export type UserCountOutputTypeCountAvaliacoesArgs<ExtArgs extends runtime.Types
   where?: Prisma.AvaliacaoWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountAdminsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AdminWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1046,11 +1046,11 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   ativo?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  ocorrenciasCriadas?: boolean | Prisma.User$ocorrenciasCriadasArgs<ExtArgs>
   ocorrenciasResponsavel?: boolean | Prisma.User$ocorrenciasResponsavelArgs<ExtArgs>
   comentarios?: boolean | Prisma.User$comentariosArgs<ExtArgs>
   historicos?: boolean | Prisma.User$historicosArgs<ExtArgs>
   avaliacoes?: boolean | Prisma.User$avaliacoesArgs<ExtArgs>
+  admins?: boolean | Prisma.User$adminsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -1092,11 +1092,11 @@ export type UserSelectScalar = {
 
 export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "password" | "role" | "telefone" | "ativo" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  ocorrenciasCriadas?: boolean | Prisma.User$ocorrenciasCriadasArgs<ExtArgs>
   ocorrenciasResponsavel?: boolean | Prisma.User$ocorrenciasResponsavelArgs<ExtArgs>
   comentarios?: boolean | Prisma.User$comentariosArgs<ExtArgs>
   historicos?: boolean | Prisma.User$historicosArgs<ExtArgs>
   avaliacoes?: boolean | Prisma.User$avaliacoesArgs<ExtArgs>
+  admins?: boolean | Prisma.User$adminsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1105,11 +1105,11 @@ export type UserIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {
-    ocorrenciasCriadas: Prisma.$OcorrenciaPayload<ExtArgs>[]
     ocorrenciasResponsavel: Prisma.$OcorrenciaPayload<ExtArgs>[]
     comentarios: Prisma.$ComentarioPayload<ExtArgs>[]
     historicos: Prisma.$HistoricoStatusPayload<ExtArgs>[]
     avaliacoes: Prisma.$AvaliacaoPayload<ExtArgs>[]
+    admins: Prisma.$AdminPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1515,11 +1515,11 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  ocorrenciasCriadas<T extends Prisma.User$ocorrenciasCriadasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$ocorrenciasCriadasArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OcorrenciaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   ocorrenciasResponsavel<T extends Prisma.User$ocorrenciasResponsavelArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$ocorrenciasResponsavelArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OcorrenciaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   comentarios<T extends Prisma.User$comentariosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$comentariosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ComentarioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   historicos<T extends Prisma.User$historicosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$historicosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$HistoricoStatusPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   avaliacoes<T extends Prisma.User$avaliacoesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$avaliacoesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  admins<T extends Prisma.User$adminsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$adminsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AdminPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1946,30 +1946,6 @@ export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
- * User.ocorrenciasCriadas
- */
-export type User$ocorrenciasCriadasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Ocorrencia
-   */
-  select?: Prisma.OcorrenciaSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Ocorrencia
-   */
-  omit?: Prisma.OcorrenciaOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.OcorrenciaInclude<ExtArgs> | null
-  where?: Prisma.OcorrenciaWhereInput
-  orderBy?: Prisma.OcorrenciaOrderByWithRelationInput | Prisma.OcorrenciaOrderByWithRelationInput[]
-  cursor?: Prisma.OcorrenciaWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.OcorrenciaScalarFieldEnum | Prisma.OcorrenciaScalarFieldEnum[]
-}
-
-/**
  * User.ocorrenciasResponsavel
  */
 export type User$ocorrenciasResponsavelArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2063,6 +2039,30 @@ export type User$avaliacoesArgs<ExtArgs extends runtime.Types.Extensions.Interna
   take?: number
   skip?: number
   distinct?: Prisma.AvaliacaoScalarFieldEnum | Prisma.AvaliacaoScalarFieldEnum[]
+}
+
+/**
+ * User.admins
+ */
+export type User$adminsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Admin
+   */
+  select?: Prisma.AdminSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Admin
+   */
+  omit?: Prisma.AdminOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AdminInclude<ExtArgs> | null
+  where?: Prisma.AdminWhereInput
+  orderBy?: Prisma.AdminOrderByWithRelationInput | Prisma.AdminOrderByWithRelationInput[]
+  cursor?: Prisma.AdminWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AdminScalarFieldEnum | Prisma.AdminScalarFieldEnum[]
 }
 
 /**

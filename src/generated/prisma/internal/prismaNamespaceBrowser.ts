@@ -50,7 +50,7 @@ export const AnyNull = runtime.objectEnumValues.instances.AnyNull
 
 export const ModelName = {
   User: 'User',
-  Endereco: 'Endereco',
+  Admin: 'Admin',
   Categoria: 'Categoria',
   Ocorrencia: 'Ocorrencia',
   ImagemOcorrencia: 'ImagemOcorrencia',
@@ -90,19 +90,14 @@ export const UserScalarFieldEnum = {
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const EnderecoScalarFieldEnum = {
+export const AdminScalarFieldEnum = {
   id: 'id',
-  rua: 'rua',
-  numero: 'numero',
-  bairro: 'bairro',
-  cidade: 'cidade',
-  estado: 'estado',
-  cep: 'cep',
+  userId: 'userId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
 
-export type EnderecoScalarFieldEnum = (typeof EnderecoScalarFieldEnum)[keyof typeof EnderecoScalarFieldEnum]
+export type AdminScalarFieldEnum = (typeof AdminScalarFieldEnum)[keyof typeof AdminScalarFieldEnum]
 
 
 export const CategoriaScalarFieldEnum = {
@@ -122,11 +117,8 @@ export const OcorrenciaScalarFieldEnum = {
   gravidade: 'gravidade',
   status: 'status',
   protocolo: 'protocolo',
-  latitude: 'latitude',
-  longitude: 'longitude',
-  enderecoId: 'enderecoId',
+  endereco: 'endereco',
   categoriaId: 'categoriaId',
-  criadorId: 'criadorId',
   responsavelId: 'responsavelId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'

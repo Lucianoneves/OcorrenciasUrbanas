@@ -391,7 +391,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   User: 'User',
-  Endereco: 'Endereco',
+  Admin: 'Admin',
   Categoria: 'Categoria',
   Ocorrencia: 'Ocorrencia',
   ImagemOcorrencia: 'ImagemOcorrencia',
@@ -413,7 +413,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "endereco" | "categoria" | "ocorrencia" | "imagemOcorrencia" | "comentario" | "historicoStatus" | "avaliacao"
+    modelProps: "user" | "admin" | "categoria" | "ocorrencia" | "imagemOcorrencia" | "comentario" | "historicoStatus" | "avaliacao"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -491,77 +491,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    Endereco: {
-      payload: Prisma.$EnderecoPayload<ExtArgs>
-      fields: Prisma.EnderecoFieldRefs
+    Admin: {
+      payload: Prisma.$AdminPayload<ExtArgs>
+      fields: Prisma.AdminFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.EnderecoFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnderecoPayload> | null
+          args: Prisma.AdminFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.EnderecoFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnderecoPayload>
+          args: Prisma.AdminFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload>
         }
         findFirst: {
-          args: Prisma.EnderecoFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnderecoPayload> | null
+          args: Prisma.AdminFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.EnderecoFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnderecoPayload>
+          args: Prisma.AdminFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload>
         }
         findMany: {
-          args: Prisma.EnderecoFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnderecoPayload>[]
+          args: Prisma.AdminFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload>[]
         }
         create: {
-          args: Prisma.EnderecoCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnderecoPayload>
+          args: Prisma.AdminCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload>
         }
         createMany: {
-          args: Prisma.EnderecoCreateManyArgs<ExtArgs>
+          args: Prisma.AdminCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.EnderecoCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnderecoPayload>[]
+          args: Prisma.AdminCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload>[]
         }
         delete: {
-          args: Prisma.EnderecoDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnderecoPayload>
+          args: Prisma.AdminDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload>
         }
         update: {
-          args: Prisma.EnderecoUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnderecoPayload>
+          args: Prisma.AdminUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload>
         }
         deleteMany: {
-          args: Prisma.EnderecoDeleteManyArgs<ExtArgs>
+          args: Prisma.AdminDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.EnderecoUpdateManyArgs<ExtArgs>
+          args: Prisma.AdminUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.EnderecoUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnderecoPayload>[]
+          args: Prisma.AdminUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload>[]
         }
         upsert: {
-          args: Prisma.EnderecoUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnderecoPayload>
+          args: Prisma.AdminUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload>
         }
         aggregate: {
-          args: Prisma.EnderecoAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateEndereco>
+          args: Prisma.AdminAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAdmin>
         }
         groupBy: {
-          args: Prisma.EnderecoGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.EnderecoGroupByOutputType>[]
+          args: Prisma.AdminGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AdminGroupByOutputType>[]
         }
         count: {
-          args: Prisma.EnderecoCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.EnderecoCountAggregateOutputType> | number
+          args: Prisma.AdminCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AdminCountAggregateOutputType> | number
         }
       }
     }
@@ -1063,19 +1063,14 @@ export const UserScalarFieldEnum = {
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const EnderecoScalarFieldEnum = {
+export const AdminScalarFieldEnum = {
   id: 'id',
-  rua: 'rua',
-  numero: 'numero',
-  bairro: 'bairro',
-  cidade: 'cidade',
-  estado: 'estado',
-  cep: 'cep',
+  userId: 'userId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
 
-export type EnderecoScalarFieldEnum = (typeof EnderecoScalarFieldEnum)[keyof typeof EnderecoScalarFieldEnum]
+export type AdminScalarFieldEnum = (typeof AdminScalarFieldEnum)[keyof typeof AdminScalarFieldEnum]
 
 
 export const CategoriaScalarFieldEnum = {
@@ -1095,11 +1090,8 @@ export const OcorrenciaScalarFieldEnum = {
   gravidade: 'gravidade',
   status: 'status',
   protocolo: 'protocolo',
-  latitude: 'latitude',
-  longitude: 'longitude',
-  enderecoId: 'enderecoId',
+  endereco: 'endereco',
   categoriaId: 'categoriaId',
-  criadorId: 'criadorId',
   responsavelId: 'responsavelId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -1375,7 +1367,7 @@ export interface PrismaClientOptions {
 }
 export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
-  endereco?: Prisma.EnderecoOmit
+  admin?: Prisma.AdminOmit
   categoria?: Prisma.CategoriaOmit
   ocorrencia?: Prisma.OcorrenciaOmit
   imagemOcorrencia?: Prisma.ImagemOcorrenciaOmit

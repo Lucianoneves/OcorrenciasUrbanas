@@ -28,21 +28,13 @@ export type AggregateOcorrencia = {
 
 export type OcorrenciaAvgAggregateOutputType = {
   id: number | null
-  latitude: number | null
-  longitude: number | null
-  enderecoId: number | null
   categoriaId: number | null
-  criadorId: number | null
   responsavelId: number | null
 }
 
 export type OcorrenciaSumAggregateOutputType = {
   id: number | null
-  latitude: number | null
-  longitude: number | null
-  enderecoId: number | null
   categoriaId: number | null
-  criadorId: number | null
   responsavelId: number | null
 }
 
@@ -53,11 +45,8 @@ export type OcorrenciaMinAggregateOutputType = {
   gravidade: $Enums.Gravidade | null
   status: $Enums.StatusOcorrencia | null
   protocolo: string | null
-  latitude: number | null
-  longitude: number | null
-  enderecoId: number | null
+  endereco: string | null
   categoriaId: number | null
-  criadorId: number | null
   responsavelId: number | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -70,11 +59,8 @@ export type OcorrenciaMaxAggregateOutputType = {
   gravidade: $Enums.Gravidade | null
   status: $Enums.StatusOcorrencia | null
   protocolo: string | null
-  latitude: number | null
-  longitude: number | null
-  enderecoId: number | null
+  endereco: string | null
   categoriaId: number | null
-  criadorId: number | null
   responsavelId: number | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -87,11 +73,8 @@ export type OcorrenciaCountAggregateOutputType = {
   gravidade: number
   status: number
   protocolo: number
-  latitude: number
-  longitude: number
-  enderecoId: number
+  endereco: number
   categoriaId: number
-  criadorId: number
   responsavelId: number
   createdAt: number
   updatedAt: number
@@ -101,21 +84,13 @@ export type OcorrenciaCountAggregateOutputType = {
 
 export type OcorrenciaAvgAggregateInputType = {
   id?: true
-  latitude?: true
-  longitude?: true
-  enderecoId?: true
   categoriaId?: true
-  criadorId?: true
   responsavelId?: true
 }
 
 export type OcorrenciaSumAggregateInputType = {
   id?: true
-  latitude?: true
-  longitude?: true
-  enderecoId?: true
   categoriaId?: true
-  criadorId?: true
   responsavelId?: true
 }
 
@@ -126,11 +101,8 @@ export type OcorrenciaMinAggregateInputType = {
   gravidade?: true
   status?: true
   protocolo?: true
-  latitude?: true
-  longitude?: true
-  enderecoId?: true
+  endereco?: true
   categoriaId?: true
-  criadorId?: true
   responsavelId?: true
   createdAt?: true
   updatedAt?: true
@@ -143,11 +115,8 @@ export type OcorrenciaMaxAggregateInputType = {
   gravidade?: true
   status?: true
   protocolo?: true
-  latitude?: true
-  longitude?: true
-  enderecoId?: true
+  endereco?: true
   categoriaId?: true
-  criadorId?: true
   responsavelId?: true
   createdAt?: true
   updatedAt?: true
@@ -160,11 +129,8 @@ export type OcorrenciaCountAggregateInputType = {
   gravidade?: true
   status?: true
   protocolo?: true
-  latitude?: true
-  longitude?: true
-  enderecoId?: true
+  endereco?: true
   categoriaId?: true
-  criadorId?: true
   responsavelId?: true
   createdAt?: true
   updatedAt?: true
@@ -264,11 +230,8 @@ export type OcorrenciaGroupByOutputType = {
   gravidade: $Enums.Gravidade
   status: $Enums.StatusOcorrencia
   protocolo: string
-  latitude: number
-  longitude: number
-  enderecoId: number
+  endereco: string
   categoriaId: number
-  criadorId: number
   responsavelId: number | null
   createdAt: Date
   updatedAt: Date
@@ -304,17 +267,12 @@ export type OcorrenciaWhereInput = {
   gravidade?: Prisma.EnumGravidadeFilter<"Ocorrencia"> | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFilter<"Ocorrencia"> | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFilter<"Ocorrencia"> | string
-  latitude?: Prisma.FloatFilter<"Ocorrencia"> | number
-  longitude?: Prisma.FloatFilter<"Ocorrencia"> | number
-  enderecoId?: Prisma.IntFilter<"Ocorrencia"> | number
+  endereco?: Prisma.StringFilter<"Ocorrencia"> | string
   categoriaId?: Prisma.IntFilter<"Ocorrencia"> | number
-  criadorId?: Prisma.IntFilter<"Ocorrencia"> | number
   responsavelId?: Prisma.IntNullableFilter<"Ocorrencia"> | number | null
   createdAt?: Prisma.DateTimeFilter<"Ocorrencia"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Ocorrencia"> | Date | string
-  endereco?: Prisma.XOR<Prisma.EnderecoScalarRelationFilter, Prisma.EnderecoWhereInput>
   categoria?: Prisma.XOR<Prisma.CategoriaScalarRelationFilter, Prisma.CategoriaWhereInput>
-  criador?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   responsavel?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   imagens?: Prisma.ImagemOcorrenciaListRelationFilter
   comentarios?: Prisma.ComentarioListRelationFilter
@@ -329,17 +287,12 @@ export type OcorrenciaOrderByWithRelationInput = {
   gravidade?: Prisma.SortOrder
   status?: Prisma.SortOrder
   protocolo?: Prisma.SortOrder
-  latitude?: Prisma.SortOrder
-  longitude?: Prisma.SortOrder
-  enderecoId?: Prisma.SortOrder
+  endereco?: Prisma.SortOrder
   categoriaId?: Prisma.SortOrder
-  criadorId?: Prisma.SortOrder
   responsavelId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  endereco?: Prisma.EnderecoOrderByWithRelationInput
   categoria?: Prisma.CategoriaOrderByWithRelationInput
-  criador?: Prisma.UserOrderByWithRelationInput
   responsavel?: Prisma.UserOrderByWithRelationInput
   imagens?: Prisma.ImagemOcorrenciaOrderByRelationAggregateInput
   comentarios?: Prisma.ComentarioOrderByRelationAggregateInput
@@ -357,17 +310,12 @@ export type OcorrenciaWhereUniqueInput = Prisma.AtLeast<{
   descricao?: Prisma.StringFilter<"Ocorrencia"> | string
   gravidade?: Prisma.EnumGravidadeFilter<"Ocorrencia"> | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFilter<"Ocorrencia"> | $Enums.StatusOcorrencia
-  latitude?: Prisma.FloatFilter<"Ocorrencia"> | number
-  longitude?: Prisma.FloatFilter<"Ocorrencia"> | number
-  enderecoId?: Prisma.IntFilter<"Ocorrencia"> | number
+  endereco?: Prisma.StringFilter<"Ocorrencia"> | string
   categoriaId?: Prisma.IntFilter<"Ocorrencia"> | number
-  criadorId?: Prisma.IntFilter<"Ocorrencia"> | number
   responsavelId?: Prisma.IntNullableFilter<"Ocorrencia"> | number | null
   createdAt?: Prisma.DateTimeFilter<"Ocorrencia"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Ocorrencia"> | Date | string
-  endereco?: Prisma.XOR<Prisma.EnderecoScalarRelationFilter, Prisma.EnderecoWhereInput>
   categoria?: Prisma.XOR<Prisma.CategoriaScalarRelationFilter, Prisma.CategoriaWhereInput>
-  criador?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   responsavel?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   imagens?: Prisma.ImagemOcorrenciaListRelationFilter
   comentarios?: Prisma.ComentarioListRelationFilter
@@ -382,11 +330,8 @@ export type OcorrenciaOrderByWithAggregationInput = {
   gravidade?: Prisma.SortOrder
   status?: Prisma.SortOrder
   protocolo?: Prisma.SortOrder
-  latitude?: Prisma.SortOrder
-  longitude?: Prisma.SortOrder
-  enderecoId?: Prisma.SortOrder
+  endereco?: Prisma.SortOrder
   categoriaId?: Prisma.SortOrder
-  criadorId?: Prisma.SortOrder
   responsavelId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -407,11 +352,8 @@ export type OcorrenciaScalarWhereWithAggregatesInput = {
   gravidade?: Prisma.EnumGravidadeWithAggregatesFilter<"Ocorrencia"> | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaWithAggregatesFilter<"Ocorrencia"> | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringWithAggregatesFilter<"Ocorrencia"> | string
-  latitude?: Prisma.FloatWithAggregatesFilter<"Ocorrencia"> | number
-  longitude?: Prisma.FloatWithAggregatesFilter<"Ocorrencia"> | number
-  enderecoId?: Prisma.IntWithAggregatesFilter<"Ocorrencia"> | number
+  endereco?: Prisma.StringWithAggregatesFilter<"Ocorrencia"> | string
   categoriaId?: Prisma.IntWithAggregatesFilter<"Ocorrencia"> | number
-  criadorId?: Prisma.IntWithAggregatesFilter<"Ocorrencia"> | number
   responsavelId?: Prisma.IntNullableWithAggregatesFilter<"Ocorrencia"> | number | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Ocorrencia"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Ocorrencia"> | Date | string
@@ -423,13 +365,10 @@ export type OcorrenciaCreateInput = {
   gravidade?: $Enums.Gravidade
   status?: $Enums.StatusOcorrencia
   protocolo: string
-  latitude: number
-  longitude: number
+  endereco?: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  endereco: Prisma.EnderecoCreateNestedOneWithoutOcorrenciasInput
   categoria: Prisma.CategoriaCreateNestedOneWithoutOcorrenciasInput
-  criador: Prisma.UserCreateNestedOneWithoutOcorrenciasCriadasInput
   responsavel?: Prisma.UserCreateNestedOneWithoutOcorrenciasResponsavelInput
   imagens?: Prisma.ImagemOcorrenciaCreateNestedManyWithoutOcorrenciaInput
   comentarios?: Prisma.ComentarioCreateNestedManyWithoutOcorrenciaInput
@@ -444,11 +383,8 @@ export type OcorrenciaUncheckedCreateInput = {
   gravidade?: $Enums.Gravidade
   status?: $Enums.StatusOcorrencia
   protocolo: string
-  latitude: number
-  longitude: number
-  enderecoId: number
+  endereco?: string
   categoriaId: number
-  criadorId: number
   responsavelId?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -464,13 +400,10 @@ export type OcorrenciaUpdateInput = {
   gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endereco?: Prisma.EnderecoUpdateOneRequiredWithoutOcorrenciasNestedInput
   categoria?: Prisma.CategoriaUpdateOneRequiredWithoutOcorrenciasNestedInput
-  criador?: Prisma.UserUpdateOneRequiredWithoutOcorrenciasCriadasNestedInput
   responsavel?: Prisma.UserUpdateOneWithoutOcorrenciasResponsavelNestedInput
   imagens?: Prisma.ImagemOcorrenciaUpdateManyWithoutOcorrenciaNestedInput
   comentarios?: Prisma.ComentarioUpdateManyWithoutOcorrenciaNestedInput
@@ -485,11 +418,8 @@ export type OcorrenciaUncheckedUpdateInput = {
   gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  enderecoId?: Prisma.IntFieldUpdateOperationsInput | number
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
-  criadorId?: Prisma.IntFieldUpdateOperationsInput | number
   responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -506,11 +436,8 @@ export type OcorrenciaCreateManyInput = {
   gravidade?: $Enums.Gravidade
   status?: $Enums.StatusOcorrencia
   protocolo: string
-  latitude: number
-  longitude: number
-  enderecoId: number
+  endereco?: string
   categoriaId: number
-  criadorId: number
   responsavelId?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -522,8 +449,7 @@ export type OcorrenciaUpdateManyMutationInput = {
   gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -535,11 +461,8 @@ export type OcorrenciaUncheckedUpdateManyInput = {
   gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  enderecoId?: Prisma.IntFieldUpdateOperationsInput | number
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
-  criadorId?: Prisma.IntFieldUpdateOperationsInput | number
   responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -562,11 +485,8 @@ export type OcorrenciaCountOrderByAggregateInput = {
   gravidade?: Prisma.SortOrder
   status?: Prisma.SortOrder
   protocolo?: Prisma.SortOrder
-  latitude?: Prisma.SortOrder
-  longitude?: Prisma.SortOrder
-  enderecoId?: Prisma.SortOrder
+  endereco?: Prisma.SortOrder
   categoriaId?: Prisma.SortOrder
-  criadorId?: Prisma.SortOrder
   responsavelId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -574,11 +494,7 @@ export type OcorrenciaCountOrderByAggregateInput = {
 
 export type OcorrenciaAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  latitude?: Prisma.SortOrder
-  longitude?: Prisma.SortOrder
-  enderecoId?: Prisma.SortOrder
   categoriaId?: Prisma.SortOrder
-  criadorId?: Prisma.SortOrder
   responsavelId?: Prisma.SortOrder
 }
 
@@ -589,11 +505,8 @@ export type OcorrenciaMaxOrderByAggregateInput = {
   gravidade?: Prisma.SortOrder
   status?: Prisma.SortOrder
   protocolo?: Prisma.SortOrder
-  latitude?: Prisma.SortOrder
-  longitude?: Prisma.SortOrder
-  enderecoId?: Prisma.SortOrder
+  endereco?: Prisma.SortOrder
   categoriaId?: Prisma.SortOrder
-  criadorId?: Prisma.SortOrder
   responsavelId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -606,11 +519,8 @@ export type OcorrenciaMinOrderByAggregateInput = {
   gravidade?: Prisma.SortOrder
   status?: Prisma.SortOrder
   protocolo?: Prisma.SortOrder
-  latitude?: Prisma.SortOrder
-  longitude?: Prisma.SortOrder
-  enderecoId?: Prisma.SortOrder
+  endereco?: Prisma.SortOrder
   categoriaId?: Prisma.SortOrder
-  criadorId?: Prisma.SortOrder
   responsavelId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -618,24 +528,13 @@ export type OcorrenciaMinOrderByAggregateInput = {
 
 export type OcorrenciaSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  latitude?: Prisma.SortOrder
-  longitude?: Prisma.SortOrder
-  enderecoId?: Prisma.SortOrder
   categoriaId?: Prisma.SortOrder
-  criadorId?: Prisma.SortOrder
   responsavelId?: Prisma.SortOrder
 }
 
 export type OcorrenciaScalarRelationFilter = {
   is?: Prisma.OcorrenciaWhereInput
   isNot?: Prisma.OcorrenciaWhereInput
-}
-
-export type OcorrenciaCreateNestedManyWithoutCriadorInput = {
-  create?: Prisma.XOR<Prisma.OcorrenciaCreateWithoutCriadorInput, Prisma.OcorrenciaUncheckedCreateWithoutCriadorInput> | Prisma.OcorrenciaCreateWithoutCriadorInput[] | Prisma.OcorrenciaUncheckedCreateWithoutCriadorInput[]
-  connectOrCreate?: Prisma.OcorrenciaCreateOrConnectWithoutCriadorInput | Prisma.OcorrenciaCreateOrConnectWithoutCriadorInput[]
-  createMany?: Prisma.OcorrenciaCreateManyCriadorInputEnvelope
-  connect?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
 }
 
 export type OcorrenciaCreateNestedManyWithoutResponsavelInput = {
@@ -645,32 +544,11 @@ export type OcorrenciaCreateNestedManyWithoutResponsavelInput = {
   connect?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
 }
 
-export type OcorrenciaUncheckedCreateNestedManyWithoutCriadorInput = {
-  create?: Prisma.XOR<Prisma.OcorrenciaCreateWithoutCriadorInput, Prisma.OcorrenciaUncheckedCreateWithoutCriadorInput> | Prisma.OcorrenciaCreateWithoutCriadorInput[] | Prisma.OcorrenciaUncheckedCreateWithoutCriadorInput[]
-  connectOrCreate?: Prisma.OcorrenciaCreateOrConnectWithoutCriadorInput | Prisma.OcorrenciaCreateOrConnectWithoutCriadorInput[]
-  createMany?: Prisma.OcorrenciaCreateManyCriadorInputEnvelope
-  connect?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-}
-
 export type OcorrenciaUncheckedCreateNestedManyWithoutResponsavelInput = {
   create?: Prisma.XOR<Prisma.OcorrenciaCreateWithoutResponsavelInput, Prisma.OcorrenciaUncheckedCreateWithoutResponsavelInput> | Prisma.OcorrenciaCreateWithoutResponsavelInput[] | Prisma.OcorrenciaUncheckedCreateWithoutResponsavelInput[]
   connectOrCreate?: Prisma.OcorrenciaCreateOrConnectWithoutResponsavelInput | Prisma.OcorrenciaCreateOrConnectWithoutResponsavelInput[]
   createMany?: Prisma.OcorrenciaCreateManyResponsavelInputEnvelope
   connect?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-}
-
-export type OcorrenciaUpdateManyWithoutCriadorNestedInput = {
-  create?: Prisma.XOR<Prisma.OcorrenciaCreateWithoutCriadorInput, Prisma.OcorrenciaUncheckedCreateWithoutCriadorInput> | Prisma.OcorrenciaCreateWithoutCriadorInput[] | Prisma.OcorrenciaUncheckedCreateWithoutCriadorInput[]
-  connectOrCreate?: Prisma.OcorrenciaCreateOrConnectWithoutCriadorInput | Prisma.OcorrenciaCreateOrConnectWithoutCriadorInput[]
-  upsert?: Prisma.OcorrenciaUpsertWithWhereUniqueWithoutCriadorInput | Prisma.OcorrenciaUpsertWithWhereUniqueWithoutCriadorInput[]
-  createMany?: Prisma.OcorrenciaCreateManyCriadorInputEnvelope
-  set?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-  disconnect?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-  delete?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-  connect?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-  update?: Prisma.OcorrenciaUpdateWithWhereUniqueWithoutCriadorInput | Prisma.OcorrenciaUpdateWithWhereUniqueWithoutCriadorInput[]
-  updateMany?: Prisma.OcorrenciaUpdateManyWithWhereWithoutCriadorInput | Prisma.OcorrenciaUpdateManyWithWhereWithoutCriadorInput[]
-  deleteMany?: Prisma.OcorrenciaScalarWhereInput | Prisma.OcorrenciaScalarWhereInput[]
 }
 
 export type OcorrenciaUpdateManyWithoutResponsavelNestedInput = {
@@ -687,20 +565,6 @@ export type OcorrenciaUpdateManyWithoutResponsavelNestedInput = {
   deleteMany?: Prisma.OcorrenciaScalarWhereInput | Prisma.OcorrenciaScalarWhereInput[]
 }
 
-export type OcorrenciaUncheckedUpdateManyWithoutCriadorNestedInput = {
-  create?: Prisma.XOR<Prisma.OcorrenciaCreateWithoutCriadorInput, Prisma.OcorrenciaUncheckedCreateWithoutCriadorInput> | Prisma.OcorrenciaCreateWithoutCriadorInput[] | Prisma.OcorrenciaUncheckedCreateWithoutCriadorInput[]
-  connectOrCreate?: Prisma.OcorrenciaCreateOrConnectWithoutCriadorInput | Prisma.OcorrenciaCreateOrConnectWithoutCriadorInput[]
-  upsert?: Prisma.OcorrenciaUpsertWithWhereUniqueWithoutCriadorInput | Prisma.OcorrenciaUpsertWithWhereUniqueWithoutCriadorInput[]
-  createMany?: Prisma.OcorrenciaCreateManyCriadorInputEnvelope
-  set?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-  disconnect?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-  delete?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-  connect?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-  update?: Prisma.OcorrenciaUpdateWithWhereUniqueWithoutCriadorInput | Prisma.OcorrenciaUpdateWithWhereUniqueWithoutCriadorInput[]
-  updateMany?: Prisma.OcorrenciaUpdateManyWithWhereWithoutCriadorInput | Prisma.OcorrenciaUpdateManyWithWhereWithoutCriadorInput[]
-  deleteMany?: Prisma.OcorrenciaScalarWhereInput | Prisma.OcorrenciaScalarWhereInput[]
-}
-
 export type OcorrenciaUncheckedUpdateManyWithoutResponsavelNestedInput = {
   create?: Prisma.XOR<Prisma.OcorrenciaCreateWithoutResponsavelInput, Prisma.OcorrenciaUncheckedCreateWithoutResponsavelInput> | Prisma.OcorrenciaCreateWithoutResponsavelInput[] | Prisma.OcorrenciaUncheckedCreateWithoutResponsavelInput[]
   connectOrCreate?: Prisma.OcorrenciaCreateOrConnectWithoutResponsavelInput | Prisma.OcorrenciaCreateOrConnectWithoutResponsavelInput[]
@@ -712,48 +576,6 @@ export type OcorrenciaUncheckedUpdateManyWithoutResponsavelNestedInput = {
   connect?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
   update?: Prisma.OcorrenciaUpdateWithWhereUniqueWithoutResponsavelInput | Prisma.OcorrenciaUpdateWithWhereUniqueWithoutResponsavelInput[]
   updateMany?: Prisma.OcorrenciaUpdateManyWithWhereWithoutResponsavelInput | Prisma.OcorrenciaUpdateManyWithWhereWithoutResponsavelInput[]
-  deleteMany?: Prisma.OcorrenciaScalarWhereInput | Prisma.OcorrenciaScalarWhereInput[]
-}
-
-export type OcorrenciaCreateNestedManyWithoutEnderecoInput = {
-  create?: Prisma.XOR<Prisma.OcorrenciaCreateWithoutEnderecoInput, Prisma.OcorrenciaUncheckedCreateWithoutEnderecoInput> | Prisma.OcorrenciaCreateWithoutEnderecoInput[] | Prisma.OcorrenciaUncheckedCreateWithoutEnderecoInput[]
-  connectOrCreate?: Prisma.OcorrenciaCreateOrConnectWithoutEnderecoInput | Prisma.OcorrenciaCreateOrConnectWithoutEnderecoInput[]
-  createMany?: Prisma.OcorrenciaCreateManyEnderecoInputEnvelope
-  connect?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-}
-
-export type OcorrenciaUncheckedCreateNestedManyWithoutEnderecoInput = {
-  create?: Prisma.XOR<Prisma.OcorrenciaCreateWithoutEnderecoInput, Prisma.OcorrenciaUncheckedCreateWithoutEnderecoInput> | Prisma.OcorrenciaCreateWithoutEnderecoInput[] | Prisma.OcorrenciaUncheckedCreateWithoutEnderecoInput[]
-  connectOrCreate?: Prisma.OcorrenciaCreateOrConnectWithoutEnderecoInput | Prisma.OcorrenciaCreateOrConnectWithoutEnderecoInput[]
-  createMany?: Prisma.OcorrenciaCreateManyEnderecoInputEnvelope
-  connect?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-}
-
-export type OcorrenciaUpdateManyWithoutEnderecoNestedInput = {
-  create?: Prisma.XOR<Prisma.OcorrenciaCreateWithoutEnderecoInput, Prisma.OcorrenciaUncheckedCreateWithoutEnderecoInput> | Prisma.OcorrenciaCreateWithoutEnderecoInput[] | Prisma.OcorrenciaUncheckedCreateWithoutEnderecoInput[]
-  connectOrCreate?: Prisma.OcorrenciaCreateOrConnectWithoutEnderecoInput | Prisma.OcorrenciaCreateOrConnectWithoutEnderecoInput[]
-  upsert?: Prisma.OcorrenciaUpsertWithWhereUniqueWithoutEnderecoInput | Prisma.OcorrenciaUpsertWithWhereUniqueWithoutEnderecoInput[]
-  createMany?: Prisma.OcorrenciaCreateManyEnderecoInputEnvelope
-  set?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-  disconnect?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-  delete?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-  connect?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-  update?: Prisma.OcorrenciaUpdateWithWhereUniqueWithoutEnderecoInput | Prisma.OcorrenciaUpdateWithWhereUniqueWithoutEnderecoInput[]
-  updateMany?: Prisma.OcorrenciaUpdateManyWithWhereWithoutEnderecoInput | Prisma.OcorrenciaUpdateManyWithWhereWithoutEnderecoInput[]
-  deleteMany?: Prisma.OcorrenciaScalarWhereInput | Prisma.OcorrenciaScalarWhereInput[]
-}
-
-export type OcorrenciaUncheckedUpdateManyWithoutEnderecoNestedInput = {
-  create?: Prisma.XOR<Prisma.OcorrenciaCreateWithoutEnderecoInput, Prisma.OcorrenciaUncheckedCreateWithoutEnderecoInput> | Prisma.OcorrenciaCreateWithoutEnderecoInput[] | Prisma.OcorrenciaUncheckedCreateWithoutEnderecoInput[]
-  connectOrCreate?: Prisma.OcorrenciaCreateOrConnectWithoutEnderecoInput | Prisma.OcorrenciaCreateOrConnectWithoutEnderecoInput[]
-  upsert?: Prisma.OcorrenciaUpsertWithWhereUniqueWithoutEnderecoInput | Prisma.OcorrenciaUpsertWithWhereUniqueWithoutEnderecoInput[]
-  createMany?: Prisma.OcorrenciaCreateManyEnderecoInputEnvelope
-  set?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-  disconnect?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-  delete?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-  connect?: Prisma.OcorrenciaWhereUniqueInput | Prisma.OcorrenciaWhereUniqueInput[]
-  update?: Prisma.OcorrenciaUpdateWithWhereUniqueWithoutEnderecoInput | Prisma.OcorrenciaUpdateWithWhereUniqueWithoutEnderecoInput[]
-  updateMany?: Prisma.OcorrenciaUpdateManyWithWhereWithoutEnderecoInput | Prisma.OcorrenciaUpdateManyWithWhereWithoutEnderecoInput[]
   deleteMany?: Prisma.OcorrenciaScalarWhereInput | Prisma.OcorrenciaScalarWhereInput[]
 }
 
@@ -805,14 +627,6 @@ export type EnumGravidadeFieldUpdateOperationsInput = {
 
 export type EnumStatusOcorrenciaFieldUpdateOperationsInput = {
   set?: $Enums.StatusOcorrencia
-}
-
-export type FloatFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
 }
 
 export type NullableIntFieldUpdateOperationsInput = {
@@ -879,68 +693,16 @@ export type OcorrenciaUpdateOneRequiredWithoutAvaliacaoNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.OcorrenciaUpdateToOneWithWhereWithoutAvaliacaoInput, Prisma.OcorrenciaUpdateWithoutAvaliacaoInput>, Prisma.OcorrenciaUncheckedUpdateWithoutAvaliacaoInput>
 }
 
-export type OcorrenciaCreateWithoutCriadorInput = {
-  titulo: string
-  descricao: string
-  gravidade?: $Enums.Gravidade
-  status?: $Enums.StatusOcorrencia
-  protocolo: string
-  latitude: number
-  longitude: number
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  endereco: Prisma.EnderecoCreateNestedOneWithoutOcorrenciasInput
-  categoria: Prisma.CategoriaCreateNestedOneWithoutOcorrenciasInput
-  responsavel?: Prisma.UserCreateNestedOneWithoutOcorrenciasResponsavelInput
-  imagens?: Prisma.ImagemOcorrenciaCreateNestedManyWithoutOcorrenciaInput
-  comentarios?: Prisma.ComentarioCreateNestedManyWithoutOcorrenciaInput
-  historicos?: Prisma.HistoricoStatusCreateNestedManyWithoutOcorrenciaInput
-  avaliacao?: Prisma.AvaliacaoCreateNestedOneWithoutOcorrenciaInput
-}
-
-export type OcorrenciaUncheckedCreateWithoutCriadorInput = {
-  id?: number
-  titulo: string
-  descricao: string
-  gravidade?: $Enums.Gravidade
-  status?: $Enums.StatusOcorrencia
-  protocolo: string
-  latitude: number
-  longitude: number
-  enderecoId: number
-  categoriaId: number
-  responsavelId?: number | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  imagens?: Prisma.ImagemOcorrenciaUncheckedCreateNestedManyWithoutOcorrenciaInput
-  comentarios?: Prisma.ComentarioUncheckedCreateNestedManyWithoutOcorrenciaInput
-  historicos?: Prisma.HistoricoStatusUncheckedCreateNestedManyWithoutOcorrenciaInput
-  avaliacao?: Prisma.AvaliacaoUncheckedCreateNestedOneWithoutOcorrenciaInput
-}
-
-export type OcorrenciaCreateOrConnectWithoutCriadorInput = {
-  where: Prisma.OcorrenciaWhereUniqueInput
-  create: Prisma.XOR<Prisma.OcorrenciaCreateWithoutCriadorInput, Prisma.OcorrenciaUncheckedCreateWithoutCriadorInput>
-}
-
-export type OcorrenciaCreateManyCriadorInputEnvelope = {
-  data: Prisma.OcorrenciaCreateManyCriadorInput | Prisma.OcorrenciaCreateManyCriadorInput[]
-  skipDuplicates?: boolean
-}
-
 export type OcorrenciaCreateWithoutResponsavelInput = {
   titulo: string
   descricao: string
   gravidade?: $Enums.Gravidade
   status?: $Enums.StatusOcorrencia
   protocolo: string
-  latitude: number
-  longitude: number
+  endereco?: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  endereco: Prisma.EnderecoCreateNestedOneWithoutOcorrenciasInput
   categoria: Prisma.CategoriaCreateNestedOneWithoutOcorrenciasInput
-  criador: Prisma.UserCreateNestedOneWithoutOcorrenciasCriadasInput
   imagens?: Prisma.ImagemOcorrenciaCreateNestedManyWithoutOcorrenciaInput
   comentarios?: Prisma.ComentarioCreateNestedManyWithoutOcorrenciaInput
   historicos?: Prisma.HistoricoStatusCreateNestedManyWithoutOcorrenciaInput
@@ -954,11 +716,8 @@ export type OcorrenciaUncheckedCreateWithoutResponsavelInput = {
   gravidade?: $Enums.Gravidade
   status?: $Enums.StatusOcorrencia
   protocolo: string
-  latitude: number
-  longitude: number
-  enderecoId: number
+  endereco?: string
   categoriaId: number
-  criadorId: number
   createdAt?: Date | string
   updatedAt?: Date | string
   imagens?: Prisma.ImagemOcorrenciaUncheckedCreateNestedManyWithoutOcorrenciaInput
@@ -977,42 +736,6 @@ export type OcorrenciaCreateManyResponsavelInputEnvelope = {
   skipDuplicates?: boolean
 }
 
-export type OcorrenciaUpsertWithWhereUniqueWithoutCriadorInput = {
-  where: Prisma.OcorrenciaWhereUniqueInput
-  update: Prisma.XOR<Prisma.OcorrenciaUpdateWithoutCriadorInput, Prisma.OcorrenciaUncheckedUpdateWithoutCriadorInput>
-  create: Prisma.XOR<Prisma.OcorrenciaCreateWithoutCriadorInput, Prisma.OcorrenciaUncheckedCreateWithoutCriadorInput>
-}
-
-export type OcorrenciaUpdateWithWhereUniqueWithoutCriadorInput = {
-  where: Prisma.OcorrenciaWhereUniqueInput
-  data: Prisma.XOR<Prisma.OcorrenciaUpdateWithoutCriadorInput, Prisma.OcorrenciaUncheckedUpdateWithoutCriadorInput>
-}
-
-export type OcorrenciaUpdateManyWithWhereWithoutCriadorInput = {
-  where: Prisma.OcorrenciaScalarWhereInput
-  data: Prisma.XOR<Prisma.OcorrenciaUpdateManyMutationInput, Prisma.OcorrenciaUncheckedUpdateManyWithoutCriadorInput>
-}
-
-export type OcorrenciaScalarWhereInput = {
-  AND?: Prisma.OcorrenciaScalarWhereInput | Prisma.OcorrenciaScalarWhereInput[]
-  OR?: Prisma.OcorrenciaScalarWhereInput[]
-  NOT?: Prisma.OcorrenciaScalarWhereInput | Prisma.OcorrenciaScalarWhereInput[]
-  id?: Prisma.IntFilter<"Ocorrencia"> | number
-  titulo?: Prisma.StringFilter<"Ocorrencia"> | string
-  descricao?: Prisma.StringFilter<"Ocorrencia"> | string
-  gravidade?: Prisma.EnumGravidadeFilter<"Ocorrencia"> | $Enums.Gravidade
-  status?: Prisma.EnumStatusOcorrenciaFilter<"Ocorrencia"> | $Enums.StatusOcorrencia
-  protocolo?: Prisma.StringFilter<"Ocorrencia"> | string
-  latitude?: Prisma.FloatFilter<"Ocorrencia"> | number
-  longitude?: Prisma.FloatFilter<"Ocorrencia"> | number
-  enderecoId?: Prisma.IntFilter<"Ocorrencia"> | number
-  categoriaId?: Prisma.IntFilter<"Ocorrencia"> | number
-  criadorId?: Prisma.IntFilter<"Ocorrencia"> | number
-  responsavelId?: Prisma.IntNullableFilter<"Ocorrencia"> | number | null
-  createdAt?: Prisma.DateTimeFilter<"Ocorrencia"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"Ocorrencia"> | Date | string
-}
-
 export type OcorrenciaUpsertWithWhereUniqueWithoutResponsavelInput = {
   where: Prisma.OcorrenciaWhereUniqueInput
   update: Prisma.XOR<Prisma.OcorrenciaUpdateWithoutResponsavelInput, Prisma.OcorrenciaUncheckedUpdateWithoutResponsavelInput>
@@ -1029,69 +752,21 @@ export type OcorrenciaUpdateManyWithWhereWithoutResponsavelInput = {
   data: Prisma.XOR<Prisma.OcorrenciaUpdateManyMutationInput, Prisma.OcorrenciaUncheckedUpdateManyWithoutResponsavelInput>
 }
 
-export type OcorrenciaCreateWithoutEnderecoInput = {
-  titulo: string
-  descricao: string
-  gravidade?: $Enums.Gravidade
-  status?: $Enums.StatusOcorrencia
-  protocolo: string
-  latitude: number
-  longitude: number
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  categoria: Prisma.CategoriaCreateNestedOneWithoutOcorrenciasInput
-  criador: Prisma.UserCreateNestedOneWithoutOcorrenciasCriadasInput
-  responsavel?: Prisma.UserCreateNestedOneWithoutOcorrenciasResponsavelInput
-  imagens?: Prisma.ImagemOcorrenciaCreateNestedManyWithoutOcorrenciaInput
-  comentarios?: Prisma.ComentarioCreateNestedManyWithoutOcorrenciaInput
-  historicos?: Prisma.HistoricoStatusCreateNestedManyWithoutOcorrenciaInput
-  avaliacao?: Prisma.AvaliacaoCreateNestedOneWithoutOcorrenciaInput
-}
-
-export type OcorrenciaUncheckedCreateWithoutEnderecoInput = {
-  id?: number
-  titulo: string
-  descricao: string
-  gravidade?: $Enums.Gravidade
-  status?: $Enums.StatusOcorrencia
-  protocolo: string
-  latitude: number
-  longitude: number
-  categoriaId: number
-  criadorId: number
-  responsavelId?: number | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  imagens?: Prisma.ImagemOcorrenciaUncheckedCreateNestedManyWithoutOcorrenciaInput
-  comentarios?: Prisma.ComentarioUncheckedCreateNestedManyWithoutOcorrenciaInput
-  historicos?: Prisma.HistoricoStatusUncheckedCreateNestedManyWithoutOcorrenciaInput
-  avaliacao?: Prisma.AvaliacaoUncheckedCreateNestedOneWithoutOcorrenciaInput
-}
-
-export type OcorrenciaCreateOrConnectWithoutEnderecoInput = {
-  where: Prisma.OcorrenciaWhereUniqueInput
-  create: Prisma.XOR<Prisma.OcorrenciaCreateWithoutEnderecoInput, Prisma.OcorrenciaUncheckedCreateWithoutEnderecoInput>
-}
-
-export type OcorrenciaCreateManyEnderecoInputEnvelope = {
-  data: Prisma.OcorrenciaCreateManyEnderecoInput | Prisma.OcorrenciaCreateManyEnderecoInput[]
-  skipDuplicates?: boolean
-}
-
-export type OcorrenciaUpsertWithWhereUniqueWithoutEnderecoInput = {
-  where: Prisma.OcorrenciaWhereUniqueInput
-  update: Prisma.XOR<Prisma.OcorrenciaUpdateWithoutEnderecoInput, Prisma.OcorrenciaUncheckedUpdateWithoutEnderecoInput>
-  create: Prisma.XOR<Prisma.OcorrenciaCreateWithoutEnderecoInput, Prisma.OcorrenciaUncheckedCreateWithoutEnderecoInput>
-}
-
-export type OcorrenciaUpdateWithWhereUniqueWithoutEnderecoInput = {
-  where: Prisma.OcorrenciaWhereUniqueInput
-  data: Prisma.XOR<Prisma.OcorrenciaUpdateWithoutEnderecoInput, Prisma.OcorrenciaUncheckedUpdateWithoutEnderecoInput>
-}
-
-export type OcorrenciaUpdateManyWithWhereWithoutEnderecoInput = {
-  where: Prisma.OcorrenciaScalarWhereInput
-  data: Prisma.XOR<Prisma.OcorrenciaUpdateManyMutationInput, Prisma.OcorrenciaUncheckedUpdateManyWithoutEnderecoInput>
+export type OcorrenciaScalarWhereInput = {
+  AND?: Prisma.OcorrenciaScalarWhereInput | Prisma.OcorrenciaScalarWhereInput[]
+  OR?: Prisma.OcorrenciaScalarWhereInput[]
+  NOT?: Prisma.OcorrenciaScalarWhereInput | Prisma.OcorrenciaScalarWhereInput[]
+  id?: Prisma.IntFilter<"Ocorrencia"> | number
+  titulo?: Prisma.StringFilter<"Ocorrencia"> | string
+  descricao?: Prisma.StringFilter<"Ocorrencia"> | string
+  gravidade?: Prisma.EnumGravidadeFilter<"Ocorrencia"> | $Enums.Gravidade
+  status?: Prisma.EnumStatusOcorrenciaFilter<"Ocorrencia"> | $Enums.StatusOcorrencia
+  protocolo?: Prisma.StringFilter<"Ocorrencia"> | string
+  endereco?: Prisma.StringFilter<"Ocorrencia"> | string
+  categoriaId?: Prisma.IntFilter<"Ocorrencia"> | number
+  responsavelId?: Prisma.IntNullableFilter<"Ocorrencia"> | number | null
+  createdAt?: Prisma.DateTimeFilter<"Ocorrencia"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Ocorrencia"> | Date | string
 }
 
 export type OcorrenciaCreateWithoutCategoriaInput = {
@@ -1100,12 +775,9 @@ export type OcorrenciaCreateWithoutCategoriaInput = {
   gravidade?: $Enums.Gravidade
   status?: $Enums.StatusOcorrencia
   protocolo: string
-  latitude: number
-  longitude: number
+  endereco?: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  endereco: Prisma.EnderecoCreateNestedOneWithoutOcorrenciasInput
-  criador: Prisma.UserCreateNestedOneWithoutOcorrenciasCriadasInput
   responsavel?: Prisma.UserCreateNestedOneWithoutOcorrenciasResponsavelInput
   imagens?: Prisma.ImagemOcorrenciaCreateNestedManyWithoutOcorrenciaInput
   comentarios?: Prisma.ComentarioCreateNestedManyWithoutOcorrenciaInput
@@ -1120,10 +792,7 @@ export type OcorrenciaUncheckedCreateWithoutCategoriaInput = {
   gravidade?: $Enums.Gravidade
   status?: $Enums.StatusOcorrencia
   protocolo: string
-  latitude: number
-  longitude: number
-  enderecoId: number
-  criadorId: number
+  endereco?: string
   responsavelId?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1165,13 +834,10 @@ export type OcorrenciaCreateWithoutImagensInput = {
   gravidade?: $Enums.Gravidade
   status?: $Enums.StatusOcorrencia
   protocolo: string
-  latitude: number
-  longitude: number
+  endereco?: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  endereco: Prisma.EnderecoCreateNestedOneWithoutOcorrenciasInput
   categoria: Prisma.CategoriaCreateNestedOneWithoutOcorrenciasInput
-  criador: Prisma.UserCreateNestedOneWithoutOcorrenciasCriadasInput
   responsavel?: Prisma.UserCreateNestedOneWithoutOcorrenciasResponsavelInput
   comentarios?: Prisma.ComentarioCreateNestedManyWithoutOcorrenciaInput
   historicos?: Prisma.HistoricoStatusCreateNestedManyWithoutOcorrenciaInput
@@ -1185,11 +851,8 @@ export type OcorrenciaUncheckedCreateWithoutImagensInput = {
   gravidade?: $Enums.Gravidade
   status?: $Enums.StatusOcorrencia
   protocolo: string
-  latitude: number
-  longitude: number
-  enderecoId: number
+  endereco?: string
   categoriaId: number
-  criadorId: number
   responsavelId?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1220,13 +883,10 @@ export type OcorrenciaUpdateWithoutImagensInput = {
   gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endereco?: Prisma.EnderecoUpdateOneRequiredWithoutOcorrenciasNestedInput
   categoria?: Prisma.CategoriaUpdateOneRequiredWithoutOcorrenciasNestedInput
-  criador?: Prisma.UserUpdateOneRequiredWithoutOcorrenciasCriadasNestedInput
   responsavel?: Prisma.UserUpdateOneWithoutOcorrenciasResponsavelNestedInput
   comentarios?: Prisma.ComentarioUpdateManyWithoutOcorrenciaNestedInput
   historicos?: Prisma.HistoricoStatusUpdateManyWithoutOcorrenciaNestedInput
@@ -1240,11 +900,8 @@ export type OcorrenciaUncheckedUpdateWithoutImagensInput = {
   gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  enderecoId?: Prisma.IntFieldUpdateOperationsInput | number
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
-  criadorId?: Prisma.IntFieldUpdateOperationsInput | number
   responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1259,13 +916,10 @@ export type OcorrenciaCreateWithoutComentariosInput = {
   gravidade?: $Enums.Gravidade
   status?: $Enums.StatusOcorrencia
   protocolo: string
-  latitude: number
-  longitude: number
+  endereco?: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  endereco: Prisma.EnderecoCreateNestedOneWithoutOcorrenciasInput
   categoria: Prisma.CategoriaCreateNestedOneWithoutOcorrenciasInput
-  criador: Prisma.UserCreateNestedOneWithoutOcorrenciasCriadasInput
   responsavel?: Prisma.UserCreateNestedOneWithoutOcorrenciasResponsavelInput
   imagens?: Prisma.ImagemOcorrenciaCreateNestedManyWithoutOcorrenciaInput
   historicos?: Prisma.HistoricoStatusCreateNestedManyWithoutOcorrenciaInput
@@ -1279,11 +933,8 @@ export type OcorrenciaUncheckedCreateWithoutComentariosInput = {
   gravidade?: $Enums.Gravidade
   status?: $Enums.StatusOcorrencia
   protocolo: string
-  latitude: number
-  longitude: number
-  enderecoId: number
+  endereco?: string
   categoriaId: number
-  criadorId: number
   responsavelId?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1314,13 +965,10 @@ export type OcorrenciaUpdateWithoutComentariosInput = {
   gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endereco?: Prisma.EnderecoUpdateOneRequiredWithoutOcorrenciasNestedInput
   categoria?: Prisma.CategoriaUpdateOneRequiredWithoutOcorrenciasNestedInput
-  criador?: Prisma.UserUpdateOneRequiredWithoutOcorrenciasCriadasNestedInput
   responsavel?: Prisma.UserUpdateOneWithoutOcorrenciasResponsavelNestedInput
   imagens?: Prisma.ImagemOcorrenciaUpdateManyWithoutOcorrenciaNestedInput
   historicos?: Prisma.HistoricoStatusUpdateManyWithoutOcorrenciaNestedInput
@@ -1334,11 +982,8 @@ export type OcorrenciaUncheckedUpdateWithoutComentariosInput = {
   gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  enderecoId?: Prisma.IntFieldUpdateOperationsInput | number
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
-  criadorId?: Prisma.IntFieldUpdateOperationsInput | number
   responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1353,13 +998,10 @@ export type OcorrenciaCreateWithoutHistoricosInput = {
   gravidade?: $Enums.Gravidade
   status?: $Enums.StatusOcorrencia
   protocolo: string
-  latitude: number
-  longitude: number
+  endereco?: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  endereco: Prisma.EnderecoCreateNestedOneWithoutOcorrenciasInput
   categoria: Prisma.CategoriaCreateNestedOneWithoutOcorrenciasInput
-  criador: Prisma.UserCreateNestedOneWithoutOcorrenciasCriadasInput
   responsavel?: Prisma.UserCreateNestedOneWithoutOcorrenciasResponsavelInput
   imagens?: Prisma.ImagemOcorrenciaCreateNestedManyWithoutOcorrenciaInput
   comentarios?: Prisma.ComentarioCreateNestedManyWithoutOcorrenciaInput
@@ -1373,11 +1015,8 @@ export type OcorrenciaUncheckedCreateWithoutHistoricosInput = {
   gravidade?: $Enums.Gravidade
   status?: $Enums.StatusOcorrencia
   protocolo: string
-  latitude: number
-  longitude: number
-  enderecoId: number
+  endereco?: string
   categoriaId: number
-  criadorId: number
   responsavelId?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1408,13 +1047,10 @@ export type OcorrenciaUpdateWithoutHistoricosInput = {
   gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endereco?: Prisma.EnderecoUpdateOneRequiredWithoutOcorrenciasNestedInput
   categoria?: Prisma.CategoriaUpdateOneRequiredWithoutOcorrenciasNestedInput
-  criador?: Prisma.UserUpdateOneRequiredWithoutOcorrenciasCriadasNestedInput
   responsavel?: Prisma.UserUpdateOneWithoutOcorrenciasResponsavelNestedInput
   imagens?: Prisma.ImagemOcorrenciaUpdateManyWithoutOcorrenciaNestedInput
   comentarios?: Prisma.ComentarioUpdateManyWithoutOcorrenciaNestedInput
@@ -1428,11 +1064,8 @@ export type OcorrenciaUncheckedUpdateWithoutHistoricosInput = {
   gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  enderecoId?: Prisma.IntFieldUpdateOperationsInput | number
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
-  criadorId?: Prisma.IntFieldUpdateOperationsInput | number
   responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1447,13 +1080,10 @@ export type OcorrenciaCreateWithoutAvaliacaoInput = {
   gravidade?: $Enums.Gravidade
   status?: $Enums.StatusOcorrencia
   protocolo: string
-  latitude: number
-  longitude: number
+  endereco?: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  endereco: Prisma.EnderecoCreateNestedOneWithoutOcorrenciasInput
   categoria: Prisma.CategoriaCreateNestedOneWithoutOcorrenciasInput
-  criador: Prisma.UserCreateNestedOneWithoutOcorrenciasCriadasInput
   responsavel?: Prisma.UserCreateNestedOneWithoutOcorrenciasResponsavelInput
   imagens?: Prisma.ImagemOcorrenciaCreateNestedManyWithoutOcorrenciaInput
   comentarios?: Prisma.ComentarioCreateNestedManyWithoutOcorrenciaInput
@@ -1467,11 +1097,8 @@ export type OcorrenciaUncheckedCreateWithoutAvaliacaoInput = {
   gravidade?: $Enums.Gravidade
   status?: $Enums.StatusOcorrencia
   protocolo: string
-  latitude: number
-  longitude: number
-  enderecoId: number
+  endereco?: string
   categoriaId: number
-  criadorId: number
   responsavelId?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1502,13 +1129,10 @@ export type OcorrenciaUpdateWithoutAvaliacaoInput = {
   gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endereco?: Prisma.EnderecoUpdateOneRequiredWithoutOcorrenciasNestedInput
   categoria?: Prisma.CategoriaUpdateOneRequiredWithoutOcorrenciasNestedInput
-  criador?: Prisma.UserUpdateOneRequiredWithoutOcorrenciasCriadasNestedInput
   responsavel?: Prisma.UserUpdateOneWithoutOcorrenciasResponsavelNestedInput
   imagens?: Prisma.ImagemOcorrenciaUpdateManyWithoutOcorrenciaNestedInput
   comentarios?: Prisma.ComentarioUpdateManyWithoutOcorrenciaNestedInput
@@ -1522,33 +1146,14 @@ export type OcorrenciaUncheckedUpdateWithoutAvaliacaoInput = {
   gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  enderecoId?: Prisma.IntFieldUpdateOperationsInput | number
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
-  criadorId?: Prisma.IntFieldUpdateOperationsInput | number
   responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   imagens?: Prisma.ImagemOcorrenciaUncheckedUpdateManyWithoutOcorrenciaNestedInput
   comentarios?: Prisma.ComentarioUncheckedUpdateManyWithoutOcorrenciaNestedInput
   historicos?: Prisma.HistoricoStatusUncheckedUpdateManyWithoutOcorrenciaNestedInput
-}
-
-export type OcorrenciaCreateManyCriadorInput = {
-  id?: number
-  titulo: string
-  descricao: string
-  gravidade?: $Enums.Gravidade
-  status?: $Enums.StatusOcorrencia
-  protocolo: string
-  latitude: number
-  longitude: number
-  enderecoId: number
-  categoriaId: number
-  responsavelId?: number | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
 }
 
 export type OcorrenciaCreateManyResponsavelInput = {
@@ -1558,68 +1163,10 @@ export type OcorrenciaCreateManyResponsavelInput = {
   gravidade?: $Enums.Gravidade
   status?: $Enums.StatusOcorrencia
   protocolo: string
-  latitude: number
-  longitude: number
-  enderecoId: number
+  endereco?: string
   categoriaId: number
-  criadorId: number
   createdAt?: Date | string
   updatedAt?: Date | string
-}
-
-export type OcorrenciaUpdateWithoutCriadorInput = {
-  titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  descricao?: Prisma.StringFieldUpdateOperationsInput | string
-  gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
-  status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
-  protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endereco?: Prisma.EnderecoUpdateOneRequiredWithoutOcorrenciasNestedInput
-  categoria?: Prisma.CategoriaUpdateOneRequiredWithoutOcorrenciasNestedInput
-  responsavel?: Prisma.UserUpdateOneWithoutOcorrenciasResponsavelNestedInput
-  imagens?: Prisma.ImagemOcorrenciaUpdateManyWithoutOcorrenciaNestedInput
-  comentarios?: Prisma.ComentarioUpdateManyWithoutOcorrenciaNestedInput
-  historicos?: Prisma.HistoricoStatusUpdateManyWithoutOcorrenciaNestedInput
-  avaliacao?: Prisma.AvaliacaoUpdateOneWithoutOcorrenciaNestedInput
-}
-
-export type OcorrenciaUncheckedUpdateWithoutCriadorInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  descricao?: Prisma.StringFieldUpdateOperationsInput | string
-  gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
-  status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
-  protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  enderecoId?: Prisma.IntFieldUpdateOperationsInput | number
-  categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
-  responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  imagens?: Prisma.ImagemOcorrenciaUncheckedUpdateManyWithoutOcorrenciaNestedInput
-  comentarios?: Prisma.ComentarioUncheckedUpdateManyWithoutOcorrenciaNestedInput
-  historicos?: Prisma.HistoricoStatusUncheckedUpdateManyWithoutOcorrenciaNestedInput
-  avaliacao?: Prisma.AvaliacaoUncheckedUpdateOneWithoutOcorrenciaNestedInput
-}
-
-export type OcorrenciaUncheckedUpdateManyWithoutCriadorInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  descricao?: Prisma.StringFieldUpdateOperationsInput | string
-  gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
-  status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
-  protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  enderecoId?: Prisma.IntFieldUpdateOperationsInput | number
-  categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
-  responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type OcorrenciaUpdateWithoutResponsavelInput = {
@@ -1628,13 +1175,10 @@ export type OcorrenciaUpdateWithoutResponsavelInput = {
   gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endereco?: Prisma.EnderecoUpdateOneRequiredWithoutOcorrenciasNestedInput
   categoria?: Prisma.CategoriaUpdateOneRequiredWithoutOcorrenciasNestedInput
-  criador?: Prisma.UserUpdateOneRequiredWithoutOcorrenciasCriadasNestedInput
   imagens?: Prisma.ImagemOcorrenciaUpdateManyWithoutOcorrenciaNestedInput
   comentarios?: Prisma.ComentarioUpdateManyWithoutOcorrenciaNestedInput
   historicos?: Prisma.HistoricoStatusUpdateManyWithoutOcorrenciaNestedInput
@@ -1648,11 +1192,8 @@ export type OcorrenciaUncheckedUpdateWithoutResponsavelInput = {
   gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  enderecoId?: Prisma.IntFieldUpdateOperationsInput | number
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
-  criadorId?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   imagens?: Prisma.ImagemOcorrenciaUncheckedUpdateManyWithoutOcorrenciaNestedInput
@@ -1668,82 +1209,8 @@ export type OcorrenciaUncheckedUpdateManyWithoutResponsavelInput = {
   gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  enderecoId?: Prisma.IntFieldUpdateOperationsInput | number
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
-  criadorId?: Prisma.IntFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
-export type OcorrenciaCreateManyEnderecoInput = {
-  id?: number
-  titulo: string
-  descricao: string
-  gravidade?: $Enums.Gravidade
-  status?: $Enums.StatusOcorrencia
-  protocolo: string
-  latitude: number
-  longitude: number
-  categoriaId: number
-  criadorId: number
-  responsavelId?: number | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-}
-
-export type OcorrenciaUpdateWithoutEnderecoInput = {
-  titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  descricao?: Prisma.StringFieldUpdateOperationsInput | string
-  gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
-  status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
-  protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  categoria?: Prisma.CategoriaUpdateOneRequiredWithoutOcorrenciasNestedInput
-  criador?: Prisma.UserUpdateOneRequiredWithoutOcorrenciasCriadasNestedInput
-  responsavel?: Prisma.UserUpdateOneWithoutOcorrenciasResponsavelNestedInput
-  imagens?: Prisma.ImagemOcorrenciaUpdateManyWithoutOcorrenciaNestedInput
-  comentarios?: Prisma.ComentarioUpdateManyWithoutOcorrenciaNestedInput
-  historicos?: Prisma.HistoricoStatusUpdateManyWithoutOcorrenciaNestedInput
-  avaliacao?: Prisma.AvaliacaoUpdateOneWithoutOcorrenciaNestedInput
-}
-
-export type OcorrenciaUncheckedUpdateWithoutEnderecoInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  descricao?: Prisma.StringFieldUpdateOperationsInput | string
-  gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
-  status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
-  protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
-  criadorId?: Prisma.IntFieldUpdateOperationsInput | number
-  responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  imagens?: Prisma.ImagemOcorrenciaUncheckedUpdateManyWithoutOcorrenciaNestedInput
-  comentarios?: Prisma.ComentarioUncheckedUpdateManyWithoutOcorrenciaNestedInput
-  historicos?: Prisma.HistoricoStatusUncheckedUpdateManyWithoutOcorrenciaNestedInput
-  avaliacao?: Prisma.AvaliacaoUncheckedUpdateOneWithoutOcorrenciaNestedInput
-}
-
-export type OcorrenciaUncheckedUpdateManyWithoutEnderecoInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  descricao?: Prisma.StringFieldUpdateOperationsInput | string
-  gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
-  status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
-  protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
-  criadorId?: Prisma.IntFieldUpdateOperationsInput | number
-  responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1755,10 +1222,7 @@ export type OcorrenciaCreateManyCategoriaInput = {
   gravidade?: $Enums.Gravidade
   status?: $Enums.StatusOcorrencia
   protocolo: string
-  latitude: number
-  longitude: number
-  enderecoId: number
-  criadorId: number
+  endereco?: string
   responsavelId?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1770,12 +1234,9 @@ export type OcorrenciaUpdateWithoutCategoriaInput = {
   gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endereco?: Prisma.EnderecoUpdateOneRequiredWithoutOcorrenciasNestedInput
-  criador?: Prisma.UserUpdateOneRequiredWithoutOcorrenciasCriadasNestedInput
   responsavel?: Prisma.UserUpdateOneWithoutOcorrenciasResponsavelNestedInput
   imagens?: Prisma.ImagemOcorrenciaUpdateManyWithoutOcorrenciaNestedInput
   comentarios?: Prisma.ComentarioUpdateManyWithoutOcorrenciaNestedInput
@@ -1790,10 +1251,7 @@ export type OcorrenciaUncheckedUpdateWithoutCategoriaInput = {
   gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  enderecoId?: Prisma.IntFieldUpdateOperationsInput | number
-  criadorId?: Prisma.IntFieldUpdateOperationsInput | number
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
   responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1810,10 +1268,7 @@ export type OcorrenciaUncheckedUpdateManyWithoutCategoriaInput = {
   gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
-  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
-  enderecoId?: Prisma.IntFieldUpdateOperationsInput | number
-  criadorId?: Prisma.IntFieldUpdateOperationsInput | number
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
   responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1875,17 +1330,12 @@ export type OcorrenciaSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   gravidade?: boolean
   status?: boolean
   protocolo?: boolean
-  latitude?: boolean
-  longitude?: boolean
-  enderecoId?: boolean
+  endereco?: boolean
   categoriaId?: boolean
-  criadorId?: boolean
   responsavelId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  endereco?: boolean | Prisma.EnderecoDefaultArgs<ExtArgs>
   categoria?: boolean | Prisma.CategoriaDefaultArgs<ExtArgs>
-  criador?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   responsavel?: boolean | Prisma.Ocorrencia$responsavelArgs<ExtArgs>
   imagens?: boolean | Prisma.Ocorrencia$imagensArgs<ExtArgs>
   comentarios?: boolean | Prisma.Ocorrencia$comentariosArgs<ExtArgs>
@@ -1901,17 +1351,12 @@ export type OcorrenciaSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   gravidade?: boolean
   status?: boolean
   protocolo?: boolean
-  latitude?: boolean
-  longitude?: boolean
-  enderecoId?: boolean
+  endereco?: boolean
   categoriaId?: boolean
-  criadorId?: boolean
   responsavelId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  endereco?: boolean | Prisma.EnderecoDefaultArgs<ExtArgs>
   categoria?: boolean | Prisma.CategoriaDefaultArgs<ExtArgs>
-  criador?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   responsavel?: boolean | Prisma.Ocorrencia$responsavelArgs<ExtArgs>
 }, ExtArgs["result"]["ocorrencia"]>
 
@@ -1922,17 +1367,12 @@ export type OcorrenciaSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   gravidade?: boolean
   status?: boolean
   protocolo?: boolean
-  latitude?: boolean
-  longitude?: boolean
-  enderecoId?: boolean
+  endereco?: boolean
   categoriaId?: boolean
-  criadorId?: boolean
   responsavelId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  endereco?: boolean | Prisma.EnderecoDefaultArgs<ExtArgs>
   categoria?: boolean | Prisma.CategoriaDefaultArgs<ExtArgs>
-  criador?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   responsavel?: boolean | Prisma.Ocorrencia$responsavelArgs<ExtArgs>
 }, ExtArgs["result"]["ocorrencia"]>
 
@@ -1943,21 +1383,16 @@ export type OcorrenciaSelectScalar = {
   gravidade?: boolean
   status?: boolean
   protocolo?: boolean
-  latitude?: boolean
-  longitude?: boolean
-  enderecoId?: boolean
+  endereco?: boolean
   categoriaId?: boolean
-  criadorId?: boolean
   responsavelId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type OcorrenciaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "titulo" | "descricao" | "gravidade" | "status" | "protocolo" | "latitude" | "longitude" | "enderecoId" | "categoriaId" | "criadorId" | "responsavelId" | "createdAt" | "updatedAt", ExtArgs["result"]["ocorrencia"]>
+export type OcorrenciaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "titulo" | "descricao" | "gravidade" | "status" | "protocolo" | "endereco" | "categoriaId" | "responsavelId" | "createdAt" | "updatedAt", ExtArgs["result"]["ocorrencia"]>
 export type OcorrenciaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  endereco?: boolean | Prisma.EnderecoDefaultArgs<ExtArgs>
   categoria?: boolean | Prisma.CategoriaDefaultArgs<ExtArgs>
-  criador?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   responsavel?: boolean | Prisma.Ocorrencia$responsavelArgs<ExtArgs>
   imagens?: boolean | Prisma.Ocorrencia$imagensArgs<ExtArgs>
   comentarios?: boolean | Prisma.Ocorrencia$comentariosArgs<ExtArgs>
@@ -1966,24 +1401,18 @@ export type OcorrenciaInclude<ExtArgs extends runtime.Types.Extensions.InternalA
   _count?: boolean | Prisma.OcorrenciaCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type OcorrenciaIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  endereco?: boolean | Prisma.EnderecoDefaultArgs<ExtArgs>
   categoria?: boolean | Prisma.CategoriaDefaultArgs<ExtArgs>
-  criador?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   responsavel?: boolean | Prisma.Ocorrencia$responsavelArgs<ExtArgs>
 }
 export type OcorrenciaIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  endereco?: boolean | Prisma.EnderecoDefaultArgs<ExtArgs>
   categoria?: boolean | Prisma.CategoriaDefaultArgs<ExtArgs>
-  criador?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   responsavel?: boolean | Prisma.Ocorrencia$responsavelArgs<ExtArgs>
 }
 
 export type $OcorrenciaPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Ocorrencia"
   objects: {
-    endereco: Prisma.$EnderecoPayload<ExtArgs>
     categoria: Prisma.$CategoriaPayload<ExtArgs>
-    criador: Prisma.$UserPayload<ExtArgs>
     responsavel: Prisma.$UserPayload<ExtArgs> | null
     imagens: Prisma.$ImagemOcorrenciaPayload<ExtArgs>[]
     comentarios: Prisma.$ComentarioPayload<ExtArgs>[]
@@ -1997,11 +1426,8 @@ export type $OcorrenciaPayload<ExtArgs extends runtime.Types.Extensions.Internal
     gravidade: $Enums.Gravidade
     status: $Enums.StatusOcorrencia
     protocolo: string
-    latitude: number
-    longitude: number
-    enderecoId: number
+    endereco: string
     categoriaId: number
-    criadorId: number
     responsavelId: number | null
     createdAt: Date
     updatedAt: Date
@@ -2399,9 +1825,7 @@ readonly fields: OcorrenciaFieldRefs;
  */
 export interface Prisma__OcorrenciaClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  endereco<T extends Prisma.EnderecoDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EnderecoDefaultArgs<ExtArgs>>): Prisma.Prisma__EnderecoClient<runtime.Types.Result.GetResult<Prisma.$EnderecoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   categoria<T extends Prisma.CategoriaDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CategoriaDefaultArgs<ExtArgs>>): Prisma.Prisma__CategoriaClient<runtime.Types.Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  criador<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   responsavel<T extends Prisma.Ocorrencia$responsavelArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Ocorrencia$responsavelArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   imagens<T extends Prisma.Ocorrencia$imagensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Ocorrencia$imagensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ImagemOcorrenciaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   comentarios<T extends Prisma.Ocorrencia$comentariosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Ocorrencia$comentariosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ComentarioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -2442,11 +1866,8 @@ export interface OcorrenciaFieldRefs {
   readonly gravidade: Prisma.FieldRef<"Ocorrencia", 'Gravidade'>
   readonly status: Prisma.FieldRef<"Ocorrencia", 'StatusOcorrencia'>
   readonly protocolo: Prisma.FieldRef<"Ocorrencia", 'String'>
-  readonly latitude: Prisma.FieldRef<"Ocorrencia", 'Float'>
-  readonly longitude: Prisma.FieldRef<"Ocorrencia", 'Float'>
-  readonly enderecoId: Prisma.FieldRef<"Ocorrencia", 'Int'>
+  readonly endereco: Prisma.FieldRef<"Ocorrencia", 'String'>
   readonly categoriaId: Prisma.FieldRef<"Ocorrencia", 'Int'>
-  readonly criadorId: Prisma.FieldRef<"Ocorrencia", 'Int'>
   readonly responsavelId: Prisma.FieldRef<"Ocorrencia", 'Int'>
   readonly createdAt: Prisma.FieldRef<"Ocorrencia", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Ocorrencia", 'DateTime'>
