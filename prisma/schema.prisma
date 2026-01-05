@@ -107,7 +107,7 @@ model Ocorrencia {
   titulo      String
   descricao   String
 
-    gravidade   Gravidade @default(BAIXA)
+  gravidade   Gravidade @default(BAIXA)
   status      StatusOcorrencia @default(PENDENTE)
   protocolo   String @unique
 
