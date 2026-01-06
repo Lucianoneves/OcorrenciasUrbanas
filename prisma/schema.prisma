@@ -94,6 +94,7 @@ model Ocorrencia {
   status      StatusOcorrencia @default(PENDENTE)
   protocolo   String @unique
   endereco    String @default("")
+  disable     Boolean @default(false)
 
   categoriaId Int
   categoria   Categoria @relation(fields: [categoriaId], references: [id])

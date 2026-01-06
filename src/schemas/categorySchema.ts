@@ -1,6 +1,8 @@
 import { z } from "zod";
 
-export const createCategorySchema = z.object({
+
+// Schema para criação de uma categoria e com mensagens personalizadas de validações
+export const createCategorySchema = z.object({  
     body: z.object({
         nome: z.
         string({message: "Nome é obrigatório em texto"})

@@ -46,6 +46,7 @@ export type OcorrenciaMinAggregateOutputType = {
   status: $Enums.StatusOcorrencia | null
   protocolo: string | null
   endereco: string | null
+  disable: boolean | null
   categoriaId: number | null
   responsavelId: number | null
   createdAt: Date | null
@@ -60,6 +61,7 @@ export type OcorrenciaMaxAggregateOutputType = {
   status: $Enums.StatusOcorrencia | null
   protocolo: string | null
   endereco: string | null
+  disable: boolean | null
   categoriaId: number | null
   responsavelId: number | null
   createdAt: Date | null
@@ -74,6 +76,7 @@ export type OcorrenciaCountAggregateOutputType = {
   status: number
   protocolo: number
   endereco: number
+  disable: number
   categoriaId: number
   responsavelId: number
   createdAt: number
@@ -102,6 +105,7 @@ export type OcorrenciaMinAggregateInputType = {
   status?: true
   protocolo?: true
   endereco?: true
+  disable?: true
   categoriaId?: true
   responsavelId?: true
   createdAt?: true
@@ -116,6 +120,7 @@ export type OcorrenciaMaxAggregateInputType = {
   status?: true
   protocolo?: true
   endereco?: true
+  disable?: true
   categoriaId?: true
   responsavelId?: true
   createdAt?: true
@@ -130,6 +135,7 @@ export type OcorrenciaCountAggregateInputType = {
   status?: true
   protocolo?: true
   endereco?: true
+  disable?: true
   categoriaId?: true
   responsavelId?: true
   createdAt?: true
@@ -231,6 +237,7 @@ export type OcorrenciaGroupByOutputType = {
   status: $Enums.StatusOcorrencia
   protocolo: string
   endereco: string
+  disable: boolean
   categoriaId: number
   responsavelId: number | null
   createdAt: Date
@@ -268,6 +275,7 @@ export type OcorrenciaWhereInput = {
   status?: Prisma.EnumStatusOcorrenciaFilter<"Ocorrencia"> | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFilter<"Ocorrencia"> | string
   endereco?: Prisma.StringFilter<"Ocorrencia"> | string
+  disable?: Prisma.BoolFilter<"Ocorrencia"> | boolean
   categoriaId?: Prisma.IntFilter<"Ocorrencia"> | number
   responsavelId?: Prisma.IntNullableFilter<"Ocorrencia"> | number | null
   createdAt?: Prisma.DateTimeFilter<"Ocorrencia"> | Date | string
@@ -288,6 +296,7 @@ export type OcorrenciaOrderByWithRelationInput = {
   status?: Prisma.SortOrder
   protocolo?: Prisma.SortOrder
   endereco?: Prisma.SortOrder
+  disable?: Prisma.SortOrder
   categoriaId?: Prisma.SortOrder
   responsavelId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -311,6 +320,7 @@ export type OcorrenciaWhereUniqueInput = Prisma.AtLeast<{
   gravidade?: Prisma.EnumGravidadeFilter<"Ocorrencia"> | $Enums.Gravidade
   status?: Prisma.EnumStatusOcorrenciaFilter<"Ocorrencia"> | $Enums.StatusOcorrencia
   endereco?: Prisma.StringFilter<"Ocorrencia"> | string
+  disable?: Prisma.BoolFilter<"Ocorrencia"> | boolean
   categoriaId?: Prisma.IntFilter<"Ocorrencia"> | number
   responsavelId?: Prisma.IntNullableFilter<"Ocorrencia"> | number | null
   createdAt?: Prisma.DateTimeFilter<"Ocorrencia"> | Date | string
@@ -331,6 +341,7 @@ export type OcorrenciaOrderByWithAggregationInput = {
   status?: Prisma.SortOrder
   protocolo?: Prisma.SortOrder
   endereco?: Prisma.SortOrder
+  disable?: Prisma.SortOrder
   categoriaId?: Prisma.SortOrder
   responsavelId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -353,6 +364,7 @@ export type OcorrenciaScalarWhereWithAggregatesInput = {
   status?: Prisma.EnumStatusOcorrenciaWithAggregatesFilter<"Ocorrencia"> | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringWithAggregatesFilter<"Ocorrencia"> | string
   endereco?: Prisma.StringWithAggregatesFilter<"Ocorrencia"> | string
+  disable?: Prisma.BoolWithAggregatesFilter<"Ocorrencia"> | boolean
   categoriaId?: Prisma.IntWithAggregatesFilter<"Ocorrencia"> | number
   responsavelId?: Prisma.IntNullableWithAggregatesFilter<"Ocorrencia"> | number | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Ocorrencia"> | Date | string
@@ -366,6 +378,7 @@ export type OcorrenciaCreateInput = {
   status?: $Enums.StatusOcorrencia
   protocolo: string
   endereco?: string
+  disable?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   categoria: Prisma.CategoriaCreateNestedOneWithoutOcorrenciasInput
@@ -384,6 +397,7 @@ export type OcorrenciaUncheckedCreateInput = {
   status?: $Enums.StatusOcorrencia
   protocolo: string
   endereco?: string
+  disable?: boolean
   categoriaId: number
   responsavelId?: number | null
   createdAt?: Date | string
@@ -401,6 +415,7 @@ export type OcorrenciaUpdateInput = {
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   categoria?: Prisma.CategoriaUpdateOneRequiredWithoutOcorrenciasNestedInput
@@ -419,6 +434,7 @@ export type OcorrenciaUncheckedUpdateInput = {
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
   responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -437,6 +453,7 @@ export type OcorrenciaCreateManyInput = {
   status?: $Enums.StatusOcorrencia
   protocolo: string
   endereco?: string
+  disable?: boolean
   categoriaId: number
   responsavelId?: number | null
   createdAt?: Date | string
@@ -450,6 +467,7 @@ export type OcorrenciaUpdateManyMutationInput = {
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -462,6 +480,7 @@ export type OcorrenciaUncheckedUpdateManyInput = {
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
   responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -486,6 +505,7 @@ export type OcorrenciaCountOrderByAggregateInput = {
   status?: Prisma.SortOrder
   protocolo?: Prisma.SortOrder
   endereco?: Prisma.SortOrder
+  disable?: Prisma.SortOrder
   categoriaId?: Prisma.SortOrder
   responsavelId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -506,6 +526,7 @@ export type OcorrenciaMaxOrderByAggregateInput = {
   status?: Prisma.SortOrder
   protocolo?: Prisma.SortOrder
   endereco?: Prisma.SortOrder
+  disable?: Prisma.SortOrder
   categoriaId?: Prisma.SortOrder
   responsavelId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -520,6 +541,7 @@ export type OcorrenciaMinOrderByAggregateInput = {
   status?: Prisma.SortOrder
   protocolo?: Prisma.SortOrder
   endereco?: Prisma.SortOrder
+  disable?: Prisma.SortOrder
   categoriaId?: Prisma.SortOrder
   responsavelId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -700,6 +722,7 @@ export type OcorrenciaCreateWithoutResponsavelInput = {
   status?: $Enums.StatusOcorrencia
   protocolo: string
   endereco?: string
+  disable?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   categoria: Prisma.CategoriaCreateNestedOneWithoutOcorrenciasInput
@@ -717,6 +740,7 @@ export type OcorrenciaUncheckedCreateWithoutResponsavelInput = {
   status?: $Enums.StatusOcorrencia
   protocolo: string
   endereco?: string
+  disable?: boolean
   categoriaId: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -763,6 +787,7 @@ export type OcorrenciaScalarWhereInput = {
   status?: Prisma.EnumStatusOcorrenciaFilter<"Ocorrencia"> | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFilter<"Ocorrencia"> | string
   endereco?: Prisma.StringFilter<"Ocorrencia"> | string
+  disable?: Prisma.BoolFilter<"Ocorrencia"> | boolean
   categoriaId?: Prisma.IntFilter<"Ocorrencia"> | number
   responsavelId?: Prisma.IntNullableFilter<"Ocorrencia"> | number | null
   createdAt?: Prisma.DateTimeFilter<"Ocorrencia"> | Date | string
@@ -776,6 +801,7 @@ export type OcorrenciaCreateWithoutCategoriaInput = {
   status?: $Enums.StatusOcorrencia
   protocolo: string
   endereco?: string
+  disable?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   responsavel?: Prisma.UserCreateNestedOneWithoutOcorrenciasResponsavelInput
@@ -793,6 +819,7 @@ export type OcorrenciaUncheckedCreateWithoutCategoriaInput = {
   status?: $Enums.StatusOcorrencia
   protocolo: string
   endereco?: string
+  disable?: boolean
   responsavelId?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -835,6 +862,7 @@ export type OcorrenciaCreateWithoutImagensInput = {
   status?: $Enums.StatusOcorrencia
   protocolo: string
   endereco?: string
+  disable?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   categoria: Prisma.CategoriaCreateNestedOneWithoutOcorrenciasInput
@@ -852,6 +880,7 @@ export type OcorrenciaUncheckedCreateWithoutImagensInput = {
   status?: $Enums.StatusOcorrencia
   protocolo: string
   endereco?: string
+  disable?: boolean
   categoriaId: number
   responsavelId?: number | null
   createdAt?: Date | string
@@ -884,6 +913,7 @@ export type OcorrenciaUpdateWithoutImagensInput = {
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   categoria?: Prisma.CategoriaUpdateOneRequiredWithoutOcorrenciasNestedInput
@@ -901,6 +931,7 @@ export type OcorrenciaUncheckedUpdateWithoutImagensInput = {
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
   responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -917,6 +948,7 @@ export type OcorrenciaCreateWithoutComentariosInput = {
   status?: $Enums.StatusOcorrencia
   protocolo: string
   endereco?: string
+  disable?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   categoria: Prisma.CategoriaCreateNestedOneWithoutOcorrenciasInput
@@ -934,6 +966,7 @@ export type OcorrenciaUncheckedCreateWithoutComentariosInput = {
   status?: $Enums.StatusOcorrencia
   protocolo: string
   endereco?: string
+  disable?: boolean
   categoriaId: number
   responsavelId?: number | null
   createdAt?: Date | string
@@ -966,6 +999,7 @@ export type OcorrenciaUpdateWithoutComentariosInput = {
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   categoria?: Prisma.CategoriaUpdateOneRequiredWithoutOcorrenciasNestedInput
@@ -983,6 +1017,7 @@ export type OcorrenciaUncheckedUpdateWithoutComentariosInput = {
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
   responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -999,6 +1034,7 @@ export type OcorrenciaCreateWithoutHistoricosInput = {
   status?: $Enums.StatusOcorrencia
   protocolo: string
   endereco?: string
+  disable?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   categoria: Prisma.CategoriaCreateNestedOneWithoutOcorrenciasInput
@@ -1016,6 +1052,7 @@ export type OcorrenciaUncheckedCreateWithoutHistoricosInput = {
   status?: $Enums.StatusOcorrencia
   protocolo: string
   endereco?: string
+  disable?: boolean
   categoriaId: number
   responsavelId?: number | null
   createdAt?: Date | string
@@ -1048,6 +1085,7 @@ export type OcorrenciaUpdateWithoutHistoricosInput = {
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   categoria?: Prisma.CategoriaUpdateOneRequiredWithoutOcorrenciasNestedInput
@@ -1065,6 +1103,7 @@ export type OcorrenciaUncheckedUpdateWithoutHistoricosInput = {
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
   responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1081,6 +1120,7 @@ export type OcorrenciaCreateWithoutAvaliacaoInput = {
   status?: $Enums.StatusOcorrencia
   protocolo: string
   endereco?: string
+  disable?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   categoria: Prisma.CategoriaCreateNestedOneWithoutOcorrenciasInput
@@ -1098,6 +1138,7 @@ export type OcorrenciaUncheckedCreateWithoutAvaliacaoInput = {
   status?: $Enums.StatusOcorrencia
   protocolo: string
   endereco?: string
+  disable?: boolean
   categoriaId: number
   responsavelId?: number | null
   createdAt?: Date | string
@@ -1130,6 +1171,7 @@ export type OcorrenciaUpdateWithoutAvaliacaoInput = {
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   categoria?: Prisma.CategoriaUpdateOneRequiredWithoutOcorrenciasNestedInput
@@ -1147,6 +1189,7 @@ export type OcorrenciaUncheckedUpdateWithoutAvaliacaoInput = {
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
   responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1164,6 +1207,7 @@ export type OcorrenciaCreateManyResponsavelInput = {
   status?: $Enums.StatusOcorrencia
   protocolo: string
   endereco?: string
+  disable?: boolean
   categoriaId: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1176,6 +1220,7 @@ export type OcorrenciaUpdateWithoutResponsavelInput = {
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   categoria?: Prisma.CategoriaUpdateOneRequiredWithoutOcorrenciasNestedInput
@@ -1193,6 +1238,7 @@ export type OcorrenciaUncheckedUpdateWithoutResponsavelInput = {
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1210,6 +1256,7 @@ export type OcorrenciaUncheckedUpdateManyWithoutResponsavelInput = {
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1223,6 +1270,7 @@ export type OcorrenciaCreateManyCategoriaInput = {
   status?: $Enums.StatusOcorrencia
   protocolo: string
   endereco?: string
+  disable?: boolean
   responsavelId?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1235,6 +1283,7 @@ export type OcorrenciaUpdateWithoutCategoriaInput = {
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   responsavel?: Prisma.UserUpdateOneWithoutOcorrenciasResponsavelNestedInput
@@ -1252,6 +1301,7 @@ export type OcorrenciaUncheckedUpdateWithoutCategoriaInput = {
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1269,6 +1319,7 @@ export type OcorrenciaUncheckedUpdateManyWithoutCategoriaInput = {
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1331,6 +1382,7 @@ export type OcorrenciaSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   status?: boolean
   protocolo?: boolean
   endereco?: boolean
+  disable?: boolean
   categoriaId?: boolean
   responsavelId?: boolean
   createdAt?: boolean
@@ -1352,6 +1404,7 @@ export type OcorrenciaSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   status?: boolean
   protocolo?: boolean
   endereco?: boolean
+  disable?: boolean
   categoriaId?: boolean
   responsavelId?: boolean
   createdAt?: boolean
@@ -1368,6 +1421,7 @@ export type OcorrenciaSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   status?: boolean
   protocolo?: boolean
   endereco?: boolean
+  disable?: boolean
   categoriaId?: boolean
   responsavelId?: boolean
   createdAt?: boolean
@@ -1384,13 +1438,14 @@ export type OcorrenciaSelectScalar = {
   status?: boolean
   protocolo?: boolean
   endereco?: boolean
+  disable?: boolean
   categoriaId?: boolean
   responsavelId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type OcorrenciaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "titulo" | "descricao" | "gravidade" | "status" | "protocolo" | "endereco" | "categoriaId" | "responsavelId" | "createdAt" | "updatedAt", ExtArgs["result"]["ocorrencia"]>
+export type OcorrenciaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "titulo" | "descricao" | "gravidade" | "status" | "protocolo" | "endereco" | "disable" | "categoriaId" | "responsavelId" | "createdAt" | "updatedAt", ExtArgs["result"]["ocorrencia"]>
 export type OcorrenciaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   categoria?: boolean | Prisma.CategoriaDefaultArgs<ExtArgs>
   responsavel?: boolean | Prisma.Ocorrencia$responsavelArgs<ExtArgs>
@@ -1427,6 +1482,7 @@ export type $OcorrenciaPayload<ExtArgs extends runtime.Types.Extensions.Internal
     status: $Enums.StatusOcorrencia
     protocolo: string
     endereco: string
+    disable: boolean
     categoriaId: number
     responsavelId: number | null
     createdAt: Date
@@ -1867,6 +1923,7 @@ export interface OcorrenciaFieldRefs {
   readonly status: Prisma.FieldRef<"Ocorrencia", 'StatusOcorrencia'>
   readonly protocolo: Prisma.FieldRef<"Ocorrencia", 'String'>
   readonly endereco: Prisma.FieldRef<"Ocorrencia", 'String'>
+  readonly disable: Prisma.FieldRef<"Ocorrencia", 'Boolean'>
   readonly categoriaId: Prisma.FieldRef<"Ocorrencia", 'Int'>
   readonly responsavelId: Prisma.FieldRef<"Ocorrencia", 'Int'>
   readonly createdAt: Prisma.FieldRef<"Ocorrencia", 'DateTime'>

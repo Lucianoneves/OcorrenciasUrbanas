@@ -9,7 +9,7 @@ export const createUserSchema = z.object({ // define o schema de validação par
   });
 
 
-
+    // Schema para criação de uma categoria e com mensagens personalizadas de validações da autenticação de um usuário
   export const authUserSchema= z.object({
     body: z.object({
       email: z.string().email({message: 'Precisa ser um email válido'}),

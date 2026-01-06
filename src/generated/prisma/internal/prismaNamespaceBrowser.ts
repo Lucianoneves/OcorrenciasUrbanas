@@ -118,6 +118,7 @@ export const OcorrenciaScalarFieldEnum = {
   status: 'status',
   protocolo: 'protocolo',
   endereco: 'endereco',
+  disable: 'disable',
   categoriaId: 'categoriaId',
   responsavelId: 'responsavelId',
   createdAt: 'createdAt',

@@ -9,9 +9,13 @@ import { DetailUserController } from './controllers/user/DetailUserController';
 import { isAuthenticated } from './middlewares/isAuthenticated';
 import { CreateCategoryController } from './controllers/user/category/CreateCategoryController';
 import { ListCategoryController } from './controllers/user/category/ListCategoryController';
+import { ListOcorrenciasByCategoryController } from './controllers/user/category/ListOcorrenciasByCategoryController';
 import { isAdmin } from './middlewares/isAdmin';
 import { createCategorySchema } from './schemas/categorySchema';
 import { CreateOcorrenciasController } from './controllers/user/ocorrencia/CreateOcorrencias.Controller';
+import { ListOcorrenciaController } from './controllers/user/ocorrencia/ListOcorrenciaController';
+import { createOcorrenciaSchema, listOcorrenciasCategorySchema, listOcorrenciaSchema } from './schemas/ocorrenciaSchema';
+import { DeleteOcorrenciasController } from './controllers/user/ocorrencia/DeleteOcorrenciasController';
 
 
 
@@ -42,14 +46,35 @@ router.post("/category",
 router.get("/category", isAuthenticated, new ListCategoryController().handle);
 
 
+// Listar ocorrências por categoria
+router.get("/category/ocorrencias", isAuthenticated, valedateSchema(listOcorrenciasCategorySchema), new ListOcorrenciasByCategoryController().handle);
+
+
 // Criar uma nova ocorrência
 router.post
       ("/ocorrencias",
             isAuthenticated,
             isAdmin,           
             upload.single('file'),
+            valedateSchema(createOcorrenciaSchema),
             new CreateOcorrenciasController().handle);
 
+// Listar ocorrências
+router.get(
+      "/ocorrencias",
+       isAuthenticated,
+       valedateSchema(listOcorrenciaSchema),
+        new ListOcorrenciaController().handle);
+
+
+        // Deletar uma ocorrência
+        router.delete(
+            "/ocorrencias/:id",
+            isAuthenticated,
+            isAdmin,
+            new DeleteOcorrenciasController().handle
+        );
+      
 
 
 export { router };
