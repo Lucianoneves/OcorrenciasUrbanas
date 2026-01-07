@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ListCategoryService } from "../../../serves/category/ListCategoryService";
+import { ListCategoryService } from "../../serves/category/ListCategoryService";
 
 class ListCategoryController {
     async handle(_req: Request, res: Response) {

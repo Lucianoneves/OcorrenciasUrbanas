@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { ListOcorrenciasByCategoryService } from '../../../serves/category/ListOcorrenciasByCategoryService';
+import { ListOcorrenciasByCategoryService } from "../../serves/category/ListOcorrenciasByCategoryService";
 
 class ListOcorrenciasByCategoryController {
     async handle(req: Request, res: Response) {

@@ -23,8 +23,8 @@ class CreateOcorrenciasService {
         imagens,
         endereco,
         protocolo,
-        gravidade,
-        status,
+        // gravidade, // removido pois não é usado
+        // status, // removido pois não é usado
     }: 
     
     CreateOcorrenciasServiceRequest) {

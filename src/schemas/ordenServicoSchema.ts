@@ -34,3 +34,10 @@ export const sendOrdenServicoSchema = z.object({
     ordenServicoId: z.number({ message: "O ID da ordem é obrigatório" }).int().positive("O ID da ordem deve ser válido")
   })
 });
+
+
+export const finishOrdenServicoSchema = z.object({
+  body: z.object({
+    ordenServicoId: z.number({ message: "O ID da ordem é obrigatório" }).int().positive("O ID da ordem deve ser válido")
+  })
+});

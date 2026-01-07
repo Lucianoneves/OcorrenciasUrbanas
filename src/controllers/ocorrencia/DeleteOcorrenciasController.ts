@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { DeleteOcorrenciasService } from '../../../serves/ocorrencias/DeleteOcorrenciasService';
+import { DeleteOcorrenciasService } from '../../serves/ocorrencias/DeleteOcorrenciasService';
 
 class DeleteOcorrenciasController {
     async handle(req: Request, res: Response) {

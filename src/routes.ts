@@ -7,21 +7,23 @@ import { authUserSchema, createUserSchema } from './schemas/userSchema';
 import { AuthUserController } from './controllers/user/AuthUserController';
 import { DetailUserController } from './controllers/user/DetailUserController';
 import { isAuthenticated } from './middlewares/isAuthenticated';
-import { CreateCategoryController } from './controllers/user/category/CreateCategoryController';
-import { ListCategoryController } from './controllers/user/category/ListCategoryController';
-import { ListOcorrenciasByCategoryController } from './controllers/user/category/ListOcorrenciasByCategoryController';
+import { CreateCategoryController } from './controllers/category/CreateCategoryController';
+import { ListCategoryController } from './controllers/category/ListCategoryController';
+import { ListOcorrenciasByCategoryController } from './controllers/category/ListOcorrenciasByCategoryController';
 import { isAdmin } from './middlewares/isAdmin';
 import { createCategorySchema } from './schemas/categorySchema';
-import { CreateOcorrenciasController } from './controllers/user/ocorrencia/CreateOcorrencias.Controller';
-import { ListOcorrenciaController } from './controllers/user/ocorrencia/ListOcorrenciaController';
+import { CreateOcorrenciasController } from './controllers/ocorrencia/CreateOcorrencias.Controller';
+import { ListOcorrenciaController } from './controllers/ocorrencia/ListOcorrenciaController';
 import { createOcorrenciaSchema, listOcorrenciasCategorySchema, listOcorrenciaSchema } from './schemas/ocorrenciaSchema';
-import { CreateOrdemServicoController } from './controllers/user/ordemServico/CreateOrdemServicoController';
-import { createOrdenServicoSchema, detailOrdenServicoSchema, sendOrdenServicoSchema } from './schemas/ordenServicoSchema';
-import { DeleteOcorrenciasController } from './controllers/user/ocorrencia/DeleteOcorrenciasController';
-import { ListOrdersController } from './controllers/user/ordemServico/ListOrdersController';
-import { RemoveOcorrenciaFromOrdemController } from './controllers/user/ordemServico/RemoveOcorrenciaFromOrdemController';
-import { DetailOrdemServicoController } from './controllers/user/ordemServico/DetailOrdemServicoController';
-import { SendOrdemController } from './controllers/user/ordemServico/SendOrdemController';
+import { CreateOrdemServicoController } from './controllers/ordemServico/CreateOrdemServicoController';
+import { createOrdenServicoSchema, detailOrdenServicoSchema, finishOrdenServicoSchema, sendOrdenServicoSchema } from './schemas/ordenServicoSchema';
+import { DeleteOcorrenciasController } from './controllers/ocorrencia/DeleteOcorrenciasController';
+import { ListOrdersController } from './controllers/ordemServico/ListOrdersController';
+import { RemoveOcorrenciaFromOrdemController } from './controllers/ordemServico/RemoveOcorrenciaFromOrdemController';
+import { DetailOrdemServicoController } from './controllers/ordemServico/DetailOrdemServicoController';
+import { SendOrdemController } from './controllers/ordemServico/SendOrdemController';
+import { FinishOrdemServicoController } from './controllers/ordemServico/FinishOrdemServicoController';
+
 
 
 
@@ -125,5 +127,13 @@ router.put(
       valedateSchema(sendOrdenServicoSchema),
       new SendOrdemController().handle
 );
+
+
+  router.put(
+      "/ordem-servico/finish",
+      isAuthenticated,
+      valedateSchema(finishOrdenServicoSchema),
+      new FinishOrdemServicoController().handle
+  );
 
 export { router };

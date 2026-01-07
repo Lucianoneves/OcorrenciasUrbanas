@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { ListOrdersService } from '../../../serves/ordemServico/ListOrdersService';
+import { ListOrdersService } from '../../serves/ordemServico/ListOrdersService';
 
 class ListOrdersController {
     async handle(req: Request, res: Response) {
