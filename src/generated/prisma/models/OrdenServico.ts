@@ -45,6 +45,8 @@ export type OrdenServicoMinAggregateOutputType = {
   protocolo: string | null
   endereco: string | null
   status: $Enums.StatusOcorrencia | null
+  disable: boolean | null
+  draft: boolean | null
   ocorrenciaId: number | null
   createdAt: Date | null
 }
@@ -56,6 +58,8 @@ export type OrdenServicoMaxAggregateOutputType = {
   protocolo: string | null
   endereco: string | null
   status: $Enums.StatusOcorrencia | null
+  disable: boolean | null
+  draft: boolean | null
   ocorrenciaId: number | null
   createdAt: Date | null
 }
@@ -67,6 +71,8 @@ export type OrdenServicoCountAggregateOutputType = {
   protocolo: number
   endereco: number
   status: number
+  disable: number
+  draft: number
   ocorrenciaId: number
   createdAt: number
   _all: number
@@ -92,6 +98,8 @@ export type OrdenServicoMinAggregateInputType = {
   protocolo?: true
   endereco?: true
   status?: true
+  disable?: true
+  draft?: true
   ocorrenciaId?: true
   createdAt?: true
 }
@@ -103,6 +111,8 @@ export type OrdenServicoMaxAggregateInputType = {
   protocolo?: true
   endereco?: true
   status?: true
+  disable?: true
+  draft?: true
   ocorrenciaId?: true
   createdAt?: true
 }
@@ -114,6 +124,8 @@ export type OrdenServicoCountAggregateInputType = {
   protocolo?: true
   endereco?: true
   status?: true
+  disable?: true
+  draft?: true
   ocorrenciaId?: true
   createdAt?: true
   _all?: true
@@ -212,6 +224,8 @@ export type OrdenServicoGroupByOutputType = {
   protocolo: string
   endereco: string
   status: $Enums.StatusOcorrencia
+  disable: boolean
+  draft: boolean
   ocorrenciaId: number | null
   createdAt: Date
   _count: OrdenServicoCountAggregateOutputType | null
@@ -246,6 +260,8 @@ export type OrdenServicoWhereInput = {
   protocolo?: Prisma.StringFilter<"OrdenServico"> | string
   endereco?: Prisma.StringFilter<"OrdenServico"> | string
   status?: Prisma.EnumStatusOcorrenciaFilter<"OrdenServico"> | $Enums.StatusOcorrencia
+  disable?: Prisma.BoolFilter<"OrdenServico"> | boolean
+  draft?: Prisma.BoolFilter<"OrdenServico"> | boolean
   ocorrenciaId?: Prisma.IntNullableFilter<"OrdenServico"> | number | null
   createdAt?: Prisma.DateTimeFilter<"OrdenServico"> | Date | string
   ocorrencia?: Prisma.XOR<Prisma.OcorrenciaNullableScalarRelationFilter, Prisma.OcorrenciaWhereInput> | null
@@ -258,6 +274,8 @@ export type OrdenServicoOrderByWithRelationInput = {
   protocolo?: Prisma.SortOrder
   endereco?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  disable?: Prisma.SortOrder
+  draft?: Prisma.SortOrder
   ocorrenciaId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   ocorrencia?: Prisma.OcorrenciaOrderByWithRelationInput
@@ -273,6 +291,8 @@ export type OrdenServicoWhereUniqueInput = Prisma.AtLeast<{
   name?: Prisma.StringFilter<"OrdenServico"> | string
   endereco?: Prisma.StringFilter<"OrdenServico"> | string
   status?: Prisma.EnumStatusOcorrenciaFilter<"OrdenServico"> | $Enums.StatusOcorrencia
+  disable?: Prisma.BoolFilter<"OrdenServico"> | boolean
+  draft?: Prisma.BoolFilter<"OrdenServico"> | boolean
   ocorrenciaId?: Prisma.IntNullableFilter<"OrdenServico"> | number | null
   createdAt?: Prisma.DateTimeFilter<"OrdenServico"> | Date | string
   ocorrencia?: Prisma.XOR<Prisma.OcorrenciaNullableScalarRelationFilter, Prisma.OcorrenciaWhereInput> | null
@@ -285,6 +305,8 @@ export type OrdenServicoOrderByWithAggregationInput = {
   protocolo?: Prisma.SortOrder
   endereco?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  disable?: Prisma.SortOrder
+  draft?: Prisma.SortOrder
   ocorrenciaId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.OrdenServicoCountOrderByAggregateInput
@@ -304,6 +326,8 @@ export type OrdenServicoScalarWhereWithAggregatesInput = {
   protocolo?: Prisma.StringWithAggregatesFilter<"OrdenServico"> | string
   endereco?: Prisma.StringWithAggregatesFilter<"OrdenServico"> | string
   status?: Prisma.EnumStatusOcorrenciaWithAggregatesFilter<"OrdenServico"> | $Enums.StatusOcorrencia
+  disable?: Prisma.BoolWithAggregatesFilter<"OrdenServico"> | boolean
+  draft?: Prisma.BoolWithAggregatesFilter<"OrdenServico"> | boolean
   ocorrenciaId?: Prisma.IntNullableWithAggregatesFilter<"OrdenServico"> | number | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"OrdenServico"> | Date | string
 }
@@ -314,6 +338,8 @@ export type OrdenServicoCreateInput = {
   protocolo: string
   endereco?: string
   status?: $Enums.StatusOcorrencia
+  disable?: boolean
+  draft?: boolean
   createdAt?: Date | string
   ocorrencia?: Prisma.OcorrenciaCreateNestedOneWithoutOrdensServicoInput
 }
@@ -325,6 +351,8 @@ export type OrdenServicoUncheckedCreateInput = {
   protocolo: string
   endereco?: string
   status?: $Enums.StatusOcorrencia
+  disable?: boolean
+  draft?: boolean
   ocorrenciaId?: number | null
   createdAt?: Date | string
 }
@@ -335,6 +363,8 @@ export type OrdenServicoUpdateInput = {
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  draft?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ocorrencia?: Prisma.OcorrenciaUpdateOneWithoutOrdensServicoNestedInput
 }
@@ -346,6 +376,8 @@ export type OrdenServicoUncheckedUpdateInput = {
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  draft?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ocorrenciaId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -357,6 +389,8 @@ export type OrdenServicoCreateManyInput = {
   protocolo: string
   endereco?: string
   status?: $Enums.StatusOcorrencia
+  disable?: boolean
+  draft?: boolean
   ocorrenciaId?: number | null
   createdAt?: Date | string
 }
@@ -367,6 +401,8 @@ export type OrdenServicoUpdateManyMutationInput = {
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  draft?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -377,6 +413,8 @@ export type OrdenServicoUncheckedUpdateManyInput = {
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  draft?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ocorrenciaId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -388,6 +426,8 @@ export type OrdenServicoCountOrderByAggregateInput = {
   protocolo?: Prisma.SortOrder
   endereco?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  disable?: Prisma.SortOrder
+  draft?: Prisma.SortOrder
   ocorrenciaId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -405,6 +445,8 @@ export type OrdenServicoMaxOrderByAggregateInput = {
   protocolo?: Prisma.SortOrder
   endereco?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  disable?: Prisma.SortOrder
+  draft?: Prisma.SortOrder
   ocorrenciaId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -416,6 +458,8 @@ export type OrdenServicoMinOrderByAggregateInput = {
   protocolo?: Prisma.SortOrder
   endereco?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  disable?: Prisma.SortOrder
+  draft?: Prisma.SortOrder
   ocorrenciaId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -450,6 +494,10 @@ export type StringFieldUpdateOperationsInput = {
 
 export type EnumStatusOcorrenciaFieldUpdateOperationsInput = {
   set?: $Enums.StatusOcorrencia
+}
+
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
 }
 
 export type DateTimeFieldUpdateOperationsInput = {
@@ -512,6 +560,8 @@ export type OrdenServicoCreateWithoutOcorrenciaInput = {
   protocolo: string
   endereco?: string
   status?: $Enums.StatusOcorrencia
+  disable?: boolean
+  draft?: boolean
   createdAt?: Date | string
 }
 
@@ -522,6 +572,8 @@ export type OrdenServicoUncheckedCreateWithoutOcorrenciaInput = {
   protocolo: string
   endereco?: string
   status?: $Enums.StatusOcorrencia
+  disable?: boolean
+  draft?: boolean
   createdAt?: Date | string
 }
 
@@ -561,6 +613,8 @@ export type OrdenServicoScalarWhereInput = {
   protocolo?: Prisma.StringFilter<"OrdenServico"> | string
   endereco?: Prisma.StringFilter<"OrdenServico"> | string
   status?: Prisma.EnumStatusOcorrenciaFilter<"OrdenServico"> | $Enums.StatusOcorrencia
+  disable?: Prisma.BoolFilter<"OrdenServico"> | boolean
+  draft?: Prisma.BoolFilter<"OrdenServico"> | boolean
   ocorrenciaId?: Prisma.IntNullableFilter<"OrdenServico"> | number | null
   createdAt?: Prisma.DateTimeFilter<"OrdenServico"> | Date | string
 }
@@ -572,6 +626,8 @@ export type OrdenServicoCreateManyOcorrenciaInput = {
   protocolo: string
   endereco?: string
   status?: $Enums.StatusOcorrencia
+  disable?: boolean
+  draft?: boolean
   createdAt?: Date | string
 }
 
@@ -581,6 +637,8 @@ export type OrdenServicoUpdateWithoutOcorrenciaInput = {
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  draft?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -591,6 +649,8 @@ export type OrdenServicoUncheckedUpdateWithoutOcorrenciaInput = {
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  draft?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -601,6 +661,8 @@ export type OrdenServicoUncheckedUpdateManyWithoutOcorrenciaInput = {
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  draft?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -613,6 +675,8 @@ export type OrdenServicoSelect<ExtArgs extends runtime.Types.Extensions.Internal
   protocolo?: boolean
   endereco?: boolean
   status?: boolean
+  disable?: boolean
+  draft?: boolean
   ocorrenciaId?: boolean
   createdAt?: boolean
   ocorrencia?: boolean | Prisma.OrdenServico$ocorrenciaArgs<ExtArgs>
@@ -625,6 +689,8 @@ export type OrdenServicoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   protocolo?: boolean
   endereco?: boolean
   status?: boolean
+  disable?: boolean
+  draft?: boolean
   ocorrenciaId?: boolean
   createdAt?: boolean
   ocorrencia?: boolean | Prisma.OrdenServico$ocorrenciaArgs<ExtArgs>
@@ -637,6 +703,8 @@ export type OrdenServicoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   protocolo?: boolean
   endereco?: boolean
   status?: boolean
+  disable?: boolean
+  draft?: boolean
   ocorrenciaId?: boolean
   createdAt?: boolean
   ocorrencia?: boolean | Prisma.OrdenServico$ocorrenciaArgs<ExtArgs>
@@ -649,11 +717,13 @@ export type OrdenServicoSelectScalar = {
   protocolo?: boolean
   endereco?: boolean
   status?: boolean
+  disable?: boolean
+  draft?: boolean
   ocorrenciaId?: boolean
   createdAt?: boolean
 }
 
-export type OrdenServicoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "numero" | "name" | "protocolo" | "endereco" | "status" | "ocorrenciaId" | "createdAt", ExtArgs["result"]["ordenServico"]>
+export type OrdenServicoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "numero" | "name" | "protocolo" | "endereco" | "status" | "disable" | "draft" | "ocorrenciaId" | "createdAt", ExtArgs["result"]["ordenServico"]>
 export type OrdenServicoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   ocorrencia?: boolean | Prisma.OrdenServico$ocorrenciaArgs<ExtArgs>
 }
@@ -676,6 +746,8 @@ export type $OrdenServicoPayload<ExtArgs extends runtime.Types.Extensions.Intern
     protocolo: string
     endereco: string
     status: $Enums.StatusOcorrencia
+    disable: boolean
+    draft: boolean
     ocorrenciaId: number | null
     createdAt: Date
   }, ExtArgs["result"]["ordenServico"]>
@@ -1108,6 +1180,8 @@ export interface OrdenServicoFieldRefs {
   readonly protocolo: Prisma.FieldRef<"OrdenServico", 'String'>
   readonly endereco: Prisma.FieldRef<"OrdenServico", 'String'>
   readonly status: Prisma.FieldRef<"OrdenServico", 'StatusOcorrencia'>
+  readonly disable: Prisma.FieldRef<"OrdenServico", 'Boolean'>
+  readonly draft: Prisma.FieldRef<"OrdenServico", 'Boolean'>
   readonly ocorrenciaId: Prisma.FieldRef<"OrdenServico", 'Int'>
   readonly createdAt: Prisma.FieldRef<"OrdenServico", 'DateTime'>
 }

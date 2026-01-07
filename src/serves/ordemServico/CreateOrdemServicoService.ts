@@ -4,11 +4,10 @@ interface CreateOrdemServiceProps {
     numero: number;
     name: string;
     ocorrenciaId: number;
-    status?: string;
 }
 
 class CreateOrdemServicoService {
-    async execute({ numero, name, ocorrenciaId, status = "PENDENTE" }: CreateOrdemServiceProps) {
+    async execute({ numero, name, ocorrenciaId }: CreateOrdemServiceProps) {
         
         // Verificar se ocorrência existe
         const ocorrenciaExists = await prismaClient.ocorrencia.findUnique({
@@ -29,7 +28,8 @@ class CreateOrdemServicoService {
                 protocolo,
                 status: "PENDENTE",
                 endereco: ocorrenciaExists.endereco || "",
-                ocorrenciaId
+                ocorrenciaId,
+                draft: true
             }
         });
 

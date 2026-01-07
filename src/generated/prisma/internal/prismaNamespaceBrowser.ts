@@ -83,6 +83,8 @@ export const OrdenServicoScalarFieldEnum = {
   protocolo: 'protocolo',
   endereco: 'endereco',
   status: 'status',
+  disable: 'disable',
+  draft: 'draft',
   ocorrenciaId: 'ocorrenciaId',
   createdAt: 'createdAt'
 } as const

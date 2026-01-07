@@ -487,10 +487,6 @@ export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
 }
 
-export type BoolFieldUpdateOperationsInput = {
-  set?: boolean
-}
-
 export type UserCreateNestedOneWithoutAdminsInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutAdminsInput, Prisma.UserUncheckedCreateWithoutAdminsInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutAdminsInput

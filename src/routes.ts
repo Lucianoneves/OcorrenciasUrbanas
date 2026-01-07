@@ -16,11 +16,13 @@ import { CreateOcorrenciasController } from './controllers/user/ocorrencia/Creat
 import { ListOcorrenciaController } from './controllers/user/ocorrencia/ListOcorrenciaController';
 import { createOcorrenciaSchema, listOcorrenciasCategorySchema, listOcorrenciaSchema } from './schemas/ocorrenciaSchema';
 import { CreateOrdemServicoController } from './controllers/user/ordemServico/CreateOrdemServicoController';
-import { createOrdenServicoSchema, detailOrdenServicoSchema } from './schemas/ordenServicoSchema';
+import { createOrdenServicoSchema, detailOrdenServicoSchema, sendOrdenServicoSchema } from './schemas/ordenServicoSchema';
 import { DeleteOcorrenciasController } from './controllers/user/ocorrencia/DeleteOcorrenciasController';
 import { ListOrdersController } from './controllers/user/ordemServico/ListOrdersController';
 import { RemoveOcorrenciaFromOrdemController } from './controllers/user/ordemServico/RemoveOcorrenciaFromOrdemController';
 import { DetailOrdemServicoController } from './controllers/user/ordemServico/DetailOrdemServicoController';
+import { SendOrdemController } from './controllers/user/ordemServico/SendOrdemController';
+
 
 
 
@@ -95,7 +97,7 @@ router.get(
       "/ordem-servico",
       isAuthenticated,
       new ListOrdersController().handle);
-      
+
 
 // Detalhar ordem de serviço
 router.get(
@@ -113,6 +115,15 @@ router.delete(
       
       isAuthenticated,
       new RemoveOcorrenciaFromOrdemController().handle
+);
+
+
+// Enviar ordem de serviço
+router.put(
+      "/ordem-servico",
+      isAuthenticated,
+      valedateSchema(sendOrdenServicoSchema),
+      new SendOrdemController().handle
 );
 
 export { router };

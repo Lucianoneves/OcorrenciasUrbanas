@@ -1130,6 +1130,8 @@ export const OrdenServicoScalarFieldEnum = {
   protocolo: 'protocolo',
   endereco: 'endereco',
   status: 'status',
+  disable: 'disable',
+  draft: 'draft',
   ocorrenciaId: 'ocorrenciaId',
   createdAt: 'createdAt'
 } as const
@@ -1308,6 +1310,13 @@ export type ListEnumStatusOcorrenciaFieldRefInput<$PrismaModel> = FieldRefInputT
 
 
 /**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+/**
  * Reference to a field of type 'DateTime'
  */
 export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -1332,13 +1341,6 @@ export type EnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
  * Reference to a field of type 'Role[]'
  */
 export type ListEnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role[]'>
-    
-
-
-/**
- * Reference to a field of type 'Boolean'
- */
-export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
