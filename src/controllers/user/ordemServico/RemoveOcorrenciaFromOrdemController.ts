@@ -3,7 +3,12 @@ import { RemoveOcorrenciaFromOrdemService } from '../../../serves/ordemServico/R
 
 class RemoveOcorrenciaFromOrdemController {
     async handle(req: Request, res: Response) {
-        const { numero, ocorrenciaId } = req.body;
+        const numero = req.query.numero || req.body?.numero;
+        const ocorrenciaId = req.query.ocorrenciaId || req.body?.ocorrenciaId;
+
+        if (!numero || !ocorrenciaId) {
+            return res.status(400).json({ error: "Parâmetros 'numero' e 'ocorrenciaId' são obrigatórios." });
+        }
 
         const service = new RemoveOcorrenciaFromOrdemService();
 
@@ -13,11 +18,7 @@ class RemoveOcorrenciaFromOrdemController {
                 ocorrenciaId: Number(ocorrenciaId)
             });
 
-            if (result.deletedCount === 0) {
-                return res.status(404).json({ error: "Ordem não encontrada para este número e ocorrência" });
-            }
-
-            return res.json({ deletedCount: result.deletedCount });
+            return res.json({ message: "Ocorrência excluida com sucesso", modifiedCount: result.modifiedCount });
         } catch (err: any) {
             return res.status(400).json({ error: err.message });
         }

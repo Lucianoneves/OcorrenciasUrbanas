@@ -83,7 +83,7 @@ router.delete(
 
 // Criar ordem de serviço
 router.post(
-      "/ordem-servico",
+      "/ordem-servico",      
       isAuthenticated,
       valedateSchema(createOrdenServicoSchema),
       new CreateOrdemServicoController().handle);
@@ -95,9 +95,12 @@ router.get(
       isAuthenticated,
       new ListOrdersController().handle);
 
+
+
 // Remover ocorrência de uma ordem de serviço por número
 router.delete(
       "/ordem-servico",
+      
       isAuthenticated,
       new RemoveOcorrenciaFromOrdemController().handle
 );

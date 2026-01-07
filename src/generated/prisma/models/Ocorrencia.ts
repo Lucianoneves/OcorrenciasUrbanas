@@ -494,9 +494,9 @@ export type OcorrenciaUncheckedUpdateManyInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type OcorrenciaScalarRelationFilter = {
-  is?: Prisma.OcorrenciaWhereInput
-  isNot?: Prisma.OcorrenciaWhereInput
+export type OcorrenciaNullableScalarRelationFilter = {
+  is?: Prisma.OcorrenciaWhereInput | null
+  isNot?: Prisma.OcorrenciaWhereInput | null
 }
 
 export type OcorrenciaListRelationFilter = {
@@ -566,16 +566,23 @@ export type OcorrenciaSumOrderByAggregateInput = {
   responsavelId?: Prisma.SortOrder
 }
 
+export type OcorrenciaScalarRelationFilter = {
+  is?: Prisma.OcorrenciaWhereInput
+  isNot?: Prisma.OcorrenciaWhereInput
+}
+
 export type OcorrenciaCreateNestedOneWithoutOrdensServicoInput = {
   create?: Prisma.XOR<Prisma.OcorrenciaCreateWithoutOrdensServicoInput, Prisma.OcorrenciaUncheckedCreateWithoutOrdensServicoInput>
   connectOrCreate?: Prisma.OcorrenciaCreateOrConnectWithoutOrdensServicoInput
   connect?: Prisma.OcorrenciaWhereUniqueInput
 }
 
-export type OcorrenciaUpdateOneRequiredWithoutOrdensServicoNestedInput = {
+export type OcorrenciaUpdateOneWithoutOrdensServicoNestedInput = {
   create?: Prisma.XOR<Prisma.OcorrenciaCreateWithoutOrdensServicoInput, Prisma.OcorrenciaUncheckedCreateWithoutOrdensServicoInput>
   connectOrCreate?: Prisma.OcorrenciaCreateOrConnectWithoutOrdensServicoInput
   upsert?: Prisma.OcorrenciaUpsertWithoutOrdensServicoInput
+  disconnect?: Prisma.OcorrenciaWhereInput | boolean
+  delete?: Prisma.OcorrenciaWhereInput | boolean
   connect?: Prisma.OcorrenciaWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.OcorrenciaUpdateToOneWithWhereWithoutOrdensServicoInput, Prisma.OcorrenciaUpdateWithoutOrdensServicoInput>, Prisma.OcorrenciaUncheckedUpdateWithoutOrdensServicoInput>
 }
@@ -666,14 +673,6 @@ export type OcorrenciaUncheckedUpdateManyWithoutCategoriaNestedInput = {
 
 export type EnumGravidadeFieldUpdateOperationsInput = {
   set?: $Enums.Gravidade
-}
-
-export type NullableIntFieldUpdateOperationsInput = {
-  set?: number | null
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
 }
 
 export type OcorrenciaCreateNestedOneWithoutImagensInput = {

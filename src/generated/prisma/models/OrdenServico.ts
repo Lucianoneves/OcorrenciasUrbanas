@@ -212,7 +212,7 @@ export type OrdenServicoGroupByOutputType = {
   protocolo: string
   endereco: string
   status: $Enums.StatusOcorrencia
-  ocorrenciaId: number
+  ocorrenciaId: number | null
   createdAt: Date
   _count: OrdenServicoCountAggregateOutputType | null
   _avg: OrdenServicoAvgAggregateOutputType | null
@@ -246,9 +246,9 @@ export type OrdenServicoWhereInput = {
   protocolo?: Prisma.StringFilter<"OrdenServico"> | string
   endereco?: Prisma.StringFilter<"OrdenServico"> | string
   status?: Prisma.EnumStatusOcorrenciaFilter<"OrdenServico"> | $Enums.StatusOcorrencia
-  ocorrenciaId?: Prisma.IntFilter<"OrdenServico"> | number
+  ocorrenciaId?: Prisma.IntNullableFilter<"OrdenServico"> | number | null
   createdAt?: Prisma.DateTimeFilter<"OrdenServico"> | Date | string
-  ocorrencia?: Prisma.XOR<Prisma.OcorrenciaScalarRelationFilter, Prisma.OcorrenciaWhereInput>
+  ocorrencia?: Prisma.XOR<Prisma.OcorrenciaNullableScalarRelationFilter, Prisma.OcorrenciaWhereInput> | null
 }
 
 export type OrdenServicoOrderByWithRelationInput = {
@@ -258,7 +258,7 @@ export type OrdenServicoOrderByWithRelationInput = {
   protocolo?: Prisma.SortOrder
   endereco?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  ocorrenciaId?: Prisma.SortOrder
+  ocorrenciaId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   ocorrencia?: Prisma.OcorrenciaOrderByWithRelationInput
 }
@@ -273,9 +273,9 @@ export type OrdenServicoWhereUniqueInput = Prisma.AtLeast<{
   name?: Prisma.StringFilter<"OrdenServico"> | string
   endereco?: Prisma.StringFilter<"OrdenServico"> | string
   status?: Prisma.EnumStatusOcorrenciaFilter<"OrdenServico"> | $Enums.StatusOcorrencia
-  ocorrenciaId?: Prisma.IntFilter<"OrdenServico"> | number
+  ocorrenciaId?: Prisma.IntNullableFilter<"OrdenServico"> | number | null
   createdAt?: Prisma.DateTimeFilter<"OrdenServico"> | Date | string
-  ocorrencia?: Prisma.XOR<Prisma.OcorrenciaScalarRelationFilter, Prisma.OcorrenciaWhereInput>
+  ocorrencia?: Prisma.XOR<Prisma.OcorrenciaNullableScalarRelationFilter, Prisma.OcorrenciaWhereInput> | null
 }, "id" | "protocolo">
 
 export type OrdenServicoOrderByWithAggregationInput = {
@@ -285,7 +285,7 @@ export type OrdenServicoOrderByWithAggregationInput = {
   protocolo?: Prisma.SortOrder
   endereco?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  ocorrenciaId?: Prisma.SortOrder
+  ocorrenciaId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.OrdenServicoCountOrderByAggregateInput
   _avg?: Prisma.OrdenServicoAvgOrderByAggregateInput
@@ -304,7 +304,7 @@ export type OrdenServicoScalarWhereWithAggregatesInput = {
   protocolo?: Prisma.StringWithAggregatesFilter<"OrdenServico"> | string
   endereco?: Prisma.StringWithAggregatesFilter<"OrdenServico"> | string
   status?: Prisma.EnumStatusOcorrenciaWithAggregatesFilter<"OrdenServico"> | $Enums.StatusOcorrencia
-  ocorrenciaId?: Prisma.IntWithAggregatesFilter<"OrdenServico"> | number
+  ocorrenciaId?: Prisma.IntNullableWithAggregatesFilter<"OrdenServico"> | number | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"OrdenServico"> | Date | string
 }
 
@@ -315,7 +315,7 @@ export type OrdenServicoCreateInput = {
   endereco?: string
   status?: $Enums.StatusOcorrencia
   createdAt?: Date | string
-  ocorrencia: Prisma.OcorrenciaCreateNestedOneWithoutOrdensServicoInput
+  ocorrencia?: Prisma.OcorrenciaCreateNestedOneWithoutOrdensServicoInput
 }
 
 export type OrdenServicoUncheckedCreateInput = {
@@ -325,7 +325,7 @@ export type OrdenServicoUncheckedCreateInput = {
   protocolo: string
   endereco?: string
   status?: $Enums.StatusOcorrencia
-  ocorrenciaId: number
+  ocorrenciaId?: number | null
   createdAt?: Date | string
 }
 
@@ -336,7 +336,7 @@ export type OrdenServicoUpdateInput = {
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  ocorrencia?: Prisma.OcorrenciaUpdateOneRequiredWithoutOrdensServicoNestedInput
+  ocorrencia?: Prisma.OcorrenciaUpdateOneWithoutOrdensServicoNestedInput
 }
 
 export type OrdenServicoUncheckedUpdateInput = {
@@ -346,7 +346,7 @@ export type OrdenServicoUncheckedUpdateInput = {
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
-  ocorrenciaId?: Prisma.IntFieldUpdateOperationsInput | number
+  ocorrenciaId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -357,7 +357,7 @@ export type OrdenServicoCreateManyInput = {
   protocolo: string
   endereco?: string
   status?: $Enums.StatusOcorrencia
-  ocorrenciaId: number
+  ocorrenciaId?: number | null
   createdAt?: Date | string
 }
 
@@ -377,7 +377,7 @@ export type OrdenServicoUncheckedUpdateManyInput = {
   protocolo?: Prisma.StringFieldUpdateOperationsInput | string
   endereco?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
-  ocorrenciaId?: Prisma.IntFieldUpdateOperationsInput | number
+  ocorrenciaId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -454,6 +454,14 @@ export type EnumStatusOcorrenciaFieldUpdateOperationsInput = {
 
 export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
+}
+
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
 }
 
 export type OrdenServicoCreateNestedManyWithoutOcorrenciaInput = {
@@ -553,7 +561,7 @@ export type OrdenServicoScalarWhereInput = {
   protocolo?: Prisma.StringFilter<"OrdenServico"> | string
   endereco?: Prisma.StringFilter<"OrdenServico"> | string
   status?: Prisma.EnumStatusOcorrenciaFilter<"OrdenServico"> | $Enums.StatusOcorrencia
-  ocorrenciaId?: Prisma.IntFilter<"OrdenServico"> | number
+  ocorrenciaId?: Prisma.IntNullableFilter<"OrdenServico"> | number | null
   createdAt?: Prisma.DateTimeFilter<"OrdenServico"> | Date | string
 }
 
@@ -607,7 +615,7 @@ export type OrdenServicoSelect<ExtArgs extends runtime.Types.Extensions.Internal
   status?: boolean
   ocorrenciaId?: boolean
   createdAt?: boolean
-  ocorrencia?: boolean | Prisma.OcorrenciaDefaultArgs<ExtArgs>
+  ocorrencia?: boolean | Prisma.OrdenServico$ocorrenciaArgs<ExtArgs>
 }, ExtArgs["result"]["ordenServico"]>
 
 export type OrdenServicoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -619,7 +627,7 @@ export type OrdenServicoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   status?: boolean
   ocorrenciaId?: boolean
   createdAt?: boolean
-  ocorrencia?: boolean | Prisma.OcorrenciaDefaultArgs<ExtArgs>
+  ocorrencia?: boolean | Prisma.OrdenServico$ocorrenciaArgs<ExtArgs>
 }, ExtArgs["result"]["ordenServico"]>
 
 export type OrdenServicoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -631,7 +639,7 @@ export type OrdenServicoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   status?: boolean
   ocorrenciaId?: boolean
   createdAt?: boolean
-  ocorrencia?: boolean | Prisma.OcorrenciaDefaultArgs<ExtArgs>
+  ocorrencia?: boolean | Prisma.OrdenServico$ocorrenciaArgs<ExtArgs>
 }, ExtArgs["result"]["ordenServico"]>
 
 export type OrdenServicoSelectScalar = {
@@ -647,19 +655,19 @@ export type OrdenServicoSelectScalar = {
 
 export type OrdenServicoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "numero" | "name" | "protocolo" | "endereco" | "status" | "ocorrenciaId" | "createdAt", ExtArgs["result"]["ordenServico"]>
 export type OrdenServicoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  ocorrencia?: boolean | Prisma.OcorrenciaDefaultArgs<ExtArgs>
+  ocorrencia?: boolean | Prisma.OrdenServico$ocorrenciaArgs<ExtArgs>
 }
 export type OrdenServicoIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  ocorrencia?: boolean | Prisma.OcorrenciaDefaultArgs<ExtArgs>
+  ocorrencia?: boolean | Prisma.OrdenServico$ocorrenciaArgs<ExtArgs>
 }
 export type OrdenServicoIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  ocorrencia?: boolean | Prisma.OcorrenciaDefaultArgs<ExtArgs>
+  ocorrencia?: boolean | Prisma.OrdenServico$ocorrenciaArgs<ExtArgs>
 }
 
 export type $OrdenServicoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "OrdenServico"
   objects: {
-    ocorrencia: Prisma.$OcorrenciaPayload<ExtArgs>
+    ocorrencia: Prisma.$OcorrenciaPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -668,7 +676,7 @@ export type $OrdenServicoPayload<ExtArgs extends runtime.Types.Extensions.Intern
     protocolo: string
     endereco: string
     status: $Enums.StatusOcorrencia
-    ocorrenciaId: number
+    ocorrenciaId: number | null
     createdAt: Date
   }, ExtArgs["result"]["ordenServico"]>
   composites: {}
@@ -1064,7 +1072,7 @@ readonly fields: OrdenServicoFieldRefs;
  */
 export interface Prisma__OrdenServicoClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  ocorrencia<T extends Prisma.OcorrenciaDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OcorrenciaDefaultArgs<ExtArgs>>): Prisma.Prisma__OcorrenciaClient<runtime.Types.Result.GetResult<Prisma.$OcorrenciaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  ocorrencia<T extends Prisma.OrdenServico$ocorrenciaArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OrdenServico$ocorrenciaArgs<ExtArgs>>): Prisma.Prisma__OcorrenciaClient<runtime.Types.Result.GetResult<Prisma.$OcorrenciaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1495,6 +1503,25 @@ export type OrdenServicoDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.
    * Limit how many OrdenServicos to delete.
    */
   limit?: number
+}
+
+/**
+ * OrdenServico.ocorrencia
+ */
+export type OrdenServico$ocorrenciaArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Ocorrencia
+   */
+  select?: Prisma.OcorrenciaSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Ocorrencia
+   */
+  omit?: Prisma.OcorrenciaOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OcorrenciaInclude<ExtArgs> | null
+  where?: Prisma.OcorrenciaWhereInput
 }
 
 /**

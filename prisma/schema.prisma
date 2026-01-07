@@ -37,8 +37,8 @@ model OrdenServico {
   endereco  String           @default("")
   status    StatusOcorrencia @default(PENDENTE)
 
-  ocorrenciaId Int
-  ocorrencia   Ocorrencia @relation(fields: [ocorrenciaId], references: [id])
+  ocorrenciaId Int?
+  ocorrencia   Ocorrencia? @relation(fields: [ocorrenciaId], references: [id])
 
   createdAt DateTime @default(now())
 }
