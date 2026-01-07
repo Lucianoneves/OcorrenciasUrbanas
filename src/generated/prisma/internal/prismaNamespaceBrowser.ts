@@ -49,6 +49,7 @@ export const AnyNull = runtime.objectEnumValues.instances.AnyNull
 
 
 export const ModelName = {
+  OrdenServico: 'OrdenServico',
   User: 'User',
   Admin: 'Admin',
   Categoria: 'Categoria',
@@ -73,6 +74,20 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 } as const)
 
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
+
+
+export const OrdenServicoScalarFieldEnum = {
+  id: 'id',
+  numero: 'numero',
+  name: 'name',
+  protocolo: 'protocolo',
+  endereco: 'endereco',
+  status: 'status',
+  ocorrenciaId: 'ocorrenciaId',
+  createdAt: 'createdAt'
+} as const
+
+export type OrdenServicoScalarFieldEnum = (typeof OrdenServicoScalarFieldEnum)[keyof typeof OrdenServicoScalarFieldEnum]
 
 
 export const UserScalarFieldEnum = {

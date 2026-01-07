@@ -286,6 +286,7 @@ export type OcorrenciaWhereInput = {
   comentarios?: Prisma.ComentarioListRelationFilter
   historicos?: Prisma.HistoricoStatusListRelationFilter
   avaliacao?: Prisma.XOR<Prisma.AvaliacaoNullableScalarRelationFilter, Prisma.AvaliacaoWhereInput> | null
+  ordensServico?: Prisma.OrdenServicoListRelationFilter
 }
 
 export type OcorrenciaOrderByWithRelationInput = {
@@ -307,6 +308,7 @@ export type OcorrenciaOrderByWithRelationInput = {
   comentarios?: Prisma.ComentarioOrderByRelationAggregateInput
   historicos?: Prisma.HistoricoStatusOrderByRelationAggregateInput
   avaliacao?: Prisma.AvaliacaoOrderByWithRelationInput
+  ordensServico?: Prisma.OrdenServicoOrderByRelationAggregateInput
 }
 
 export type OcorrenciaWhereUniqueInput = Prisma.AtLeast<{
@@ -331,6 +333,7 @@ export type OcorrenciaWhereUniqueInput = Prisma.AtLeast<{
   comentarios?: Prisma.ComentarioListRelationFilter
   historicos?: Prisma.HistoricoStatusListRelationFilter
   avaliacao?: Prisma.XOR<Prisma.AvaliacaoNullableScalarRelationFilter, Prisma.AvaliacaoWhereInput> | null
+  ordensServico?: Prisma.OrdenServicoListRelationFilter
 }, "id" | "protocolo">
 
 export type OcorrenciaOrderByWithAggregationInput = {
@@ -387,6 +390,7 @@ export type OcorrenciaCreateInput = {
   comentarios?: Prisma.ComentarioCreateNestedManyWithoutOcorrenciaInput
   historicos?: Prisma.HistoricoStatusCreateNestedManyWithoutOcorrenciaInput
   avaliacao?: Prisma.AvaliacaoCreateNestedOneWithoutOcorrenciaInput
+  ordensServico?: Prisma.OrdenServicoCreateNestedManyWithoutOcorrenciaInput
 }
 
 export type OcorrenciaUncheckedCreateInput = {
@@ -406,6 +410,7 @@ export type OcorrenciaUncheckedCreateInput = {
   comentarios?: Prisma.ComentarioUncheckedCreateNestedManyWithoutOcorrenciaInput
   historicos?: Prisma.HistoricoStatusUncheckedCreateNestedManyWithoutOcorrenciaInput
   avaliacao?: Prisma.AvaliacaoUncheckedCreateNestedOneWithoutOcorrenciaInput
+  ordensServico?: Prisma.OrdenServicoUncheckedCreateNestedManyWithoutOcorrenciaInput
 }
 
 export type OcorrenciaUpdateInput = {
@@ -424,6 +429,7 @@ export type OcorrenciaUpdateInput = {
   comentarios?: Prisma.ComentarioUpdateManyWithoutOcorrenciaNestedInput
   historicos?: Prisma.HistoricoStatusUpdateManyWithoutOcorrenciaNestedInput
   avaliacao?: Prisma.AvaliacaoUpdateOneWithoutOcorrenciaNestedInput
+  ordensServico?: Prisma.OrdenServicoUpdateManyWithoutOcorrenciaNestedInput
 }
 
 export type OcorrenciaUncheckedUpdateInput = {
@@ -443,6 +449,7 @@ export type OcorrenciaUncheckedUpdateInput = {
   comentarios?: Prisma.ComentarioUncheckedUpdateManyWithoutOcorrenciaNestedInput
   historicos?: Prisma.HistoricoStatusUncheckedUpdateManyWithoutOcorrenciaNestedInput
   avaliacao?: Prisma.AvaliacaoUncheckedUpdateOneWithoutOcorrenciaNestedInput
+  ordensServico?: Prisma.OrdenServicoUncheckedUpdateManyWithoutOcorrenciaNestedInput
 }
 
 export type OcorrenciaCreateManyInput = {
@@ -485,6 +492,11 @@ export type OcorrenciaUncheckedUpdateManyInput = {
   responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type OcorrenciaScalarRelationFilter = {
+  is?: Prisma.OcorrenciaWhereInput
+  isNot?: Prisma.OcorrenciaWhereInput
 }
 
 export type OcorrenciaListRelationFilter = {
@@ -554,9 +566,18 @@ export type OcorrenciaSumOrderByAggregateInput = {
   responsavelId?: Prisma.SortOrder
 }
 
-export type OcorrenciaScalarRelationFilter = {
-  is?: Prisma.OcorrenciaWhereInput
-  isNot?: Prisma.OcorrenciaWhereInput
+export type OcorrenciaCreateNestedOneWithoutOrdensServicoInput = {
+  create?: Prisma.XOR<Prisma.OcorrenciaCreateWithoutOrdensServicoInput, Prisma.OcorrenciaUncheckedCreateWithoutOrdensServicoInput>
+  connectOrCreate?: Prisma.OcorrenciaCreateOrConnectWithoutOrdensServicoInput
+  connect?: Prisma.OcorrenciaWhereUniqueInput
+}
+
+export type OcorrenciaUpdateOneRequiredWithoutOrdensServicoNestedInput = {
+  create?: Prisma.XOR<Prisma.OcorrenciaCreateWithoutOrdensServicoInput, Prisma.OcorrenciaUncheckedCreateWithoutOrdensServicoInput>
+  connectOrCreate?: Prisma.OcorrenciaCreateOrConnectWithoutOrdensServicoInput
+  upsert?: Prisma.OcorrenciaUpsertWithoutOrdensServicoInput
+  connect?: Prisma.OcorrenciaWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OcorrenciaUpdateToOneWithWhereWithoutOrdensServicoInput, Prisma.OcorrenciaUpdateWithoutOrdensServicoInput>, Prisma.OcorrenciaUncheckedUpdateWithoutOrdensServicoInput>
 }
 
 export type OcorrenciaCreateNestedManyWithoutResponsavelInput = {
@@ -647,10 +668,6 @@ export type EnumGravidadeFieldUpdateOperationsInput = {
   set?: $Enums.Gravidade
 }
 
-export type EnumStatusOcorrenciaFieldUpdateOperationsInput = {
-  set?: $Enums.StatusOcorrencia
-}
-
 export type NullableIntFieldUpdateOperationsInput = {
   set?: number | null
   increment?: number
@@ -715,6 +732,96 @@ export type OcorrenciaUpdateOneRequiredWithoutAvaliacaoNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.OcorrenciaUpdateToOneWithWhereWithoutAvaliacaoInput, Prisma.OcorrenciaUpdateWithoutAvaliacaoInput>, Prisma.OcorrenciaUncheckedUpdateWithoutAvaliacaoInput>
 }
 
+export type OcorrenciaCreateWithoutOrdensServicoInput = {
+  titulo: string
+  descricao: string
+  gravidade?: $Enums.Gravidade
+  status?: $Enums.StatusOcorrencia
+  protocolo: string
+  endereco?: string
+  disable?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  categoria: Prisma.CategoriaCreateNestedOneWithoutOcorrenciasInput
+  responsavel?: Prisma.UserCreateNestedOneWithoutOcorrenciasResponsavelInput
+  imagens?: Prisma.ImagemOcorrenciaCreateNestedManyWithoutOcorrenciaInput
+  comentarios?: Prisma.ComentarioCreateNestedManyWithoutOcorrenciaInput
+  historicos?: Prisma.HistoricoStatusCreateNestedManyWithoutOcorrenciaInput
+  avaliacao?: Prisma.AvaliacaoCreateNestedOneWithoutOcorrenciaInput
+}
+
+export type OcorrenciaUncheckedCreateWithoutOrdensServicoInput = {
+  id?: number
+  titulo: string
+  descricao: string
+  gravidade?: $Enums.Gravidade
+  status?: $Enums.StatusOcorrencia
+  protocolo: string
+  endereco?: string
+  disable?: boolean
+  categoriaId: number
+  responsavelId?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  imagens?: Prisma.ImagemOcorrenciaUncheckedCreateNestedManyWithoutOcorrenciaInput
+  comentarios?: Prisma.ComentarioUncheckedCreateNestedManyWithoutOcorrenciaInput
+  historicos?: Prisma.HistoricoStatusUncheckedCreateNestedManyWithoutOcorrenciaInput
+  avaliacao?: Prisma.AvaliacaoUncheckedCreateNestedOneWithoutOcorrenciaInput
+}
+
+export type OcorrenciaCreateOrConnectWithoutOrdensServicoInput = {
+  where: Prisma.OcorrenciaWhereUniqueInput
+  create: Prisma.XOR<Prisma.OcorrenciaCreateWithoutOrdensServicoInput, Prisma.OcorrenciaUncheckedCreateWithoutOrdensServicoInput>
+}
+
+export type OcorrenciaUpsertWithoutOrdensServicoInput = {
+  update: Prisma.XOR<Prisma.OcorrenciaUpdateWithoutOrdensServicoInput, Prisma.OcorrenciaUncheckedUpdateWithoutOrdensServicoInput>
+  create: Prisma.XOR<Prisma.OcorrenciaCreateWithoutOrdensServicoInput, Prisma.OcorrenciaUncheckedCreateWithoutOrdensServicoInput>
+  where?: Prisma.OcorrenciaWhereInput
+}
+
+export type OcorrenciaUpdateToOneWithWhereWithoutOrdensServicoInput = {
+  where?: Prisma.OcorrenciaWhereInput
+  data: Prisma.XOR<Prisma.OcorrenciaUpdateWithoutOrdensServicoInput, Prisma.OcorrenciaUncheckedUpdateWithoutOrdensServicoInput>
+}
+
+export type OcorrenciaUpdateWithoutOrdensServicoInput = {
+  titulo?: Prisma.StringFieldUpdateOperationsInput | string
+  descricao?: Prisma.StringFieldUpdateOperationsInput | string
+  gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
+  status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
+  protocolo?: Prisma.StringFieldUpdateOperationsInput | string
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  categoria?: Prisma.CategoriaUpdateOneRequiredWithoutOcorrenciasNestedInput
+  responsavel?: Prisma.UserUpdateOneWithoutOcorrenciasResponsavelNestedInput
+  imagens?: Prisma.ImagemOcorrenciaUpdateManyWithoutOcorrenciaNestedInput
+  comentarios?: Prisma.ComentarioUpdateManyWithoutOcorrenciaNestedInput
+  historicos?: Prisma.HistoricoStatusUpdateManyWithoutOcorrenciaNestedInput
+  avaliacao?: Prisma.AvaliacaoUpdateOneWithoutOcorrenciaNestedInput
+}
+
+export type OcorrenciaUncheckedUpdateWithoutOrdensServicoInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  titulo?: Prisma.StringFieldUpdateOperationsInput | string
+  descricao?: Prisma.StringFieldUpdateOperationsInput | string
+  gravidade?: Prisma.EnumGravidadeFieldUpdateOperationsInput | $Enums.Gravidade
+  status?: Prisma.EnumStatusOcorrenciaFieldUpdateOperationsInput | $Enums.StatusOcorrencia
+  protocolo?: Prisma.StringFieldUpdateOperationsInput | string
+  endereco?: Prisma.StringFieldUpdateOperationsInput | string
+  disable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
+  responsavelId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  imagens?: Prisma.ImagemOcorrenciaUncheckedUpdateManyWithoutOcorrenciaNestedInput
+  comentarios?: Prisma.ComentarioUncheckedUpdateManyWithoutOcorrenciaNestedInput
+  historicos?: Prisma.HistoricoStatusUncheckedUpdateManyWithoutOcorrenciaNestedInput
+  avaliacao?: Prisma.AvaliacaoUncheckedUpdateOneWithoutOcorrenciaNestedInput
+}
+
 export type OcorrenciaCreateWithoutResponsavelInput = {
   titulo: string
   descricao: string
@@ -730,6 +837,7 @@ export type OcorrenciaCreateWithoutResponsavelInput = {
   comentarios?: Prisma.ComentarioCreateNestedManyWithoutOcorrenciaInput
   historicos?: Prisma.HistoricoStatusCreateNestedManyWithoutOcorrenciaInput
   avaliacao?: Prisma.AvaliacaoCreateNestedOneWithoutOcorrenciaInput
+  ordensServico?: Prisma.OrdenServicoCreateNestedManyWithoutOcorrenciaInput
 }
 
 export type OcorrenciaUncheckedCreateWithoutResponsavelInput = {
@@ -748,6 +856,7 @@ export type OcorrenciaUncheckedCreateWithoutResponsavelInput = {
   comentarios?: Prisma.ComentarioUncheckedCreateNestedManyWithoutOcorrenciaInput
   historicos?: Prisma.HistoricoStatusUncheckedCreateNestedManyWithoutOcorrenciaInput
   avaliacao?: Prisma.AvaliacaoUncheckedCreateNestedOneWithoutOcorrenciaInput
+  ordensServico?: Prisma.OrdenServicoUncheckedCreateNestedManyWithoutOcorrenciaInput
 }
 
 export type OcorrenciaCreateOrConnectWithoutResponsavelInput = {
@@ -809,6 +918,7 @@ export type OcorrenciaCreateWithoutCategoriaInput = {
   comentarios?: Prisma.ComentarioCreateNestedManyWithoutOcorrenciaInput
   historicos?: Prisma.HistoricoStatusCreateNestedManyWithoutOcorrenciaInput
   avaliacao?: Prisma.AvaliacaoCreateNestedOneWithoutOcorrenciaInput
+  ordensServico?: Prisma.OrdenServicoCreateNestedManyWithoutOcorrenciaInput
 }
 
 export type OcorrenciaUncheckedCreateWithoutCategoriaInput = {
@@ -827,6 +937,7 @@ export type OcorrenciaUncheckedCreateWithoutCategoriaInput = {
   comentarios?: Prisma.ComentarioUncheckedCreateNestedManyWithoutOcorrenciaInput
   historicos?: Prisma.HistoricoStatusUncheckedCreateNestedManyWithoutOcorrenciaInput
   avaliacao?: Prisma.AvaliacaoUncheckedCreateNestedOneWithoutOcorrenciaInput
+  ordensServico?: Prisma.OrdenServicoUncheckedCreateNestedManyWithoutOcorrenciaInput
 }
 
 export type OcorrenciaCreateOrConnectWithoutCategoriaInput = {
@@ -870,6 +981,7 @@ export type OcorrenciaCreateWithoutImagensInput = {
   comentarios?: Prisma.ComentarioCreateNestedManyWithoutOcorrenciaInput
   historicos?: Prisma.HistoricoStatusCreateNestedManyWithoutOcorrenciaInput
   avaliacao?: Prisma.AvaliacaoCreateNestedOneWithoutOcorrenciaInput
+  ordensServico?: Prisma.OrdenServicoCreateNestedManyWithoutOcorrenciaInput
 }
 
 export type OcorrenciaUncheckedCreateWithoutImagensInput = {
@@ -888,6 +1000,7 @@ export type OcorrenciaUncheckedCreateWithoutImagensInput = {
   comentarios?: Prisma.ComentarioUncheckedCreateNestedManyWithoutOcorrenciaInput
   historicos?: Prisma.HistoricoStatusUncheckedCreateNestedManyWithoutOcorrenciaInput
   avaliacao?: Prisma.AvaliacaoUncheckedCreateNestedOneWithoutOcorrenciaInput
+  ordensServico?: Prisma.OrdenServicoUncheckedCreateNestedManyWithoutOcorrenciaInput
 }
 
 export type OcorrenciaCreateOrConnectWithoutImagensInput = {
@@ -921,6 +1034,7 @@ export type OcorrenciaUpdateWithoutImagensInput = {
   comentarios?: Prisma.ComentarioUpdateManyWithoutOcorrenciaNestedInput
   historicos?: Prisma.HistoricoStatusUpdateManyWithoutOcorrenciaNestedInput
   avaliacao?: Prisma.AvaliacaoUpdateOneWithoutOcorrenciaNestedInput
+  ordensServico?: Prisma.OrdenServicoUpdateManyWithoutOcorrenciaNestedInput
 }
 
 export type OcorrenciaUncheckedUpdateWithoutImagensInput = {
@@ -939,6 +1053,7 @@ export type OcorrenciaUncheckedUpdateWithoutImagensInput = {
   comentarios?: Prisma.ComentarioUncheckedUpdateManyWithoutOcorrenciaNestedInput
   historicos?: Prisma.HistoricoStatusUncheckedUpdateManyWithoutOcorrenciaNestedInput
   avaliacao?: Prisma.AvaliacaoUncheckedUpdateOneWithoutOcorrenciaNestedInput
+  ordensServico?: Prisma.OrdenServicoUncheckedUpdateManyWithoutOcorrenciaNestedInput
 }
 
 export type OcorrenciaCreateWithoutComentariosInput = {
@@ -956,6 +1071,7 @@ export type OcorrenciaCreateWithoutComentariosInput = {
   imagens?: Prisma.ImagemOcorrenciaCreateNestedManyWithoutOcorrenciaInput
   historicos?: Prisma.HistoricoStatusCreateNestedManyWithoutOcorrenciaInput
   avaliacao?: Prisma.AvaliacaoCreateNestedOneWithoutOcorrenciaInput
+  ordensServico?: Prisma.OrdenServicoCreateNestedManyWithoutOcorrenciaInput
 }
 
 export type OcorrenciaUncheckedCreateWithoutComentariosInput = {
@@ -974,6 +1090,7 @@ export type OcorrenciaUncheckedCreateWithoutComentariosInput = {
   imagens?: Prisma.ImagemOcorrenciaUncheckedCreateNestedManyWithoutOcorrenciaInput
   historicos?: Prisma.HistoricoStatusUncheckedCreateNestedManyWithoutOcorrenciaInput
   avaliacao?: Prisma.AvaliacaoUncheckedCreateNestedOneWithoutOcorrenciaInput
+  ordensServico?: Prisma.OrdenServicoUncheckedCreateNestedManyWithoutOcorrenciaInput
 }
 
 export type OcorrenciaCreateOrConnectWithoutComentariosInput = {
@@ -1007,6 +1124,7 @@ export type OcorrenciaUpdateWithoutComentariosInput = {
   imagens?: Prisma.ImagemOcorrenciaUpdateManyWithoutOcorrenciaNestedInput
   historicos?: Prisma.HistoricoStatusUpdateManyWithoutOcorrenciaNestedInput
   avaliacao?: Prisma.AvaliacaoUpdateOneWithoutOcorrenciaNestedInput
+  ordensServico?: Prisma.OrdenServicoUpdateManyWithoutOcorrenciaNestedInput
 }
 
 export type OcorrenciaUncheckedUpdateWithoutComentariosInput = {
@@ -1025,6 +1143,7 @@ export type OcorrenciaUncheckedUpdateWithoutComentariosInput = {
   imagens?: Prisma.ImagemOcorrenciaUncheckedUpdateManyWithoutOcorrenciaNestedInput
   historicos?: Prisma.HistoricoStatusUncheckedUpdateManyWithoutOcorrenciaNestedInput
   avaliacao?: Prisma.AvaliacaoUncheckedUpdateOneWithoutOcorrenciaNestedInput
+  ordensServico?: Prisma.OrdenServicoUncheckedUpdateManyWithoutOcorrenciaNestedInput
 }
 
 export type OcorrenciaCreateWithoutHistoricosInput = {
@@ -1042,6 +1161,7 @@ export type OcorrenciaCreateWithoutHistoricosInput = {
   imagens?: Prisma.ImagemOcorrenciaCreateNestedManyWithoutOcorrenciaInput
   comentarios?: Prisma.ComentarioCreateNestedManyWithoutOcorrenciaInput
   avaliacao?: Prisma.AvaliacaoCreateNestedOneWithoutOcorrenciaInput
+  ordensServico?: Prisma.OrdenServicoCreateNestedManyWithoutOcorrenciaInput
 }
 
 export type OcorrenciaUncheckedCreateWithoutHistoricosInput = {
@@ -1060,6 +1180,7 @@ export type OcorrenciaUncheckedCreateWithoutHistoricosInput = {
   imagens?: Prisma.ImagemOcorrenciaUncheckedCreateNestedManyWithoutOcorrenciaInput
   comentarios?: Prisma.ComentarioUncheckedCreateNestedManyWithoutOcorrenciaInput
   avaliacao?: Prisma.AvaliacaoUncheckedCreateNestedOneWithoutOcorrenciaInput
+  ordensServico?: Prisma.OrdenServicoUncheckedCreateNestedManyWithoutOcorrenciaInput
 }
 
 export type OcorrenciaCreateOrConnectWithoutHistoricosInput = {
@@ -1093,6 +1214,7 @@ export type OcorrenciaUpdateWithoutHistoricosInput = {
   imagens?: Prisma.ImagemOcorrenciaUpdateManyWithoutOcorrenciaNestedInput
   comentarios?: Prisma.ComentarioUpdateManyWithoutOcorrenciaNestedInput
   avaliacao?: Prisma.AvaliacaoUpdateOneWithoutOcorrenciaNestedInput
+  ordensServico?: Prisma.OrdenServicoUpdateManyWithoutOcorrenciaNestedInput
 }
 
 export type OcorrenciaUncheckedUpdateWithoutHistoricosInput = {
@@ -1111,6 +1233,7 @@ export type OcorrenciaUncheckedUpdateWithoutHistoricosInput = {
   imagens?: Prisma.ImagemOcorrenciaUncheckedUpdateManyWithoutOcorrenciaNestedInput
   comentarios?: Prisma.ComentarioUncheckedUpdateManyWithoutOcorrenciaNestedInput
   avaliacao?: Prisma.AvaliacaoUncheckedUpdateOneWithoutOcorrenciaNestedInput
+  ordensServico?: Prisma.OrdenServicoUncheckedUpdateManyWithoutOcorrenciaNestedInput
 }
 
 export type OcorrenciaCreateWithoutAvaliacaoInput = {
@@ -1128,6 +1251,7 @@ export type OcorrenciaCreateWithoutAvaliacaoInput = {
   imagens?: Prisma.ImagemOcorrenciaCreateNestedManyWithoutOcorrenciaInput
   comentarios?: Prisma.ComentarioCreateNestedManyWithoutOcorrenciaInput
   historicos?: Prisma.HistoricoStatusCreateNestedManyWithoutOcorrenciaInput
+  ordensServico?: Prisma.OrdenServicoCreateNestedManyWithoutOcorrenciaInput
 }
 
 export type OcorrenciaUncheckedCreateWithoutAvaliacaoInput = {
@@ -1146,6 +1270,7 @@ export type OcorrenciaUncheckedCreateWithoutAvaliacaoInput = {
   imagens?: Prisma.ImagemOcorrenciaUncheckedCreateNestedManyWithoutOcorrenciaInput
   comentarios?: Prisma.ComentarioUncheckedCreateNestedManyWithoutOcorrenciaInput
   historicos?: Prisma.HistoricoStatusUncheckedCreateNestedManyWithoutOcorrenciaInput
+  ordensServico?: Prisma.OrdenServicoUncheckedCreateNestedManyWithoutOcorrenciaInput
 }
 
 export type OcorrenciaCreateOrConnectWithoutAvaliacaoInput = {
@@ -1179,6 +1304,7 @@ export type OcorrenciaUpdateWithoutAvaliacaoInput = {
   imagens?: Prisma.ImagemOcorrenciaUpdateManyWithoutOcorrenciaNestedInput
   comentarios?: Prisma.ComentarioUpdateManyWithoutOcorrenciaNestedInput
   historicos?: Prisma.HistoricoStatusUpdateManyWithoutOcorrenciaNestedInput
+  ordensServico?: Prisma.OrdenServicoUpdateManyWithoutOcorrenciaNestedInput
 }
 
 export type OcorrenciaUncheckedUpdateWithoutAvaliacaoInput = {
@@ -1197,6 +1323,7 @@ export type OcorrenciaUncheckedUpdateWithoutAvaliacaoInput = {
   imagens?: Prisma.ImagemOcorrenciaUncheckedUpdateManyWithoutOcorrenciaNestedInput
   comentarios?: Prisma.ComentarioUncheckedUpdateManyWithoutOcorrenciaNestedInput
   historicos?: Prisma.HistoricoStatusUncheckedUpdateManyWithoutOcorrenciaNestedInput
+  ordensServico?: Prisma.OrdenServicoUncheckedUpdateManyWithoutOcorrenciaNestedInput
 }
 
 export type OcorrenciaCreateManyResponsavelInput = {
@@ -1228,6 +1355,7 @@ export type OcorrenciaUpdateWithoutResponsavelInput = {
   comentarios?: Prisma.ComentarioUpdateManyWithoutOcorrenciaNestedInput
   historicos?: Prisma.HistoricoStatusUpdateManyWithoutOcorrenciaNestedInput
   avaliacao?: Prisma.AvaliacaoUpdateOneWithoutOcorrenciaNestedInput
+  ordensServico?: Prisma.OrdenServicoUpdateManyWithoutOcorrenciaNestedInput
 }
 
 export type OcorrenciaUncheckedUpdateWithoutResponsavelInput = {
@@ -1246,6 +1374,7 @@ export type OcorrenciaUncheckedUpdateWithoutResponsavelInput = {
   comentarios?: Prisma.ComentarioUncheckedUpdateManyWithoutOcorrenciaNestedInput
   historicos?: Prisma.HistoricoStatusUncheckedUpdateManyWithoutOcorrenciaNestedInput
   avaliacao?: Prisma.AvaliacaoUncheckedUpdateOneWithoutOcorrenciaNestedInput
+  ordensServico?: Prisma.OrdenServicoUncheckedUpdateManyWithoutOcorrenciaNestedInput
 }
 
 export type OcorrenciaUncheckedUpdateManyWithoutResponsavelInput = {
@@ -1291,6 +1420,7 @@ export type OcorrenciaUpdateWithoutCategoriaInput = {
   comentarios?: Prisma.ComentarioUpdateManyWithoutOcorrenciaNestedInput
   historicos?: Prisma.HistoricoStatusUpdateManyWithoutOcorrenciaNestedInput
   avaliacao?: Prisma.AvaliacaoUpdateOneWithoutOcorrenciaNestedInput
+  ordensServico?: Prisma.OrdenServicoUpdateManyWithoutOcorrenciaNestedInput
 }
 
 export type OcorrenciaUncheckedUpdateWithoutCategoriaInput = {
@@ -1309,6 +1439,7 @@ export type OcorrenciaUncheckedUpdateWithoutCategoriaInput = {
   comentarios?: Prisma.ComentarioUncheckedUpdateManyWithoutOcorrenciaNestedInput
   historicos?: Prisma.HistoricoStatusUncheckedUpdateManyWithoutOcorrenciaNestedInput
   avaliacao?: Prisma.AvaliacaoUncheckedUpdateOneWithoutOcorrenciaNestedInput
+  ordensServico?: Prisma.OrdenServicoUncheckedUpdateManyWithoutOcorrenciaNestedInput
 }
 
 export type OcorrenciaUncheckedUpdateManyWithoutCategoriaInput = {
@@ -1334,12 +1465,14 @@ export type OcorrenciaCountOutputType = {
   imagens: number
   comentarios: number
   historicos: number
+  ordensServico: number
 }
 
 export type OcorrenciaCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   imagens?: boolean | OcorrenciaCountOutputTypeCountImagensArgs
   comentarios?: boolean | OcorrenciaCountOutputTypeCountComentariosArgs
   historicos?: boolean | OcorrenciaCountOutputTypeCountHistoricosArgs
+  ordensServico?: boolean | OcorrenciaCountOutputTypeCountOrdensServicoArgs
 }
 
 /**
@@ -1373,6 +1506,13 @@ export type OcorrenciaCountOutputTypeCountHistoricosArgs<ExtArgs extends runtime
   where?: Prisma.HistoricoStatusWhereInput
 }
 
+/**
+ * OcorrenciaCountOutputType without action
+ */
+export type OcorrenciaCountOutputTypeCountOrdensServicoArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OrdenServicoWhereInput
+}
+
 
 export type OcorrenciaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1393,6 +1533,7 @@ export type OcorrenciaSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   comentarios?: boolean | Prisma.Ocorrencia$comentariosArgs<ExtArgs>
   historicos?: boolean | Prisma.Ocorrencia$historicosArgs<ExtArgs>
   avaliacao?: boolean | Prisma.Ocorrencia$avaliacaoArgs<ExtArgs>
+  ordensServico?: boolean | Prisma.Ocorrencia$ordensServicoArgs<ExtArgs>
   _count?: boolean | Prisma.OcorrenciaCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["ocorrencia"]>
 
@@ -1453,6 +1594,7 @@ export type OcorrenciaInclude<ExtArgs extends runtime.Types.Extensions.InternalA
   comentarios?: boolean | Prisma.Ocorrencia$comentariosArgs<ExtArgs>
   historicos?: boolean | Prisma.Ocorrencia$historicosArgs<ExtArgs>
   avaliacao?: boolean | Prisma.Ocorrencia$avaliacaoArgs<ExtArgs>
+  ordensServico?: boolean | Prisma.Ocorrencia$ordensServicoArgs<ExtArgs>
   _count?: boolean | Prisma.OcorrenciaCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type OcorrenciaIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1473,6 +1615,7 @@ export type $OcorrenciaPayload<ExtArgs extends runtime.Types.Extensions.Internal
     comentarios: Prisma.$ComentarioPayload<ExtArgs>[]
     historicos: Prisma.$HistoricoStatusPayload<ExtArgs>[]
     avaliacao: Prisma.$AvaliacaoPayload<ExtArgs> | null
+    ordensServico: Prisma.$OrdenServicoPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1887,6 +2030,7 @@ export interface Prisma__OcorrenciaClient<T, Null = never, ExtArgs extends runti
   comentarios<T extends Prisma.Ocorrencia$comentariosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Ocorrencia$comentariosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ComentarioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   historicos<T extends Prisma.Ocorrencia$historicosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Ocorrencia$historicosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$HistoricoStatusPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   avaliacao<T extends Prisma.Ocorrencia$avaliacaoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Ocorrencia$avaliacaoArgs<ExtArgs>>): Prisma.Prisma__AvaliacaoClient<runtime.Types.Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  ordensServico<T extends Prisma.Ocorrencia$ordensServicoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Ocorrencia$ordensServicoArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrdenServicoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2431,6 +2575,30 @@ export type Ocorrencia$avaliacaoArgs<ExtArgs extends runtime.Types.Extensions.In
    */
   include?: Prisma.AvaliacaoInclude<ExtArgs> | null
   where?: Prisma.AvaliacaoWhereInput
+}
+
+/**
+ * Ocorrencia.ordensServico
+ */
+export type Ocorrencia$ordensServicoArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OrdenServico
+   */
+  select?: Prisma.OrdenServicoSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OrdenServico
+   */
+  omit?: Prisma.OrdenServicoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OrdenServicoInclude<ExtArgs> | null
+  where?: Prisma.OrdenServicoWhereInput
+  orderBy?: Prisma.OrdenServicoOrderByWithRelationInput | Prisma.OrdenServicoOrderByWithRelationInput[]
+  cursor?: Prisma.OrdenServicoWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OrdenServicoScalarFieldEnum | Prisma.OrdenServicoScalarFieldEnum[]
 }
 
 /**

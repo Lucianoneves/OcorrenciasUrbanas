@@ -15,7 +15,11 @@ import { createCategorySchema } from './schemas/categorySchema';
 import { CreateOcorrenciasController } from './controllers/user/ocorrencia/CreateOcorrencias.Controller';
 import { ListOcorrenciaController } from './controllers/user/ocorrencia/ListOcorrenciaController';
 import { createOcorrenciaSchema, listOcorrenciasCategorySchema, listOcorrenciaSchema } from './schemas/ocorrenciaSchema';
+import { CreateOrdemServicoController } from './controllers/user/ordemServico/CreateOrdemServicoController';
+import { createOrdenServicoSchema } from './schemas/ordenServicoSchema';
 import { DeleteOcorrenciasController } from './controllers/user/ocorrencia/DeleteOcorrenciasController';
+import { ListOrdersController } from './controllers/user/ordemServico/ListOrdersController';
+import { RemoveOcorrenciaFromOrdemController } from './controllers/user/ordemServico/RemoveOcorrenciaFromOrdemController';
 
 
 
@@ -54,7 +58,7 @@ router.get("/category/ocorrencias", isAuthenticated, valedateSchema(listOcorrenc
 router.post
       ("/ocorrencias",
             isAuthenticated,
-            isAdmin,           
+            isAdmin,
             upload.single('file'),
             valedateSchema(createOcorrenciaSchema),
             new CreateOcorrenciasController().handle);
@@ -62,19 +66,40 @@ router.post
 // Listar ocorrências
 router.get(
       "/ocorrencias",
-       isAuthenticated,
-       valedateSchema(listOcorrenciaSchema),
-        new ListOcorrenciaController().handle);
+      isAuthenticated,
+      valedateSchema(listOcorrenciaSchema),
+      new ListOcorrenciaController().handle);
 
 
-        // Deletar uma ocorrência
-        router.delete(
-            "/ocorrencias/:id",
-            isAuthenticated,
-            isAdmin,
-            new DeleteOcorrenciasController().handle
-        );
-      
+// Deletar uma ocorrência
+router.delete(
+      "/ocorrencias/:id",
+      isAuthenticated,
+      isAdmin,
+      new DeleteOcorrenciasController().handle
+);
 
+
+
+// Criar ordem de serviço
+router.post(
+      "/ordem-servico",
+      isAuthenticated,
+      valedateSchema(createOrdenServicoSchema),
+      new CreateOrdemServicoController().handle);
+
+
+// Listar ordens de serviço
+router.get(
+      "/ordem-servico",
+      isAuthenticated,
+      new ListOrdersController().handle);
+
+// Remover ocorrência de uma ordem de serviço por número
+router.delete(
+      "/ordem-servico",
+      isAuthenticated,
+      new RemoveOcorrenciaFromOrdemController().handle
+);
 
 export { router };

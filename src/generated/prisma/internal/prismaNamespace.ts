@@ -390,6 +390,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
+  OrdenServico: 'OrdenServico',
   User: 'User',
   Admin: 'Admin',
   Categoria: 'Categoria',
@@ -413,10 +414,84 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "admin" | "categoria" | "ocorrencia" | "imagemOcorrencia" | "comentario" | "historicoStatus" | "avaliacao"
+    modelProps: "ordenServico" | "user" | "admin" | "categoria" | "ocorrencia" | "imagemOcorrencia" | "comentario" | "historicoStatus" | "avaliacao"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
+    OrdenServico: {
+      payload: Prisma.$OrdenServicoPayload<ExtArgs>
+      fields: Prisma.OrdenServicoFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OrdenServicoFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrdenServicoPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OrdenServicoFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrdenServicoPayload>
+        }
+        findFirst: {
+          args: Prisma.OrdenServicoFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrdenServicoPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OrdenServicoFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrdenServicoPayload>
+        }
+        findMany: {
+          args: Prisma.OrdenServicoFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrdenServicoPayload>[]
+        }
+        create: {
+          args: Prisma.OrdenServicoCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrdenServicoPayload>
+        }
+        createMany: {
+          args: Prisma.OrdenServicoCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OrdenServicoCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrdenServicoPayload>[]
+        }
+        delete: {
+          args: Prisma.OrdenServicoDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrdenServicoPayload>
+        }
+        update: {
+          args: Prisma.OrdenServicoUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrdenServicoPayload>
+        }
+        deleteMany: {
+          args: Prisma.OrdenServicoDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OrdenServicoUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OrdenServicoUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrdenServicoPayload>[]
+        }
+        upsert: {
+          args: Prisma.OrdenServicoUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrdenServicoPayload>
+        }
+        aggregate: {
+          args: Prisma.OrdenServicoAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOrdenServico>
+        }
+        groupBy: {
+          args: Prisma.OrdenServicoGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrdenServicoGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OrdenServicoCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrdenServicoCountAggregateOutputType> | number
+        }
+      }
+    }
     User: {
       payload: Prisma.$UserPayload<ExtArgs>
       fields: Prisma.UserFieldRefs
@@ -1048,6 +1123,20 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
+export const OrdenServicoScalarFieldEnum = {
+  id: 'id',
+  numero: 'numero',
+  name: 'name',
+  protocolo: 'protocolo',
+  endereco: 'endereco',
+  status: 'status',
+  ocorrenciaId: 'ocorrenciaId',
+  createdAt: 'createdAt'
+} as const
+
+export type OrdenServicoScalarFieldEnum = (typeof OrdenServicoScalarFieldEnum)[keyof typeof OrdenServicoScalarFieldEnum]
+
+
 export const UserScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -1205,6 +1294,34 @@ export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMod
 
 
 /**
+ * Reference to a field of type 'StatusOcorrencia'
+ */
+export type EnumStatusOcorrenciaFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StatusOcorrencia'>
+    
+
+
+/**
+ * Reference to a field of type 'StatusOcorrencia[]'
+ */
+export type ListEnumStatusOcorrenciaFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StatusOcorrencia[]'>
+    
+
+
+/**
+ * Reference to a field of type 'DateTime'
+ */
+export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+/**
+ * Reference to a field of type 'DateTime[]'
+ */
+export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+/**
  * Reference to a field of type 'Role'
  */
 export type EnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role'>
@@ -1226,20 +1343,6 @@ export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel,
 
 
 /**
- * Reference to a field of type 'DateTime'
- */
-export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
-    
-
-
-/**
- * Reference to a field of type 'DateTime[]'
- */
-export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
-    
-
-
-/**
  * Reference to a field of type 'Gravidade'
  */
 export type EnumGravidadeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Gravidade'>
@@ -1250,20 +1353,6 @@ export type EnumGravidadeFieldRefInput<$PrismaModel> = FieldRefInputType<$Prisma
  * Reference to a field of type 'Gravidade[]'
  */
 export type ListEnumGravidadeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Gravidade[]'>
-    
-
-
-/**
- * Reference to a field of type 'StatusOcorrencia'
- */
-export type EnumStatusOcorrenciaFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StatusOcorrencia'>
-    
-
-
-/**
- * Reference to a field of type 'StatusOcorrencia[]'
- */
-export type ListEnumStatusOcorrenciaFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StatusOcorrencia[]'>
     
 
 
@@ -1367,6 +1456,7 @@ export interface PrismaClientOptions {
   omit?: GlobalOmitConfig
 }
 export type GlobalOmitConfig = {
+  ordenServico?: Prisma.OrdenServicoOmit
   user?: Prisma.UserOmit
   admin?: Prisma.AdminOmit
   categoria?: Prisma.CategoriaOmit
