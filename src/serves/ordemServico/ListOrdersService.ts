@@ -3,7 +3,7 @@ import prismaClient from "../../prisma";
 class ListOrdersService {
     async execute(p0: { status: string | undefined; }) {
         const ordens = await prismaClient.ordenServico.findMany({
-            select: {
+          select: {
                 id: true,
                 numero: true,
                 name: true,
@@ -11,12 +11,12 @@ class ListOrdersService {
                 endereco: true,
                 status: true,
                 createdAt: true,
-                ocorrencia: {
+            ocorrencia: {
                     select: {
                         id: true,
                         titulo: true,
                         descricao: true,
-                        gravidade: true,
+                        gravidade: true, 
                         status: true,
                         endereco: true,
                         imagens: {

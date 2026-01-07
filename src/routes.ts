@@ -16,10 +16,11 @@ import { CreateOcorrenciasController } from './controllers/user/ocorrencia/Creat
 import { ListOcorrenciaController } from './controllers/user/ocorrencia/ListOcorrenciaController';
 import { createOcorrenciaSchema, listOcorrenciasCategorySchema, listOcorrenciaSchema } from './schemas/ocorrenciaSchema';
 import { CreateOrdemServicoController } from './controllers/user/ordemServico/CreateOrdemServicoController';
-import { createOrdenServicoSchema } from './schemas/ordenServicoSchema';
+import { createOrdenServicoSchema, detailOrdenServicoSchema } from './schemas/ordenServicoSchema';
 import { DeleteOcorrenciasController } from './controllers/user/ocorrencia/DeleteOcorrenciasController';
 import { ListOrdersController } from './controllers/user/ordemServico/ListOrdersController';
 import { RemoveOcorrenciaFromOrdemController } from './controllers/user/ordemServico/RemoveOcorrenciaFromOrdemController';
+import { DetailOrdemServicoController } from './controllers/user/ordemServico/DetailOrdemServicoController';
 
 
 
@@ -94,6 +95,15 @@ router.get(
       "/ordem-servico",
       isAuthenticated,
       new ListOrdersController().handle);
+      
+
+// Detalhar ordem de serviço
+router.get(
+      "/ordem-servico/detail",
+      isAuthenticated,
+      valedateSchema(detailOrdenServicoSchema),
+      new DetailOrdemServicoController().handle
+);
 
 
 
