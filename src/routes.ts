@@ -16,13 +16,15 @@ import { CreateOcorrenciasController } from './controllers/ocorrencia/CreateOcor
 import { ListOcorrenciaController } from './controllers/ocorrencia/ListOcorrenciaController';
 import { createOcorrenciaSchema, listOcorrenciasCategorySchema, listOcorrenciaSchema } from './schemas/ocorrenciaSchema';
 import { CreateOrdemServicoController } from './controllers/ordemServico/CreateOrdemServicoController';
-import { createOrdenServicoSchema, detailOrdenServicoSchema, finishOrdenServicoSchema, sendOrdenServicoSchema } from './schemas/ordenServicoSchema';
+import { createOrdenServicoSchema, deleteOrdenServicoSchema, detailOrdenServicoSchema, finishOrdenServicoSchema, sendOrdenServicoSchema } from './schemas/ordenServicoSchema';
 import { DeleteOcorrenciasController } from './controllers/ocorrencia/DeleteOcorrenciasController';
 import { ListOrdersController } from './controllers/ordemServico/ListOrdersController';
 import { RemoveOcorrenciaFromOrdemController } from './controllers/ordemServico/RemoveOcorrenciaFromOrdemController';
 import { DetailOrdemServicoController } from './controllers/ordemServico/DetailOrdemServicoController';
 import { SendOrdemController } from './controllers/ordemServico/SendOrdemController';
 import { FinishOrdemServicoController } from './controllers/ordemServico/FinishOrdemServicoController';
+import { DeleteOrdemServicoController } from './controllers/ordemServico/DeleteOrdemServicoController';
+
 
 
 
@@ -88,7 +90,7 @@ router.delete(
 
 // Criar ordem de serviço
 router.post(
-      "/ordem-servico",      
+      "/ordem-servico",
       isAuthenticated,
       valedateSchema(createOrdenServicoSchema),
       new CreateOrdemServicoController().handle);
@@ -113,8 +115,8 @@ router.get(
 
 // Remover ocorrência de uma ordem de serviço por número
 router.delete(
-      "/ordem-servico",
-      
+      "/ordem-servico/remove",
+
       isAuthenticated,
       new RemoveOcorrenciaFromOrdemController().handle
 );
@@ -128,12 +130,24 @@ router.put(
       new SendOrdemController().handle
 );
 
-
-  router.put(
+// Finalizar ordem de serviço
+router.put(
       "/ordem-servico/finish",
       isAuthenticated,
       valedateSchema(finishOrdenServicoSchema),
       new FinishOrdemServicoController().handle
-  );
+);
+
+
+
+//Deleta ordem de serviço
+router.delete(
+      "/ordem-servico",
+      isAuthenticated,
+      valedateSchema(deleteOrdenServicoSchema),
+      new DeleteOrdemServicoController().handle
+);
+
+
 
 export { router };
