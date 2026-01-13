@@ -1,7 +1,6 @@
 "use client"
 
-import { useActionState } from "react"; 
-
+import { useActionState, useEffect } from "react"; 
 import Register from "@/app/register/page";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@radix-ui/react-label";
@@ -9,11 +8,19 @@ import * as input from "@/components/ui/input";
 import * as button from "@/components/ui/button"; 
 import Link from 'next/link'
 import { registerAction } from "@/actions/auth";
+import {useRouter} from "next/navigation"
 
 
 export function RegisterForm() {
-
  const [state, formAction,isPending] = useActionState(registerAction, null)
+ const router = useRouter();
+
+ useEffect (() => {
+  if( state?.success  && state?.redirectTo){
+    router.replace(state.redirectTo);
+  }
+
+ }, [state, router]);
 
  
  
@@ -26,7 +33,11 @@ export function RegisterForm() {
         </CardTitle>
     </CardHeader>
      <CardContent >
-
+      {state?.error && (
+        <div className="p-3 mb-4 text-sm text-red-500 border border-red-500 rounded bg-red-500/10">
+          {state.error}
+        </div>
+      )}
 
       <form className="space-y-4" action={formAction}>
 
