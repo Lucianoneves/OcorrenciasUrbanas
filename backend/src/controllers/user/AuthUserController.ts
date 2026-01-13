@@ -10,7 +10,7 @@ class AuthUserController {
       const authUserService = new AuthUserService();
       const login = await authUserService.execute({ email, password });
 
-      return res.json({ login });
+      return res.json(login);
     } catch (error) {
       return next(error);
     }

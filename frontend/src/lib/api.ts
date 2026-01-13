@@ -15,7 +15,7 @@ interface FetchOptions extends RequestInit {
   }
 }
 
- // API client function
+ // O "T" é um tipo generico do Typescript, que representa o tipo de dados que a função irá retornar.
 export  async function apiClient<T>( 
     endpoint: string,
     options: FetchOptions = {}
@@ -43,7 +43,7 @@ export  async function apiClient<T>(
 
     if(!response.ok) {
       const errorData = await response.json().catch(()=> ({
-        error: "Error HTTP: " + response.status,
+        error: `Error HTTP: ${response.status}`,
       }))
       throw new Error(errorData.error || "Erro na Requisição");
     }
