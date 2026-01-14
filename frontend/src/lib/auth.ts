@@ -59,10 +59,23 @@ export async function  requiredAdmin (): Promise<User> {
     if( !user){
         redirect ("/login")
     }
-    if (user.role !== "ADMIN") {
-        redirect ("/access-denied")
-    }
+    // if (user.role !== "ADMIN") {
+    //     redirect ("/access-denied")
+    // }
 
     return user;
     
+}
+
+export async function requiredUser(): Promise<User> {
+    const user = await getUser();
+
+    if (!user) {
+        redirect("/login")
+    }
+    // if (user.role !== "CIDADAO") {
+    //    redirect("/access-denied")
+    // }
+
+    return user;
 }

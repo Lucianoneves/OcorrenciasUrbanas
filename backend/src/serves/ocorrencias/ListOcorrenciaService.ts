@@ -20,6 +20,7 @@ class ListOcorrenciaService {
                 protocolo: true,
                 endereco: true,
                 disable: true,
+                createdAt: true,
                 categoria: {
                     select: {
                         id: true,

@@ -14,7 +14,8 @@ import { isAdmin } from './middlewares/isAdmin';
 import { createCategorySchema } from './schemas/categorySchema';
 import { CreateOcorrenciasController } from './controllers/ocorrencia/CreateOcorrencias.Controller';
 import { ListOcorrenciaController } from './controllers/ocorrencia/ListOcorrenciaController';
-import { createOcorrenciaSchema, listOcorrenciasCategorySchema, listOcorrenciaSchema } from './schemas/ocorrenciaSchema';
+import { DetailOcorrenciaController } from './controllers/ocorrencia/DetailOcorrenciaController';
+import { createOcorrenciaSchema, listOcorrenciasCategorySchema, listOcorrenciaSchema, detailOcorrenciaSchema } from './schemas/ocorrenciaSchema';
 import { CreateOrdemServicoController } from './controllers/ordemServico/CreateOrdemServicoController';
 import { createOrdenServicoSchema, deleteOrdenServicoSchema, detailOrdenServicoSchema, finishOrdenServicoSchema, sendOrdenServicoSchema } from './schemas/ordenServicoSchema';
 import { DeleteOcorrenciasController } from './controllers/ocorrencia/DeleteOcorrenciasController';
@@ -76,6 +77,14 @@ router.get(
       isAuthenticated,
       valedateSchema(listOcorrenciaSchema),
       new ListOcorrenciaController().handle);
+
+// Detalhar ocorrência
+router.get(
+      "/ocorrencias/detail",
+      isAuthenticated,
+      valedateSchema(detailOcorrenciaSchema),
+      new DetailOcorrenciaController().handle
+);
 
 
 // Deletar uma ocorrência

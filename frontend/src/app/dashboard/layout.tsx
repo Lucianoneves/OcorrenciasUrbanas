@@ -1,5 +1,5 @@
 
-import { requiredAdmin } from "@/lib/auth"
+import { requiredUser } from "@/lib/auth"
 
 
 export default async function DashboardLayout({
@@ -7,11 +7,21 @@ export default async function DashboardLayout({
 }: {
      children: React.ReactNode  
      }) {
-        const user = await requiredAdmin();
-        console.log("User Logado ",user);  
-         
+        const user = await requiredUser();
         
          
-         return  <h1> Ocorrências Urbanas</h1>
+         return (
+            <div className="min-h-screen bg-app-background">
+                <header className="p-4 border-b border-app-border flex justify-between items-center text-white">
+                    <h1 className="text-xl font-bold">Ocorrências Urbanas</h1>
+                    <div className="flex items-center gap-4">
+                        <span>{user.name}</span>
+                    </div>
+                </header>
+                <main>
+                    {children}
+                </main>
+            </div>
+         )
         
 }

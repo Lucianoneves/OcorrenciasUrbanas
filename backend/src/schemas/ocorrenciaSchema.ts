@@ -32,3 +32,9 @@ export const listOcorrenciasCategorySchema = z.object({
   }),
 });
 
+export const detailOcorrenciaSchema = z.object({
+  query: z.object({
+    ocorrencia_id: z.string({ message: "O ID da ocorrência é obrigatório" }).transform((val) => Number(val))
+  })
+});
+
