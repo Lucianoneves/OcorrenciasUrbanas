@@ -2,10 +2,10 @@
 
 import { useActionState, useEffect } from "react"; 
 import Register from "@/app/register/page";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Label } from "@radix-ui/react-label";
-import * as input from "@/components/ui/input";
-import * as button from "@/components/ui/button"; 
+import * as input from "../ui/input";
+import * as button from "../ui/button"; 
 import Link from 'next/link'
 import { loginAction } from "@/actions/auth";
 import {useRouter} from "next/navigation"

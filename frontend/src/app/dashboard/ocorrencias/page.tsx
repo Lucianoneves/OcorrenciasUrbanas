@@ -1,8 +1,9 @@
+
 import { apiClient } from "@/lib/api"; 
 import { Ocorrencia } from "@/lib/types"; 
 import { getToken } from "@/lib/auth"; 
 import Link from "next/link"; 
-import { Button } from "@/components/ui/button"; 
+import { Button } from "../../../components/ui/button"; 
 
 async function getOcorrencias() { 
   const token = await getToken(); 

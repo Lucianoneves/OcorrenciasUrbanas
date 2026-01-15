@@ -45,7 +45,8 @@ export  async function apiClient<T>(
       const errorData = await response.json().catch(()=> ({
         error: `Error HTTP: ${response.status}`,
       }))
-      throw new Error(errorData.error || "Erro na Requisição");
+      const errorMessage = errorData.error || errorData.message || "Erro na Requisição";
+      throw new Error(errorMessage);
     }
 
     return response.json() 
