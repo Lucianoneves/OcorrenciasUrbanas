@@ -12,6 +12,14 @@ export interface AuthResponse {
     email: string;
     role: "ADMIN" | "STAFF" | "CIDADAO";
     token:string
+}   
+
+export interface Category {
+    id: number;
+    nome: string;
+    descricao: string;
+    createdAt: string;
+    updatedAt: string;
 }
 
 export interface Ocorrencia {

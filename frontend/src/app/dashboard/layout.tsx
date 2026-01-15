@@ -2,6 +2,7 @@
 import { requiredUser } from "@/lib/auth";
 import { Sidebar } from "@/components/sidebar";
 import { logoutAction } from "@/actions/auth";
+import { MobileSidebar } from "./mobile-sidebar";
 
 export default async function DashboardLayout({
   children,
@@ -26,6 +27,8 @@ export default async function DashboardLayout({
           </form>
         </div>
       </header>
+
+      <MobileSidebar />
 
       <div className="flex flex-1 overflow-hidden">
         <Sidebar userName={user.name} />
