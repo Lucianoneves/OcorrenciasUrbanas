@@ -4,7 +4,7 @@ import { getToken } from "@/lib/auth";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-async function getOcorrencia(id: string) {
+async function getOcorrencia(id: string) { 
     const token = await getToken();
     const numericId = Number(id);
 
