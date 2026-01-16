@@ -6,7 +6,7 @@ interface DetailOcorrenciaRequest {
 
 class DetailOcorrenciaService {
     async execute({ ocorrencia_id }: DetailOcorrenciaRequest) {
-        const ocorrencia = await prismaClient.ocorrencia.findFirst({
+        const ocorrencia = await prismaClient.ocorrencia.findUnique({
             where: {
                 id: ocorrencia_id
             },

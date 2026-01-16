@@ -3,7 +3,7 @@ import {apiClient} from "@/lib/api";
 import {getToken} from "@/lib/auth";
 import { Category} from "@/lib/types";
 import { Tags } from "lucide-react";
-
+import {CategoryForm} from '@/app/dashboard/category-form'
 
    export default async function Categories() {
     const token = await getToken();  
@@ -15,14 +15,14 @@ import { Tags } from "lucide-react";
 
     return (
         <div className="space-y-4 sm:space-y-6">
-            <div className="felx felx-col sm;flex-row sm:items-center justify-between gap-4">
-            <div>  
-            <h1 className="text-2xl font-bold text-white sm:text-3xl">
-                 Categorias</h1>
-            <p className="text-sm: text-base mt-1">Categorias</p>
-        </div>
-        <button>teste</button>
-        </div>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>  
+                    <h1 className="text-2xl font-bold text-white sm:text-3xl">
+                        Categorias
+                    </h1>
+                </div>
+                <CategoryForm/>   
+            </div>
 
         {categories.length !== 0 && (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

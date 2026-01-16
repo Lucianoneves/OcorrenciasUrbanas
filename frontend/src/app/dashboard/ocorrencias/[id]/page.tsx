@@ -6,11 +6,18 @@ import { notFound } from "next/navigation";
 
 async function getOcorrencia(id: string) {
     const token = await getToken();
+    const numericId = Number(id);
+
+    if (Number.isNaN(numericId)) {
+        console.error("ID da ocorrência inválido recebido na rota de detalhes:", id);
+        return null;
+    }
+
     try {
-        const response = await apiClient<Ocorrencia>(`/ocorrencias/detail?ocorrencia_id=${id}`, {
+        const response = await apiClient<Ocorrencia>(`/ocorrencias/detail?ocorrencia_id=${numericId}`, {
             token,
             next: {
-                tags: [`ocorrencia-${id}`]
+                tags: [`ocorrencia-${numericId}`]
             }
         });
         return response;
